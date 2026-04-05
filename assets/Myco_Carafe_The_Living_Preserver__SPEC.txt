@@ -1,0 +1,38 @@
+NAME: Myco-Carafe (The Living Preserver)
+NICKNAME: "The Breathing Cup"
+================================================================================
+
+CLASSIFICATION: Personal Food Preservation Device - Bio-Organic
+
+SPECS:
+- Dimensions: 28cm tall, 10cm diameter
+- Weight: 650 grams (when empty)
+- Power Source: Metabolic symbiosis - derives energy from organic matter digestion
+
+SAFETY: Class C - Personal Food Preparation Tool, Biosafety Level 1
+
+INTERFACE: Screw-top lid with pour spout, no mechanical controls required
+
+MATERIALS:
+- Genetically modified mycelium composite (main vessel body)
+- Bioluminescent algae colonies (integrated light system)
+- Food-grade silicone seal (lid interface)
+- Mycelium-derived biopolymer (cap construction)
+- Crystalline calcium carbonate nodes (structural reinforcement)
+
+VISUAL DESIGN:
+A graceful, organic vessel with smooth, flowing walls that curve naturally like a stylized flower bud. Translucent mycelium walls reveal delicate thread-like networks glowing soft emerald throughout. The cap sits flush, while gentle pulses of light ripple across the surface in slow, hypnotic waves. The overall mood is alive, warm, and reassuring.
+
+FUNCTION:
+The Myco-Carafe uses symbiotic mycelium cultures suspended within its walls to actively filter and break down organic particles from poured liquids. The fungi metabolize proteins, carbohydrates, and fats, converting them into a stable nutrient-rich gel that preserves caloric density indefinitely. The bioluminescent glow indicates active digestion and readiness.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed in The Pearl's canopy laboratories by mycologist Dr. Yuen Tark, the Myco-Carafe emerged from research into closed-loop food systems. Recognizing that wasted liquid from protein vats could be reclaimed, Tark's team engineered a mycelium strain capable of continuous fermentation. First sold in 2987, it became a status symbol among harvesters who value flavor over convenience.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-05
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
