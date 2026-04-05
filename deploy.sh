@@ -524,9 +524,8 @@ cat > /home/oris/assets/index.html << 'INDEXEOF'
 </html>
 INDEXEOF
 
-# Now inject the asset data into the JavaScript
-# Replace the empty ASSETS array with our actual data
-sed -i "s/const ASSETS = \[\];/const ASSETS = ${ASSET_JSON};/" /home/oris/assets/index.html
+# Replace the empty ASSETS array with our actual data using perl
+perl -i -pe "s|const ASSETS = \[\];|const ASSETS = ${ASSET_JSON};|s" /home/oris/assets/index.html
 
 echo "  ✓ Generated asset registry index"
 
