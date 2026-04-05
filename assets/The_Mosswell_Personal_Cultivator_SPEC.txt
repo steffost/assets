@@ -1,0 +1,38 @@
+NAME: The Mosswell Personal Cultivator
+NICKNAME: "Mossie"
+================================================================================
+
+CLASSIFICATION: Personal Hydroponic Growing Unit - Residential Grade
+
+SPECS:
+- Dimensions: 28cm x 18cm x 22cm
+- Weight: 2.3 kg (unloaded), 3.1 kg (full water reservoir)
+- Power Source: Bio-reactive mycelium energy matrix with integrated thermal microgenerator, 7-day autonomous operation
+
+SAFETY: Class A - Domestic Biosafety Appliance, certified for herb and medicinal plant cultivation
+
+INTERFACE: Single tactile dial on base unit for light cycle adjustment, automatic water level monitoring with LED indicator, passive micro-capillary root feeding system (no active user intervention required for plant care)
+
+MATERIALS:
+- Curved housing: High-fired white ceramic composite with embedded thermal regulation particles
+- Observation panel: Triple-layered borosilicate glass with anti-fog micro-coating
+- Root chamber: Porous mycelium-composite substrate with bioluminescent fungal networks
+- Water reservoir: Antimicrobial silicone lining with quick-disconnect EZ-fill port
+- Internal piping: Flexible food-grade polymer micro-tubing
+
+VISUAL DESIGN:
+A sculptural curved form in pristine white ceramic with soft, organic lines that suggest natural growth. The transparent observation panel dominates the front face, revealing the soft cyan glow of the bioluminescent mycelium network within. Light pulses gently from within, casting subtle ripples of teal illumination outward. The aesthetic is calm, living technology that feels more like a breathing sculpture than a machine.
+
+FUNCTION:
+The Mosswell uses a self-sustaining bioluminescent mycelium network that continuously monitors and adjusts the internal microclimate for optimal plant growth. Water from the EZ-reservoir is drawn through micro-capillary action directly to root systems, maintaining precise moisture levels. The mycelium generates soft cyan light at photosynthesis-optimal wavelengths while breaking down metabolic waste into nutrients. Users simply fill the reservoir weekly and harvest when plants mature.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed in Year 2947 by the Residential Agriculture Division of the Pearl Consortium, the Mosswell was designed specifically to bring personalized cultivation to urban dwellers in the City zones. The design emerged from research into Earth-era mycological systems, adapted for shipboard conditions. First-generation units were distributed to families in Block 7-C as a pilot program to reconnect urban residents with growing practices. The current ceramic-housed model represents the third generation of refinement.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-05
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
