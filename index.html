@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ombra Prime Assets</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: "Courier New", monospace; 
+            background: #0a0a0f; 
+            color: #00f7ff; 
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0f 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #00f7ff33;
+        }
+        .header h1 { 
+            font-size: 2.5em; 
+            color: #ff9d00;
+            text-shadow: 0 0 20px #ff9d0066;
+            margin-bottom: 10px;
+        }
+        .header p { color: #00f7ff88; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+        .card {
+            background: #151520;
+            border: 1px solid #00f7ff33;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: #00f7ff;
+            box-shadow: 0 0 20px #00f7ff33;
+            transform: translateY(-4px);
+        }
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #000;
+        }
+        .card-content { padding: 20px; }
+        .card-title { 
+            color: #ff9d00; 
+            font-size: 1.2em; 
+            margin-bottom: 10px;
+        }
+        .card-meta { 
+            font-size: 0.8em; 
+            color: #00f7ff66;
+            margin-bottom: 15px;
+        }
+        .card-link {
+            display: inline-block;
+            background: #00f7ff22;
+            color: #00f7ff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #00f7ff;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .card-link:hover {
+            background: #00f7ff;
+            color: #0a0a0f;
+        }
+        .no-assets {
+            text-align: center;
+            padding: 80px;
+            color: #00f7ff66;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #00f7ff44;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Ombra Prime Assets</h1>
+        <p>Generated assets from the Ombra Prime universe</p>
+    </div>
+    <div class="grid">
+        <div class="card">
+            <img class="card-image" src="assets/The_Svep_Svampen_The_Moisture_Mote__photo.png" onerror="this.src='assets/The_Svep_Svampen_The_Moisture_Mote__wireframe.png'" alt="The Svep Svampen (The Moisture Mote)">
+            <div class="card-content">
+                <div class="card-title">The Svep Svampen (The Moisture Mote) 🎙️</div>
+                <div class="card-meta">The_Svep_Svampen_The_Moisture_Mote_</div>
+                <a class="card-link" href="assets/The_Svep_Svampen_The_Moisture_Mote_.html">View Presentation</a>
+            </div>
+        </div>\n    </div>
+    <div class="footer">
+        Generated with Ombra Prime Asset Pipeline
+    </div>
+</body>
+</html>

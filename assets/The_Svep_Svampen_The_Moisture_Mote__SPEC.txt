@@ -1,0 +1,38 @@
+NAME: The Svep Svampen (The Moisture Mote)
+NICKNAME: "The Svampen"
+================================================================================
+
+CLASSIFICATION: Agricultural Bio-Sensor Tool
+
+SPECS:
+- Dimensions: 11cm x 6.5cm x 3.2cm
+- Weight: 195 grams
+- Power Source: Integrated bio-photovoltaic cell with mycelium energy storage, 40-hour autonomous operation under ambient Pearl lighting
+
+SAFETY: Class C - Agricultural Biosafety Tool, approved for direct soil and plant tissue contact
+
+INTERFACE: Single-handed grip, press-tip activation against soil or plant matter, color-shift visual feedback
+
+MATERIALS:
+- Mycelium-composite outer shell with living fungal tissue
+- Crystalline bioluminescent spore clusters (genetically modified Panus genus)
+- Bio-ceramic sensor probes (mycelium-bound silica matrix)
+- Organic polymer grip coating (derived from Aurelia cap texture)
+- Embedded copper-zinc bio-nutrient pathways
+
+VISUAL DESIGN:
+A smooth, organic handheld device shaped like a flattened teardrop. The outer shell appears grown rather than manufactured, with subtle ridges mimicking fungal gills. The surface shifts between warm tan and pale cream depending on ambient humidity. A cluster of tiny luminescent spore nodes sit at the sensing tip, glowing from deep amber when dry to bright cyan when moisture is detected. The grip area has a slightly textured surface resembling natural mushroom stem.
+
+FUNCTION:
+The device measures soil hydration by detecting electrical conductivity changes through embedded mycelium sensor threads pressed into growing medium. Moisture levels trigger bioluminescent spore clusters to shift color spectrum in real-time, providing immediate visual feedback from amber (dry) through yellow and green to cyan (optimal hydration). The mycelium shell maintains symbiotic connection with tested crops, translating root-zone water activity into readable light signals.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed by the Pearl Agricultural Collective in Year 2987 as part of a sustainable tool initiative. Researchers led by Dr. Mira Aldous engineered the Svampen from living mycelium cultures, eliminating electronic components in favor of biological sensing. The device represents a shift toward organic technology that works with rather than upon natural systems. Since its introduction, it has become standard equipment for Section 7 fungal terraces and expanded to all agricultural zones.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-05
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
