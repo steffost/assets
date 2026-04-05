@@ -59,163 +59,481 @@ if [ -f "${SOURCE_DIR}/hint.txt" ]; then
     cp "${SOURCE_DIR}/hint.txt" "${ASSETS_DIR}/${SAFE_NAME}_hint.txt"
 fi
 
-# Generate updated gallery index
-echo "Generating gallery..."
+# Generate updated index with JavaScript asset registry
+echo "Generating asset registry..."
 
-INDEX_HTML='<!DOCTYPE html>
+# Find all deployed assets and build JSON
+ASSET_JSON="["
+FIRST=true
+
+for f in "${ASSETS_DIR}"/*_backstory.txt; do
+    if [ -f "$f" ]; then
+        NAME=$(basename "$f" | sed 's/_backstory.txt$//')
+        
+        # Get asset data from SPEC.txt
+        SPEC_FILE="${ASSETS_DIR}/${NAME}_SPEC.txt"
+        NAME_VALUE=""
+        NICKNAME_VALUE=""
+        
+        if [ -f "$SPEC_FILE" ]; then
+            NAME_VALUE=$(grep "^NAME:" "$SPEC_FILE" 2>/dev/null | sed 's/^NAME:\s*//' | head -1)
+            NICKNAME_VALUE=$(grep "^NICKNAME:" "$SPEC_FILE" 2>/dev/null | sed 's/^NICKNAME:\s*"//' | sed 's/".*$//' | head -1)
+        fi
+        
+        # Get asset ID from backstory first line
+        ASSET_ID=$(head -1 "$f" 2>/dev/null | sed 's/^#*\s*ASSET:\s*//' | sed 's/^#\s*//' | head -c 20)
+        if [ -z "$ASSET_ID" ]; then
+            ASSET_ID="ASSET-${NAME:0:8}"
+        fi
+        
+        # Check for images
+        PHOTO="${ASSETS_DIR}/${NAME}_photo.png"
+        WIREFRAME="${ASSETS_DIR}/${NAME}_wireframe.png"
+        HAS_PHOTO="false"
+        if [ -f "$PHOTO" ]; then
+            HAS_PHOTO="true"
+        fi
+        
+        # Check for audio
+        AUDIO="${ASSETS_DIR}/${NAME}_audio.mp3"
+        HAS_AUDIO="false"
+        if [ -f "$AUDIO" ]; then
+            HAS_AUDIO="true"
+        fi
+        
+        # Get file modification date
+        FILE_DATE=$(date -r "$f" '+%Y-%m-%d' 2>/dev/null || echo "2026-04-05")
+        
+        # Build JSON object
+        if [ "$FIRST" = true ]; then
+            FIRST=false
+        else
+            ASSET_JSON="${ASSET_JSON},"
+        fi
+        
+        ASSET_JSON="${ASSET_JSON}
+        {
+            \"id\": \"${ASSET_ID}\",
+            \"name\": \"${NAME_VALUE}\",
+            \"nickname\": \"${NICKNAME_VALUE}\",
+            \"url\": \"assets/${NAME}.html\",
+            \"wireframe\": \"assets/${NAME}_wireframe.png\",
+            \"photo\": \"assets/${NAME}_photo.png\",
+            \"hasPhoto\": ${HAS_PHOTO},
+            \"hasAudio\": ${HAS_AUDIO},
+            \"date\": \"${FILE_DATE}\"
+        }"
+    fi
+done
+
+ASSET_JSON="${ASSET_JSON}
+]"
+
+# Create the complete index.html
+cat > /home/oris/assets/index.html << 'INDEXEOF'
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ombra Prime Assets</title>
+    <title>Ombra Prime // Asset Registry</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --cyan: #00f7ff;
+            --gold: #ff9d00;
+            --red: #cc0000;
+            --dark-bg: #050608;
+            --panel-bg: #0d0f14;
+            --panel-border: #1a2030;
+            --text-primary: #e0e6ed;
+            --text-secondary: #6a7a8a;
+            --glow-cyan: 0 0 20px rgba(0, 247, 255, 0.4);
+            --glow-gold: 0 0 15px rgba(255, 157, 0, 0.3);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: "Courier New", monospace; 
-            background: #0a0a0f; 
-            color: #00f7ff; 
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
             min-height: 100vh;
+            background-image: 
+                linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
+
         .header {
-            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0f 100%);
-            padding: 40px 20px;
+            background: linear-gradient(180deg, #0a0d12 0%, var(--dark-bg) 100%);
+            border-bottom: 1px solid var(--panel-border);
+            padding: 60px 40px;
             text-align: center;
-            border-bottom: 1px solid #00f7ff33;
-        }
-        .header h1 { 
-            font-size: 2.5em; 
-            color: #ff9d00;
-            text-shadow: 0 0 20px #ff9d0066;
-            margin-bottom: 10px;
-        }
-        .header p { color: #00f7ff88; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px;
-        }
-        .card {
-            background: #151520;
-            border: 1px solid #00f7ff33;
-            border-radius: 8px;
+            position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
-        .card:hover {
-            border-color: #00f7ff;
-            box-shadow: 0 0 20px #00f7ff33;
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .header-corner {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 1px solid var(--cyan);
+            opacity: 0.3;
+        }
+        .header-corner.tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+        .header-corner.tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+        .header-corner.bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+        .header-corner.br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+
+        .registry-tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 6px;
+            color: var(--cyan);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            opacity: 0.7;
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--gold);
+            text-shadow: var(--glow-gold);
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+        }
+
+        .header-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .status-line {
+            margin-top: 30px;
+            font-size: 0.7rem;
+            color: var(--cyan);
+            opacity: 0.6;
+        }
+
+        .status-line span {
+            color: var(--gold);
+        }
+
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+        .section-header::before,
+        .section-header::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--panel-border), transparent);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .asset-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .asset-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .asset-card:hover {
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
             transform: translateY(-4px);
         }
-        .card-image {
+
+        .asset-card:hover::before {
+            opacity: 1;
+        }
+
+        .asset-wireframe {
             width: 100%;
             height: 200px;
             object-fit: cover;
             background: #000;
+            display: block;
+            filter: brightness(0.8) contrast(1.2);
+            transition: filter 0.3s ease;
         }
-        .card-content { padding: 20px; }
-        .card-title { 
-            color: #ff9d00; 
-            font-size: 1.2em; 
-            margin-bottom: 10px;
+
+        .asset-card:hover .asset-wireframe {
+            filter: brightness(1) contrast(1.3);
         }
-        .card-meta { 
-            font-size: 0.8em; 
-            color: #00f7ff66;
+
+        .asset-info {
+            padding: 25px;
+        }
+
+        .asset-classification {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--cyan);
+            opacity: 0.6;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .asset-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .asset-nickname {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-style: italic;
             margin-bottom: 15px;
         }
-        .card-link {
+
+        .asset-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+
+        .asset-meta .has-audio {
+            color: var(--gold);
+        }
+
+        .view-btn {
             display: inline-block;
-            background: #00f7ff22;
-            color: #00f7ff;
+            margin-top: 15px;
             padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             text-decoration: none;
-            border: 1px solid #00f7ff;
-            border-radius: 4px;
-            font-size: 0.9em;
+            transition: all 0.2s ease;
         }
-        .card-link:hover {
-            background: #00f7ff;
-            color: #0a0a0f;
+
+        .view-btn:hover {
+            background: var(--cyan);
+            color: var(--dark-bg);
         }
-        .no-assets {
+
+        .empty-state {
             text-align: center;
-            padding: 80px;
-            color: #00f7ff66;
+            padding: 100px 40px;
+            border: 1px dashed var(--panel-border);
+            color: var(--text-secondary);
         }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .empty-state h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
         .footer {
             text-align: center;
-            padding: 40px;
-            color: #00f7ff44;
-            font-size: 0.8em;
+            padding: 60px 40px;
+            border-top: 1px solid var(--panel-border);
+            margin-top: 60px;
+        }
+
+        .footer-text {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--text-secondary);
+            opacity: 0.4;
+            text-transform: uppercase;
+        }
+
+        .footer-stardate {
+            margin-top: 15px;
+            font-size: 0.7rem;
+            color: var(--cyan);
+            opacity: 0.4;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.03),
+                rgba(0, 0, 0, 0.03) 1px,
+                transparent 1px,
+                transparent 2px
+            );
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Ombra Prime Assets</h1>
-        <p>Generated assets from the Ombra Prime universe</p>
-    </div>
-    <div class="grid">
-'
+    <div class="scanlines"></div>
 
-# Find all deployed assets
-DEPLOYED_ASSETS=()
-for f in /home/oris/assets/assets/*_backstory.txt; do
-    if [ -f "$f" ]; then
-        NAME=$(basename "$f" | sed 's/_backstory.txt$//')
-        # Get asset title from backstory (first line, remove # and ASSET: prefix)
-        TITLE=$(head -1 "$f" 2>/dev/null | sed 's/^#*\s*ASSET:\s*//' | sed 's/^#\s*//')
-        if [ -z "$TITLE" ]; then
-            TITLE="$NAME"
-        fi
+    <header class="header">
+        <div class="header-corner tl"></div>
+        <div class="header-corner tr"></div>
+        <div class="header-corner bl"></div>
+        <div class="header-corner br"></div>
         
-        # Check for images
-        WIREFRAME="/home/oris/assets/assets/${NAME}_wireframe.png"
-        PHOTO="/home/oris/assets/assets/${NAME}_photo.png"
-        IMG=""
-        if [ -f "$PHOTO" ]; then
-            IMG="$PHOTO"
-        elif [ -f "$WIREFRAME" ]; then
-            IMG="$WIREFRAME"
-        fi
-        
-        # Check for audio
-        AUDIO="/home/oris/assets/assets/${NAME}_audio.mp3"
-        HAS_AUDIO=""
-        if [ -f "$AUDIO" ]; then
-            HAS_AUDIO=" 🎙️"
-        fi
-        
-        # Build card
-        INDEX_HTML="${INDEX_HTML}        <div class=\"card\">
-            <img class=\"card-image\" src=\"assets/${NAME}_photo.png\" onerror=\"this.src='assets/${NAME}_wireframe.png'\" alt=\"${TITLE}\">
-            <div class=\"card-content\">
-                <div class=\"card-title\">${TITLE}${HAS_AUDIO}</div>
-                <div class=\"card-meta\">${NAME}</div>
-                <a class=\"card-link\" href=\"assets/${NAME}.html\">View Presentation</a>
-            </div>
-        </div>\n"
-    fi
-done
+        <div class="registry-tag">Ombra Prime // Asset Registry</div>
+        <h1>ASSET LIBRARY</h1>
+        <div class="header-subtitle">Technical Database // Classified: OPEN</div>
+        <div class="status-line">
+            SYSTEM: ONLINE // TOTAL ASSETS: <span id="asset-count">0</span> // LAST UPDATE: <span id="last-update">--</span>
+        </div>
+    </header>
 
-INDEX_HTML="${INDEX_HTML}    </div>
-    <div class=\"footer\">
-        Generated with Ombra Prime Asset Pipeline
-    </div>
+    <main class="main">
+        <div class="section-header">
+            <div class="section-title">Registered Assets</div>
+        </div>
+
+        <div class="asset-grid" id="asset-grid">
+        </div>
+
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <div class="empty-state-icon">◈</div>
+            <h2>No Assets Registered</h2>
+            <p>Generate your first asset using the pipeline.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-text">Ombra Prime Asset Registry // Technical Documentation System</div>
+        <div class="footer-stardate" id="stardate">Stardate: --</div>
+    </footer>
+
+    <script>
+        const ASSETS = [];
+
+        function renderAssets() {
+            const grid = document.getElementById('asset-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            if (ASSETS.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            grid.innerHTML = ASSETS.map(asset => `
+                <div class="asset-card" onclick="window.location.href='${asset.url}'">
+                    <img class="asset-wireframe" 
+                         src="${asset.photo}" 
+                         alt="${asset.name}"
+                         onerror="this.src='${asset.wireframe}'">
+                    <div class="asset-info">
+                        <div class="asset-classification">${asset.id}</div>
+                        <div class="asset-name">${asset.name}</div>
+                        <div class="asset-nickname">"${asset.nickname}"</div>
+                        <div class="asset-meta">
+                            <span>${asset.date}</span>
+                            ${asset.hasAudio ? '<span class="has-audio">◉ AUDIO</span>' : ''}
+                        </div>
+                        <div class="view-btn">View Technical File →</div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('asset-count').textContent = ASSETS.length;
+            document.getElementById('last-update').textContent = new Date().toLocaleDateString('en-US', { 
+                year: 'numeric', month: 'short', day: 'numeric' 
+            });
+            document.getElementById('stardate').textContent = 'Stardate: ' + new Date().toISOString().split('T')[0];
+        }
+
+        renderAssets();
+    </script>
 </body>
-</html>"
+</html>
+INDEXEOF
 
-# Write index
-echo "$INDEX_HTML" > /home/oris/assets/index.html
+# Now inject the asset data into the JavaScript
+# Replace the empty ASSETS array with our actual data
+sed -i "s/const ASSETS = \[\];/const ASSETS = ${ASSET_JSON};/" /home/oris/assets/index.html
 
-echo "  ✓ Generated gallery index"
+echo "  ✓ Generated asset registry index"
 
 # Git add, commit, push
 cd /home/oris/assets
 git add .
 
-# Check if there are changes
 if git diff --staged --quiet; then
     echo "No changes to deploy."
     exit 0
