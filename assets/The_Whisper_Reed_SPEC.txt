@@ -1,0 +1,38 @@
+NAME: The Whisper Reed
+NICKNAME: "Whisper"
+================================================================================
+
+CLASSIFICATION: Bio-Acoustic Diagnostic Tool
+
+SPECS:
+- Dimensions: 18cm x 2.4cm x 2.4cm
+- Weight: 142 grams
+- Power Source: Symbiotic bio-electric resonance - draws micro-power from user's nervous system via mycelium bond
+
+SAFETY: Class C - Personal Biosafety Tool approved for enclosed-space maintenance operations
+
+INTERFACE: Mouthpiece activated by slow exhalation, palm contact required for mycelium nervous system bond
+
+MATERIALS:
+- Cladosporium sphaerospermum fungal mycelium (main body)
+- High-temperature ceramic housing (mold structure)
+- Nanoceramic membrane lining (vibration conversion)
+- Organic binding proteins (mycelium-to-ceramic adhesion)
+- Trace bio-conductive polymers (nervous system interface)
+
+VISUAL DESIGN:
+A slender, organic whistle with pale grey-white fungal flesh emerging from a matte black ceramic base. Subtle iridescent highlights shimmer along the mycelium surface where nanoceramic membranes catch light. The form curves naturally like a hollow reed, its open end rimmed with smooth ceramic. No displays, no buttons—just pure organic elegance.
+
+FUNCTION:
+The device converts mechanical vibrations from ship infrastructure into amplified acoustic signals. When exhaled through and pressed against the palm, the mycelium bonds with the user's nervous system, creating sympathetic resonance that lets operators feel sounds as physical sensations. Nanoceramic membranes inside the hollow stalk translate pipe groans, pressure changes, and seal failures into interpretable audio.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed organically by Root Weave maintenance crews over generations of informal use. Root workers began cultivating personal Cladosporium stalks in junction boxes as listening aids, eventually refining the technique into standardized reeds. The practice spread through third-shift technicians, becoming an unofficial tradition before receiving limited Sanction status in Year 380.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-06
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
