@@ -248,24 +248,7 @@ async function handleAutomation(body) {
     const cronName = `omniautomation_${type}`;
     
     if (enabled) {
-        // Create cron job
-        let schedule, payload;
-        
-        if (type === 'backup') {
-            // Backup every day at 03:00
-            schedule = '0 3 * * *';
-            payload = {
-                kind: 'agentTurn',
-                message: 'Kör backup-scriptet: bash /home/oris/assets/backup.sh'
-            };
-        } else if (type === 'morning_asset') {
-            // Morning asset every Monday at 06:00
-            schedule = '0 6 * * 1';
-            payload = {
-                kind: 'agentTurn',
-                message: 'Generera en ny Ombra Prime asset med hint "en komponent". Använd generate-ombra-asset pipelinen och deploya resultatet till GitHub Pages.'
-            };
-        }
+        // Create cron job - commands defined below based on type
         
         // Remove existing cron with same name first
         try {
@@ -273,7 +256,13 @@ async function handleAutomation(body) {
         } catch (e) {}
         
         // Add new cron job using openclaw CLI
-        const cronCmd = `openclaw cron add --name "${cronName}" --schedule '${schedule}' --session-target isolated --payload '${JSON.stringify(payload)}'`;
+        let cronCmd;
+        
+        if (type === 'backup') {
+            cronCmd = `openclaw cron add --name "${cronName}" --cron "0 3 * * *" --session isolated --message "bash /home/oris/assets/backup.sh" --timeout-seconds 300`;
+        } else if (type === 'morning_asset') {
+            cronCmd = `openclaw cron add --name "${cronName}" --cron "0 6 * * 1" --session isolated --message "Generera en ny Ombra Prime asset med hint 'en komponent'. Använd generate-ombra-asset pipelinen och deploya resultatet till GitHub Pages." --timeout-seconds 600`;
+        }
         
         try {
             const result = execSync(cronCmd, { encoding: 'utf-8' });
