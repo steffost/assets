@@ -331,21 +331,31 @@ function isAutomationEnabled(type) {
 }
 
 async function handleWorldBuilder(req) {
-    const { action } = req.body || {};
+    const { action, zone } = req.body || {};
     
     if (action === 'status') {
         return handleWorldBuilderStatus();
     }
     
-    // Run world-builder-agent
-    console.log('Starting World Builder Agent...');
+    if (!zone) {
+        return {
+            success: false,
+            message: 'Zon krävs! Använd: {"zone": "the_pearl"}'
+        };
+    }
+    
+    // Run world-builder-agent with zone
+    console.log(`Starting World Builder Agent for zone: ${zone}...`);
     
     try {
-        const result = execSync('node /home/oris/.openclaw/workspace/skills/world-builder-agent/main.js 2>&1', {
-            encoding: 'utf-8',
-            timeout: 120000,
-            cwd: '/home/oris/.openclaw/workspace/skills/world-builder-agent'
-        });
+        const result = execSync(
+            `node /home/oris/.openclaw/workspace/skills/world-builder-agent/main.js ${zone} 2>&1`,
+            {
+                encoding: 'utf-8',
+                timeout: 120000,
+                cwd: '/home/oris/.openclaw/workspace/skills/world-builder-agent'
+            }
+        );
         
         console.log('World Builder result:', result);
         
@@ -355,7 +365,7 @@ async function handleWorldBuilder(req) {
         
         return {
             success: true,
-            message: `World Builder körde: ${created}`,
+            message: `World Builder: ${created}`,
             output: result
         };
     } catch (error) {
@@ -371,27 +381,47 @@ async function handleWorldBuilderStatus() {
     const STATE_FILE = '/home/oris/.openclaw/workspace/ombra_world/staging/state.json';
     const STAGING_DIR = '/home/oris/.openclaw/workspace/ombra_world/staging';
     
+    const ZONES = [
+        { id: 'the_pearl', name: 'The Pearl' },
+        { id: 'the_city', name: 'The City' },
+        { id: 'industrial_domain', name: 'Industrial Domain' },
+        { id: 'research_spires', name: 'Research Spires' },
+        { id: 'the_chamber', name: 'The Chamber' },
+        { id: 'hangar', name: 'Hangaren' },
+        { id: 'ez_aqua_core', name: 'EZ Aqua Core' }
+    ];
+    
     try {
-        let state = { created: [], cycles: 0, lastBuild: null };
+        let state = { created: {}, cycles: 0, lastBuild: null };
         if (fs.existsSync(STATE_FILE)) {
             state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf-8'));
         }
         
-        // List staging files
-        let files = [];
-        if (fs.existsSync(STAGING_DIR)) {
-            files = fs.readdirSync(STAGING_DIR)
-                .filter(f => f.endsWith('.xml'))
-                .map(f => {
-                    const stat = fs.statSync(path.join(STAGING_DIR, f));
-                    return { name: f, time: formatTime(stat.mtime) };
-                });
-        }
+        // List zones and their files
+        const zones = ZONES.map(zone => {
+            const zonePath = path.join(STAGING_DIR, zone.id);
+            let files = [];
+            if (fs.existsSync(zonePath)) {
+                files = fs.readdirSync(zonePath)
+                    .filter(f => f.endsWith('.xml'))
+                    .map(f => {
+                        const stat = fs.statSync(path.join(zonePath, f));
+                        return { name: f, time: formatTime(stat.mtime) };
+                    });
+            }
+            return {
+                id: zone.id,
+                name: zone.name,
+                files,
+                count: files.length
+            };
+        });
         
         return {
             state,
-            files,
-            stagingDir: STAGING_DIR
+            zones,
+            totalCycles: state.cycles,
+            lastBuild: state.lastBuild
         };
     } catch (error) {
         return { error: error.message };

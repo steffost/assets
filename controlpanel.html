@@ -301,6 +301,63 @@
             box-shadow: 0 0 10px var(--cyan);
         }
 
+        /* World Builder Zone Buttons */
+        .world-builder-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 12px 0;
+        }
+
+        .zone-btn {
+            padding: 14px 10px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .zone-btn:hover {
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.1) 0%, rgba(0, 247, 255, 0.05) 100%);
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .zone-btn:active {
+            transform: translateY(0);
+        }
+
+        .zone-btn.building {
+            background: rgba(0, 247, 255, 0.2);
+            border-color: var(--cyan);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .build-status {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            min-height: 40px;
+        }
+
+        .zone-stats {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
         /* API Keys */
         .key-list {
             display: flex;
@@ -526,13 +583,25 @@
                     </div>
                     <div class="toggle" id="backupToggle" onclick="toggleBackup()"></div>
                 </div>
-                <div class="toggle-row">
-                    <div>
-                        <div class="toggle-label">World Builder</div>
-                        <div class="toggle-sublabel">Bygger världen vidare (1 cykel)</div>
-                    </div>
-                    <div class="toggle" id="worldBuilderToggle" onclick="runWorldBuilder()"></div>
+            </div>
+
+            <!-- World Builder Card -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">🏗️</span>
+                    <span class="card-title">WORLD BUILDER</span>
                 </div>
+                <div class="world-builder-grid">
+                    <button class="zone-btn" onclick="buildInZone('the_pearl')">🌍 The Pearl</button>
+                    <button class="zone-btn" onclick="buildInZone('the_city')">🏙️ The City</button>
+                    <button class="zone-btn" onclick="buildInZone('industrial_domain')">🏭 Industry</button>
+                    <button class="zone-btn" onclick="buildInZone('research_spires')">🔬 Research</button>
+                    <button class="zone-btn" onclick="buildInZone('the_chamber')">⚙️ Chamber</button>
+                    <button class="zone-btn" onclick="buildInZone('hangar')">🚗 Hangar</button>
+                    <button class="zone-btn" onclick="buildInZone('ez_aqua_core')">🧪 EZ Aqua</button>
+                </div>
+                <div class="build-status" id="buildStatus"></div>
+                <div class="zone-stats" id="zoneStats"></div>
             </div>
 
             <!-- Recent Assets Card -->
@@ -718,27 +787,72 @@
             }
         }
 
-        async function runWorldBuilder() {
-            const toggle = document.getElementById('worldBuilderToggle');
+        async function buildInZone(zone) {
+            const btn = event.target;
+            const statusDiv = document.getElementById('buildStatus');
             
-            log('Starting World Builder Agent...', 'info');
-            toggle.classList.add('active');
+            // Get zone name from ID
+            const zoneNames = {
+                'the_pearl': 'The Pearl',
+                'the_city': 'The City',
+                'industrial_domain': 'Industrial Domain',
+                'research_spires': 'Research Spires',
+                'the_chamber': 'The Chamber',
+                'hangar': 'Hangaren',
+                'ez_aqua_core': 'EZ Aqua Core'
+            };
+            
+            log(`Building in ${zoneNames[zone]}...`, 'info');
+            btn.classList.add('building');
+            statusDiv.innerHTML = `<span style="color: var(--cyan)">🔨 Building in ${zoneNames[zone]}...</span>`;
 
             try {
                 const result = await apiCall('/api/world-builder', {
                     method: 'POST',
-                    body: JSON.stringify({ action: 'run' })
+                    body: JSON.stringify({ zone: zone })
                 });
                 
                 if (result.success) {
-                    log(`World Builder: ${result.message}`, 'success');
+                    log(`Built: ${result.message}`, 'success');
+                    statusDiv.innerHTML = `<span style="color: var(--green)">✅ ${result.message}</span>`;
+                    refreshWorldBuilderStatus();
                 } else {
-                    log(`World Builder failed: ${result.message}`, 'error');
+                    log(`Failed: ${result.message}`, 'error');
+                    statusDiv.innerHTML = `<span style="color: var(--red)">❌ ${result.message}</span>`;
                 }
             } catch (error) {
-                log('World Builder error: ' + error.message, 'error');
+                log('Build error: ' + error.message, 'error');
+                statusDiv.innerHTML = `<span style="color: var(--red)">❌ Error: ${error.message}</span>`;
             } finally {
-                toggle.classList.remove('active');
+                btn.classList.remove('building');
+            }
+        }
+
+        async function refreshWorldBuilderStatus() {
+            try {
+                const status = await apiCall('/api/world-builder/status');
+                
+                if (status.error) {
+                    console.error(status.error);
+                    return;
+                }
+                
+                const statsDiv = document.getElementById('zoneStats');
+                let html = `<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 0.7rem;">`;
+                
+                status.zones.forEach(zone => {
+                    const color = zone.count > 0 ? 'var(--cyan)' : 'var(--text-secondary)';
+                    html += `<div style="padding: 6px; background: var(--bg-secondary); border-radius: 4px;">
+                        <span style="color: ${color}">${zone.name}</span>: ${zone.count} rum
+                    </div>`;
+                });
+                
+                html += `</div>`;
+                html += `<div style="margin-top: 8px; font-size: 0.75rem;">Totalt: ${status.totalCycles} cykler | Senaste: ${status.lastBuild ? new Date(status.lastBuild).toLocaleTimeString('sv-SE') : 'Aldrig'}</div>`;
+                
+                statsDiv.innerHTML = html;
+            } catch (error) {
+                console.error('Failed to refresh world builder status:', error);
             }
         }
 
@@ -859,6 +973,7 @@
             await refreshStatus();
             await refreshRecentAssets();
             await refreshWorldBibleStats();
+            await refreshWorldBuilderStatus();
 
             log('Ready', 'success');
 
