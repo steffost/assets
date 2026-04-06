@@ -261,7 +261,8 @@ async function handleAutomation(body) {
         if (type === 'backup') {
             cronCmd = `openclaw cron add --name "${cronName}" --cron "0 3 * * *" --session isolated --message "bash /home/oris/assets/backup.sh" --timeout-seconds 300`;
         } else if (type === 'morning_asset') {
-            cronCmd = `openclaw cron add --name "${cronName}" --cron "0 6 * * 1" --session isolated --message "Generera en ny Ombra Prime asset med hint 'en komponent'. Använd generate-ombra-asset pipelinen och deploya resultatet till GitHub Pages." --timeout-seconds 600`;
+            const morningPrompt = 'Las World Bible filerna i /home/oris/.openclaw/workspace/ombra_world/world_bible/. Bladdra igenom och lat dig inspireras av nagot slumpmassigt - det kan vara en plats, en varelse, en artefakt, en ritual, ett koncept. Nar du hittar nagot intressant, skapa en kreativ hint baserat pa det och kor sedan generate-ombra-asset pipelinen med din hint. Deploya resultatet till GitHub Pages. Ha kul och var kreativ!';
+            cronCmd = `openclaw cron add --name "${cronName}" --cron "0 6 * * 1" --session isolated --message '${morningPrompt}' --timeout-seconds 900`;
         }
         
         try {
