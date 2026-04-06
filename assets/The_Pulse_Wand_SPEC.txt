@@ -1,0 +1,38 @@
+NAME: The Pulse Wand
+NICKNAME: "The Green Eye"
+================================================================================
+
+CLASSIFICATION: Monitoring Tool - Cultivator Grade
+
+SPECS:
+- Dimensions: 60cm x 2.4cm x 2.4cm
+- Weight: 480 grams
+- Power Source: Sub-Orb fragment tip - Vitalis Flux resonance self-charging, perpetual operation
+
+SAFETY: Class B-2 - Agricultural Biosafety Tool, non-invasive monitoring
+
+INTERFACE: Single-handed grip, tip-to-surface contact activation, color-coded visual feedback
+
+MATERIALS:
+- Living Crystal (bio-engineered crystalline matrix, grown not cut, forms the core structure)
+- Quantic Glass housing (transparent outer shell revealing internal energy flow)
+- Bio-synthetic polymer grip sections (plant-based composite, non-slip texture)
+- Vitalis-conductive silver alloy electrodes (tip components)
+- Sub-Orb fragment core (recycled from approved sources, contains functional fragment)
+
+VISUAL DESIGN:
+A slender crystalline rod with a translucent pale green body. The upper shaft glows with an internal emerald light that pulses softly through the Quantic Glass housing. Ergonomic grip sections in matte sage wrap the handle in textured patterns. The tip ends in a small spherical node, dark with concentrated energy, surrounded by a delicate crystalline collar. The overall aesthetic is organic and flowing, designed to feel like an extension of the cultivator's hand.
+
+FUNCTION:
+The Pulse Wand reads Vitalis Flux emanating from living organisms through its Sub-Orb fragment tip. When pressed against plant matter or organic surfaces, the fragment resonates with the organism's life energy, translating this into visible light. Bright emerald glow indicates thriving life, while dimming to amber and finally red signals declining health requiring attention. Cultivators read the wand's chromatic output to assess grove conditions and take corrective action.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+The Pulse Wand emerged during Ombra Prime's early agricultural expansion in Year 2750, when cultivators needed more precise methods to monitor the biodome's complex ecosystems. Research Domain scientists developed the first prototype by adapting salvaged Sub-Orb technology into a handheld interface. By Year 2800, the device had evolved into its current form through iterative feedback from field cultivators. Each certified cultivator receives their wand upon completing the cultivation certification trial, and the device remains their constant companion throughout their career.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-05
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
