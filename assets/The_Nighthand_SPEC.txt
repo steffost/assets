@@ -1,0 +1,39 @@
+NAME: The Nighthand
+NICKNAME: "The Grip"
+================================================================================
+
+CLASSIFICATION: Magnetic Climbing Glove - Maintenance Safety Equipment
+
+SPECS:
+- Dimensions: 38cm x 16cm x 9cm (full forearm length)
+- Weight: 0.95 kg
+- Power Source: Bio-electric resonance capture from wearer, EZ-water micro-cell backup, continuous passive charging
+
+SAFETY: Class B - Industrial Safety Equipment, Life-Critical Rating
+
+INTERFACE: Slip-on fit with bio-bonding calibration sequence, pressure-sensitive activation pads in palm and fingertips, automatic engagement on grip force
+
+MATERIALS:
+- Aegis-fungus derived suction cup arrays (palm and finger surfaces)
+- Grade-5 titanium alloy bracing (forearm and knuckle reinforcement)
+- Mycelium-composite flexible backing membrane
+- Bioluminescent EZ-water indicator capsule (wrist-mounted)
+- Self-sealing silicone gasket seals
+- Conductive thread neural interface layer
+
+VISUAL DESIGN:
+A forearm-length glove with a sleek, dark gray mycelium composite body that seems to breathe with subtle texture. The palm and fingers display a distinctive organic pattern of soft, rounded suction cups in pale ivory. Titanium bracing runs along the forearm in polished silver strips. A single small capsule glows steady soft blue at the inner wrist like a tiny captured star.
+
+FUNCTION:
+The glove uses living Aegis-fungus cultures to create powerful organic suction cups that seal against metal surfaces with vacuum pressure. When the wearer grips a surface, the pads automatically engage, bonding to the material. The bio-electric capture system reads the wearer's muscle signals, anticipating grip needs. The EZ-water indicator confirms the living cultures remain active and bonded to the owner's unique bio-signature.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed in Year 812 After Launch through collaboration between Pearl agricultural cultivators and Root Weave maintenance supervisors. Children in the Pearl's biodome farms perfected the Aegis-fungus bonding technique, discovering certain cultures could attach to titanium while remaining alive. The first generation of Nighthands required weekly feeding; modern versions self-sustain through bio-electric resonance with their assigned user.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-06
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN

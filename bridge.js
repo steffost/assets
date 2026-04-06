@@ -236,6 +236,19 @@ async function handleGenerate(body) {
     });
 }
 
+async function getCronIdByName(name) {
+    try {
+        const result = execSync('openclaw cron list --json 2>/dev/null', { encoding: 'utf-8' });
+        const data = JSON.parse(result);
+        const jobs = data.jobs || [];
+        const job = jobs.find(j => j.name === name);
+        return job ? job.id : null;
+    } catch (e) {
+        console.error('Error getting cron ID:', e.message);
+        return null;
+    }
+}
+
 async function handleAutomation(body) {
     const { enabled, type } = body;
     
@@ -248,21 +261,22 @@ async function handleAutomation(body) {
     const cronName = `omniautomation_${type}`;
     
     if (enabled) {
-        // Create cron job - commands defined below based on type
-        
         // Remove existing cron with same name first
-        try {
-            execSync(`openclaw cron remove ${cronName} 2>/dev/null`, { encoding: 'utf-8' });
-        } catch (e) {}
+        const existingId = await getCronIdByName(cronName);
+        if (existingId) {
+            try {
+                execSync(`openclaw cron rm ${existingId} 2>/dev/null`, { encoding: 'utf-8' });
+            } catch (e) {}
+        }
         
         // Add new cron job using openclaw CLI
         let cronCmd;
         
         if (type === 'backup') {
-            cronCmd = `openclaw cron add --name "${cronName}" --cron "0 3 * * *" --session isolated --message "bash /home/oris/assets/backup.sh" --timeout-seconds 300`;
+            cronCmd = `openclaw cron add --name "${cronName}" --cron "0 3 * * *" --session isolated --message "bash /home/oris/assets/backup.sh" --timeout 300000`;
         } else if (type === 'morning_asset') {
-            const morningPrompt = 'Las World Bible filerna i /home/oris/.openclaw/workspace/ombra_world/world_bible/. Bladdra igenom och lat dig inspireras av nagot slumpmassigt - det kan vara en plats, en varelse, en artefakt, en ritual, ett koncept. Nar du hittar nagot intressant, skapa en kreativ hint baserat pa det och kor sedan generate-ombra-asset pipelinen med din hint. Deploya resultatet till GitHub Pages. Ha kul och var kreativ!';
-            cronCmd = `openclaw cron add --name "${cronName}" --cron "0 6 * * 1" --session isolated --message '${morningPrompt}' --timeout-seconds 900`;
+            const morningPrompt = 'Läs World Bible filerna i /home/oris/.openclaw/workspace/ombra_world/world_bible/. Bläddra igenom och låt dig inspireras av något slumpmässigt - det kan vara en plats, en varelse, en artefakt, en ritual, ett koncept. När du hittar något intressant, skapa en kreativ hint baserat på det och kör sedan generate-ombra-asset pipelinen med din hint. Deploya resultatet till GitHub Pages. Ha kul och var kreativ!';
+            cronCmd = `openclaw cron add --name "${cronName}" --cron "0 6 * * 1" --session isolated --message "${morningPrompt}" --timeout 900000`;
         }
         
         try {
@@ -270,7 +284,6 @@ async function handleAutomation(body) {
             console.log(`Cron job created: ${result}`);
         } catch (error) {
             console.error(`Failed to create cron job: ${error.message}`);
-            // Try alternative approach via cron tool
             return {
                 success: false,
                 type,
@@ -279,12 +292,15 @@ async function handleAutomation(body) {
             };
         }
     } else {
-        // Remove cron job
-        try {
-            execSync(`openclaw cron remove ${cronName} 2>/dev/null`, { encoding: 'utf-8' });
-            console.log(`Cron job removed: ${cronName}`);
-        } catch (error) {
-            console.error(`Failed to remove cron job: ${error.message}`);
+        // Remove cron job by name
+        const existingId = await getCronIdByName(cronName);
+        if (existingId) {
+            try {
+                execSync(`openclaw cron rm ${existingId} 2>/dev/null`, { encoding: 'utf-8' });
+                console.log(`Cron job removed: ${cronName} (${existingId})`);
+            } catch (error) {
+                console.error(`Failed to remove cron job: ${error.message}`);
+            }
         }
     }
 
