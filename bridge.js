@@ -41,6 +41,8 @@ const routes = {
     'GET /api/worldbible/stats': handleWorldBibleStats,
     'POST /api/generate': handleGenerate,
     'POST /api/automation': handleAutomation,
+    'POST /api/world-builder': handleWorldBuilder,
+    'GET /api/world-builder/status': handleWorldBuilderStatus,
     'GET /api/health': () => ({ ok: true })
 };
 
@@ -325,6 +327,74 @@ function isAutomationEnabled(type) {
         return jobs.some(j => j.name && j.name.includes(cronName));
     } catch {
         return false;
+    }
+}
+
+async function handleWorldBuilder(req) {
+    const { action } = req.body || {};
+    
+    if (action === 'status') {
+        return handleWorldBuilderStatus();
+    }
+    
+    // Run world-builder-agent
+    console.log('Starting World Builder Agent...');
+    
+    try {
+        const result = execSync('node /home/oris/.openclaw/workspace/skills/world-builder-agent/main.js 2>&1', {
+            encoding: 'utf-8',
+            timeout: 120000,
+            cwd: '/home/oris/.openclaw/workspace/skills/world-builder-agent'
+        });
+        
+        console.log('World Builder result:', result);
+        
+        // Parse output to find what was created
+        const match = result.match(/Sparad: (.+)/);
+        const created = match ? match[1] : 'unknown';
+        
+        return {
+            success: true,
+            message: `World Builder körde: ${created}`,
+            output: result
+        };
+    } catch (error) {
+        console.error('World Builder error:', error.message);
+        return {
+            success: false,
+            message: `Fel: ${error.message}`
+        };
+    }
+}
+
+async function handleWorldBuilderStatus() {
+    const STATE_FILE = '/home/oris/.openclaw/workspace/ombra_world/staging/state.json';
+    const STAGING_DIR = '/home/oris/.openclaw/workspace/ombra_world/staging';
+    
+    try {
+        let state = { created: [], cycles: 0, lastBuild: null };
+        if (fs.existsSync(STATE_FILE)) {
+            state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf-8'));
+        }
+        
+        // List staging files
+        let files = [];
+        if (fs.existsSync(STAGING_DIR)) {
+            files = fs.readdirSync(STAGING_DIR)
+                .filter(f => f.endsWith('.xml'))
+                .map(f => {
+                    const stat = fs.statSync(path.join(STAGING_DIR, f));
+                    return { name: f, time: formatTime(stat.mtime) };
+                });
+        }
+        
+        return {
+            state,
+            files,
+            stagingDir: STAGING_DIR
+        };
+    } catch (error) {
+        return { error: error.message };
     }
 }
 

@@ -526,6 +526,13 @@
                     </div>
                     <div class="toggle" id="backupToggle" onclick="toggleBackup()"></div>
                 </div>
+                <div class="toggle-row">
+                    <div>
+                        <div class="toggle-label">World Builder</div>
+                        <div class="toggle-sublabel">Bygger världen vidare (1 cykel)</div>
+                    </div>
+                    <div class="toggle" id="worldBuilderToggle" onclick="runWorldBuilder()"></div>
+                </div>
             </div>
 
             <!-- Recent Assets Card -->
@@ -708,6 +715,30 @@
                 log(`Backup automation ${newState ? 'enabled' : 'disabled'}`, 'success');
             } catch (error) {
                 log('Failed to toggle backup', 'error');
+            }
+        }
+
+        async function runWorldBuilder() {
+            const toggle = document.getElementById('worldBuilderToggle');
+            
+            log('Starting World Builder Agent...', 'info');
+            toggle.classList.add('active');
+
+            try {
+                const result = await apiCall('/api/world-builder', {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'run' })
+                });
+                
+                if (result.success) {
+                    log(`World Builder: ${result.message}`, 'success');
+                } else {
+                    log(`World Builder failed: ${result.message}`, 'error');
+                }
+            } catch (error) {
+                log('World Builder error: ' + error.message, 'error');
+            } finally {
+                toggle.classList.remove('active');
             }
         }
 
