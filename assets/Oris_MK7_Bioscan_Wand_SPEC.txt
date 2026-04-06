@@ -1,0 +1,38 @@
+NAME: Oris-MK7 Bioscan Wand
+NICKNAME: "The Pearl's Eye"
+================================================================================
+
+CLASSIFICATION: Portable Biosecurity Analysis Device
+
+SPECS:
+- Dimensions: 42cm x 6cm x 4cm
+- Weight: 1.2 kg
+- Power Source: Compact fusion micro-cell, 72-hour continuous operation capacity
+
+SAFETY: Class A - Biosphere Critical Instrumentation
+
+INTERFACE: Single-handed grip with trigger activation, holographic data projection
+
+MATERIALS:
+- Titanium-carbon alloy housing
+- Reinforced quantum glass sensor array
+- Nano-polymer protective casing
+- Organic-compatible sealant gaskets
+- Chromium-tungsten scanning emitters
+
+VISUAL DESIGN:
+A sleek, elongated scanning device with a pearlescent white finish that shimmers with subtle iridescent hues. The handle features ergonomic grooves and a translucent blue trigger mechanism. A small holographic projector near the top displays floating data in soft cyan light. The device tapers to a rounded tip containing the advanced sensor array, emitting a gentle pulse when active.
+
+FUNCTION:
+Oris-MK7 scans and analyzes biological samples, atmospheric conditions, and ecological anomalies within The Pearl biosphere. It utilizes quantum-resonance detection to identify genetic markers, pathogen signatures, and environmental stressors, transmitting real-time data to Oris AI for processing. The device provides immediate haptic feedback and audible alerts when detecting threats to biosphere integrity.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed by The Chamber's bioengineering division under MR Splendid's oversight, the Oris-MK7 was designed specifically for biosphere custodians and security personnel operating within The Pearl. Created in 2994, it replaced older thermal-based scanning technology, incorporating Oris AI's direct neural interface capabilities. Every unit remains linked to the mothership's central intelligence, ensuring constant monitoring of the most critical sector aboard Ombra Prime.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-06
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
