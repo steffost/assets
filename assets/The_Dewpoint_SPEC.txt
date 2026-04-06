@@ -1,0 +1,39 @@
+NAME: The Dewpoint
+NICKNAME: "The Dew"
+================================================================================
+
+CLASSIFICATION: Personal Atmospheric Regulator - Face-Mounted Climate Control Device
+
+SPECS:
+- Dimensions: 14cm x 9cm x 4cm (main housing), adjustable elastic straps 45cm total length
+- Weight: 195 grams
+- Power Source: Piezoelectric micro-generator harvesting respiratory airflow and ambient vibration, backup solid-state thermal cell with 72-hour reserve capacity
+
+SAFETY: Class C - Standard Personal Protective Equipment
+
+INTERFACE: Soft-touch activation tab on left temple mount for mist intensity adjustment, automatic hands-free operation during normal breathing cycles
+
+MATERIALS:
+- Medical-grade silicone seal and strap lining (hypoallergenic, skin-safe)
+- Titanium alloy outer frame (corrosion-resistant, lightweight)
+- Polycarbonate transparent face panel (impact-resistant, optical clarity)
+- Nano-membrane composite filtration layer (multi-layer synthetic)
+- Rare-earth element ionization chamber (dysprosium-neodymium alloy core)
+- Brass attachment clasps (Settlement-era models), polymer clasps (current production)
+
+VISUAL DESIGN:
+A sleek curved device that hugs the lower face like a second skin. The main housing arches gracefully from cheek to cheek, its surface finished in soft matte titanium with subtle iridescent sheen. The transparent panel reveals internal channels where water vapor dances in faint blue streams. Two slender straps anchor the unit, their inner surface lined with plush silicone for comfort. Small ventilation ports border the edges, and a gentle pulsing glow emanates from the ionization chamber visible through the face panel.
+
+FUNCTION:
+The Dewpoint draws ambient dry air through its nano-membrane filtration system, humidifying it to optimal 65% relative humidity while infusing ionized water particles and trace electrolytes. The microclimate forms around the wearer's face, preventing the bone-dry irritation caused by recycled ship atmosphere. The device automatically adjusts output based on breathing rate and local humidity sensors, requiring no manual intervention during standard operation.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed by Ombra Prime's Environmental Systems Division in collaboration with Pearl agricultural engineers, the Dewpoint emerged from necessity during the Great Dry Spell of 2847 when lower deck humidity controls failed for three weeks. Initial prototypes used brass components from scrapped machinery. Mass production began in 2851, with continuous refinement through the centuries. The Settlement-era brass-clasp models remain popular among veterans who prefer their substantial weight against the face.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-05
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
