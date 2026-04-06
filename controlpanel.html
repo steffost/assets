@@ -680,7 +680,7 @@
             try {
                 await apiCall('/api/automation', {
                     method: 'POST',
-                    body: JSON.stringify({ enabled: newState, type: 'morning' })
+                    body: JSON.stringify({ enabled: newState, type: 'morning_asset' })
                 });
                 automationEnabled = newState;
                 toggle.classList.toggle('active', newState);
@@ -723,7 +723,7 @@
                 document.getElementById('openclawStatus').classList.toggle('cyan', status.openclaw);
 
                 // Automation states
-                automationEnabled = status.automation?.morning ?? false;
+                automationEnabled = status.automation?.morning_asset ?? false;
                 backupEnabled = status.automation?.backup ?? false;
                 document.getElementById('automationToggle').classList.toggle('active', automationEnabled);
                 document.getElementById('backupToggle').classList.toggle('active', backupEnabled);

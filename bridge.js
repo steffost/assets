@@ -115,7 +115,7 @@ async function handleStatus() {
             bridge: true, 
             openclaw: true,
             automation: {
-                morning: await isAutomationEnabled('morning'),
+                morning_asset: await isAutomationEnabled('morning_asset'),
                 backup: await isAutomationEnabled('backup')
             }
         };
@@ -245,16 +245,64 @@ async function handleAutomation(body) {
 
     console.log(`Setting ${type} automation to: ${enabled}`);
 
-    // In a real implementation, this would create/remove cron jobs
-    // For now, we'll just return success
-    // 
-    // To actually manage cron jobs, we would use openclaw cron commands
+    const cronName = `omniautomation_${type}`;
+    
+    if (enabled) {
+        // Create cron job
+        let schedule, payload;
+        
+        if (type === 'backup') {
+            // Backup every day at 03:00
+            schedule = '0 3 * * *';
+            payload = {
+                kind: 'agentTurn',
+                message: 'Kör backup-scriptet: bash /home/oris/assets/backup.sh'
+            };
+        } else if (type === 'morning_asset') {
+            // Morning asset every Monday at 06:00
+            schedule = '0 6 * * 1';
+            payload = {
+                kind: 'agentTurn',
+                message: 'Generera en ny Ombra Prime asset med hint "en komponent". Använd generate-ombra-asset pipelinen och deploya resultatet till GitHub Pages.'
+            };
+        }
+        
+        // Remove existing cron with same name first
+        try {
+            execSync(`openclaw cron remove ${cronName} 2>/dev/null`, { encoding: 'utf-8' });
+        } catch (e) {}
+        
+        // Add new cron job using openclaw CLI
+        const cronCmd = `openclaw cron add --name "${cronName}" --schedule '${schedule}' --session-target isolated --payload '${JSON.stringify(payload)}'`;
+        
+        try {
+            const result = execSync(cronCmd, { encoding: 'utf-8' });
+            console.log(`Cron job created: ${result}`);
+        } catch (error) {
+            console.error(`Failed to create cron job: ${error.message}`);
+            // Try alternative approach via cron tool
+            return {
+                success: false,
+                type,
+                enabled,
+                message: `Kunde inte skapa cron job: ${error.message}`
+            };
+        }
+    } else {
+        // Remove cron job
+        try {
+            execSync(`openclaw cron remove ${cronName} 2>/dev/null`, { encoding: 'utf-8' });
+            console.log(`Cron job removed: ${cronName}`);
+        } catch (error) {
+            console.error(`Failed to remove cron job: ${error.message}`);
+        }
+    }
 
     return {
         success: true,
         type,
         enabled,
-        message: `Automation ${type} set to ${enabled ? 'enabled' : 'disabled'}`
+        message: `Automation ${type} ${enabled ? 'aktiverad' : 'inaktiverad'}`
     };
 }
 
@@ -264,10 +312,11 @@ async function handleAutomation(body) {
 
 function isAutomationEnabled(type) {
     // Check if cron job exists for this automation type
+    const cronName = `omniautomation_${type}`;
     try {
-        const result = execSync('openclaw cron list --json 2>/dev/null || echo "[]', { encoding: 'utf-8' });
+        const result = execSync(`openclaw cron list --json 2>/dev/null || echo "[]"`, { encoding: 'utf-8' });
         const jobs = JSON.parse(result);
-        return jobs.some(j => j.name && j.name.includes(type));
+        return jobs.some(j => j.name && j.name.includes(cronName));
     } catch {
         return false;
     }
