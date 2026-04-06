@@ -522,22 +522,9 @@
                 <div class="toggle-row">
                     <div>
                         <div class="toggle-label">Nightly Backup</div>
-                        <div class="toggle-sublabel">Backup kl 23:00</div>
+                        <div class="toggle-sublabel">Backup kl 03:00</div>
                     </div>
                     <div class="toggle" id="backupToggle" onclick="toggleBackup()"></div>
-                </div>
-            </div>
-
-            <!-- API Keys Card -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">🔑</span>
-                    <span class="card-title">API KEYS</span>
-                </div>
-                <div class="key-list" id="keyList">
-                    <div class="key-item">
-                        <span class="key-name">Laddar...</span>
-                    </div>
                 </div>
             </div>
 
@@ -839,7 +826,6 @@
             log('Control Center starting...', 'info');
 
             await refreshStatus();
-            await refreshApiKeys();
             await refreshRecentAssets();
             await refreshWorldBibleStats();
 
