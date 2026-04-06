@@ -1,0 +1,38 @@
+NAME: Vita-Pin
+NICKNAME: "The Moss"
+================================================================================
+
+CLASSIFICATION: Bio-mechanical Personal Life Support Device
+
+SPECS:
+- Dimensions: 7.2cm diameter, 1.8cm depth
+- Weight: 95 grams
+- Power Source: Bio-electric resonance harvest from wearer's cardiac rhythm, self-sustaining biological cycle
+
+SAFETY: Class A - Personal Medical Life Support System
+
+INTERFACE: Passive biometric integration; auto-responsive to cardiac activity and stress biomarkers
+
+MATERIALS:
+- Fermented mycelium composite casing (organic-grown, personalized cellular structure)
+- EZ-water gel matrix suspension medium
+- Cladosporium sphaerospermum micro-culture colonies
+- Aegis hull-derived nutrient compounds
+- Biocompatible bio-polymer sealing membrane
+
+VISUAL DESIGN:
+A smooth, palm-sized disc with a gently domed surface that catches light like morning dew. The mycelium casing displays intricate, organic vein patterns unique to each wearer—like fingerprints made of living wood. At its center, a translucent window reveals the soft green bioluminescent culture pulsing within, creating a subtle glow that shifts between verdant greens and warm ambers depending on the wearer's state.
+
+FUNCTION:
+Continuously monitors the wearer's cardiac rhythm, emotional stress levels, and environmental radiation exposure through bio-electric sensor integration. When stress thresholds are exceeded or radiation danger rises, the embedded Cladosporium culture automatically releases precise doses of EZ-stabilized nutrients directly through the skin. The device provides constant, passive life support without requiring any active user intervention.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed by Ombra Prime's medical division during Year 112 After Launch to protect maintenance crews working near radiation-prone hull junctions. The technology evolved from early nutrient injectors into this fully symbiotic device. Each Vita-Pin is grown specifically for its owner over years of use, absorbing their unique cellular patterns and becoming irreplaceable. Now standard equipment for all maintenance personnel, each one carries the wearer's biological signature for life.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-06
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
