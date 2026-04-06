@@ -1,0 +1,39 @@
+NAME: The Whisper Vessel
+NICKNAME: "The Shell"
+================================================================================
+
+CLASSIFICATION: Bio-Resonance Monitoring Device
+
+SPECS:
+- Dimensions: 18cm x 12cm x 10cm (spiral shell configuration)
+- Weight: 340 grams
+- Power Source: Passive Vitalis frequency resonance collector, internal bio-cell capacitor stores ambient energy indefinitely
+
+SAFETY: Class A - Precision Scientific Instrument (Handle with extreme care)
+
+INTERFACE: Wide opening aperture pressed against ear, handheld grip with bio-adhesive palm pads
+
+MATERIALS:
+- Aegis-fungus hybrid membrane (outer cultivated shell)
+- Sub-Orb crystalline substrate (inner resonance matrix)
+- Stabilized EZ-water (interior detection chamber, single 2ml drop)
+- Bio-ceramic structural frame (internal skeleton)
+- Living luminescent tissue (outer surface bioluminescence)
+- Quantum-conductive fungal threads (signal transmission)
+
+VISUAL DESIGN:
+A living nautilus shell that seems grown rather than manufactured. Its spiral form pulses with soft bioluminescent green from the Aegis-layer beneath translucent ceramic plating. The wide aperture opening glows faintly violet from within where the EZ-water drop rests. Delicate crystalline veins trace across the organic surface like frozen lightning, catching light from any angle.
+
+FUNCTION:
+The vessel acts as a biological resonance amplifier that captures and magnifies vibrations emitted by The Loom. Its hybrid membrane structure resonates with Vitalis frequencies, causing the EZ-water chamber inside to ripple with colors corresponding to different signal patterns. The user places the aperture opening against their ear to perceive amplified acoustic signals as audible sound, effectively turning the Loom's inaudible communications into听得见的声音.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Cultivated in Sector 07 (The Chamber) by Resonance Science Division, the Whisper Vessel was developed seven centuries after launch to monitor The Loom's increasingly complex harmonic activity. Based on ancient Earth nautilus morphology merged with Ombra Prime's proprietary Aegis-fungus technology, each Vessel is grown over 40 days in specialized bio-tanks. Only three exist fleet-wide, assigned to harmonic monitoring stations throughout the moderskepp.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-06
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
