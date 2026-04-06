@@ -331,7 +331,8 @@ function isAutomationEnabled(type) {
 }
 
 async function handleWorldBuilder(req) {
-    const { action, zone } = req.body || {};
+    // req is actually the parsed body object directly (JSON.parse(body))
+    const { action, zone } = req || {};
     
     if (action === 'status') {
         return handleWorldBuilderStatus();
@@ -403,7 +404,7 @@ async function handleWorldBuilderStatus() {
             let files = [];
             if (fs.existsSync(zonePath)) {
                 files = fs.readdirSync(zonePath)
-                    .filter(f => f.endsWith('.xml'))
+                    .filter(f => f.endsWith('.txt'))
                     .map(f => {
                         const stat = fs.statSync(path.join(zonePath, f));
                         return { name: f, time: formatTime(stat.mtime) };
