@@ -1,0 +1,38 @@
+NAME: Breathstone
+NICKNAME: "Spirit Sphere"
+================================================================================
+
+CLASSIFICATION: Personal Bioresonance Monitor / Living Wellness Artifact
+
+SPECS:
+- Dimensions: 7.2cm diameter sphere
+- Weight: 145 grams
+- Power Source: Chemiluminescent metabolism via Aegis-Strain fungal symbiosis, continuous self-sustaining operation
+
+SAFETY: Class A - Personal Wellness Device, biologically contained, non-invasive biosafe
+
+INTERFACE: Passive proximity response - simply carry, hold, or wear against skin for biometric synchronization
+
+MATERIALS:
+- Stabilized EZ-water gel matrix interior
+- Aegis-Strain Cladosporium sphaerospermum bioluminescent fungal culture
+- Mycelium composite outer shell (Pearl-zone organic growth)
+- Living wood pendant setting with adjustable cord
+- Trace mineral nutrient suspension for long-term fungal sustenance
+
+VISUAL DESIGN:
+A luminous orb that seems to breathe with soft inner light. The translucent mycelium shell reveals a swirling galaxy of cyan-green fungal threads suspended in crystal-clear gel. Subtle veins pulse with gentle bioluminescence, creating a living kaleidoscope. Worn as a pendant, it rests against the heart like a tiny sun.
+
+FUNCTION:
+The Breathstone monitors its owner's physiological state through skin contact, detecting heartbeat rhythm and stress hormone levels via osmotic absorption. The fungal culture responds to these biometric signals by altering its bioluminescent output, shifting through a spectrum from calming green to warning red. Years of proximity create a unique symbiotic bond, tuning the organism's responses precisely to its individual bearer.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed by Pearl-zone xenobiologists in the 2890s, Breathstones emerged from research into radiation-shielding fungi adapted for long-term human symbiosis. The Aegis-Strain was specifically cultivated to respond to human physiology rather than cosmic radiation. Over decades, the technology evolved from clinical monitoring tools into deeply personal spiritual artifacts central to Vitae Cultus meditation practices aboard Ombra Prime.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-05
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
