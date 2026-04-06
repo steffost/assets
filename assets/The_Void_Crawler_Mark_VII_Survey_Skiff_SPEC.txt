@@ -1,0 +1,39 @@
+NAME: The Void Crawler Mark VII Survey Skiff
+NICKNAME: "The Crawler"
+================================================================================
+
+CLASSIFICATION: Six-Limbed Maintenance Survey Vehicle
+
+SPECS:
+- Dimensions: 2.2m x 1.1m x 0.85m
+- Weight: 247 kg
+- Power Source: Micro-hydro-capacitors with regenerative magnetic adhesion system
+
+SAFETY: Class C - Industrial Void Operations Equipment, toxic atmosphere sealed
+
+INTERFACE: Dual-handle joystick array with six-limb articulation matrix, voice-activated sensor relay, foot-mounted magnetic stabilization pedal
+
+MATERIALS:
+- Titanium-ceramic composite hull with radiation-dampening inner layer
+- Magnetic adhesion boots with samarium-cobalt alloy electromagnets
+- Reinforced polycarbonate viewport with amber photochromic tinting
+- Self-sealing polymer sealants for toxic atmosphere isolation
+- Flexible myomer cable actuators for limb locomotion
+- Braided carbon-fiber structural supports
+
+VISUAL DESIGN:
+A low-profile cylindrical hull wrapped in matte charcoal titanium plating with prominent amber-lit magnetic boots extending from six articulating joints. The forward section features a domed polycarbonate viewport tinted in warm amber, flanked by twin recessed LED headlights. Control handles extend from the central cockpit depression, illuminated by soft instrument glow. Industrial and utilitarian, with visible riveted seams and functional aesthetics.
+
+FUNCTION:
+The Void Crawler navigates The Gut's maintenance tunnels using six magnetic limbs that alternately adhere to and release from pipe surfaces, walls, and ceiling infrastructure. Its micro-hydro-capacitors store energy generated from magnetic adhesion cycles, powering locomotion through void spaces where conventional vehicles cannot operate. The sealed cockpit protects technicians from toxic atmospheres while the sensor relay provides Oris with real-time data feed. A built-in sample kit enables biological and mineral specimen collection for research analysis.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+The Void Crawler line originated in Year 312 Post-Launch when early Gut maintenance required vehicles capable of traversing the ship's intricate pipe networks. The Mark VII model, developed jointly by Oris and City-based engineers, entered service in Year 445, incorporating lessons from six generations of tunnel crawlers. Mira Solheim's Year 487 deployment marks routine operation, though anomalous bioluminescent fungi discoveries suggest unexplored areas of the Root Weave still await mapping.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-05
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
