@@ -43,6 +43,8 @@ const routes = {
     'POST /api/automation': handleAutomation,
     'POST /api/world-builder': handleWorldBuilder,
     'GET /api/world-builder/status': handleWorldBuilderStatus,
+    'GET /api/heygen/clips': handleHeygenClips,
+    'POST /api/heygen/generate': handleHeygenGenerate,
     'GET /api/health': () => ({ ok: true })
 };
 
@@ -425,6 +427,64 @@ async function handleWorldBuilderStatus() {
             lastBuild: state.lastBuild
         };
     } catch (error) {
+        return { error: error.message };
+    }
+}
+
+async function handleHeygenClips() {
+    const HEYGEN_DIR = '/home/oris/.openclaw/workspace/heygen_output/mara_rox_news';
+    
+    try {
+        let clips = [];
+        if (fs.existsSync(HEYGEN_DIR)) {
+            const files = fs.readdirSync(HEYGEN_DIR)
+                .filter(f => f.endsWith('.json'))
+                .sort()
+                .reverse();
+            
+            clips = files.map(f => {
+                const data = JSON.parse(fs.readFileSync(path.join(HEYGEN_DIR, f), 'utf-8'));
+                return {
+                    filename: f,
+                    video_id: data.video_id,
+                    video_url: data.video_url,
+                    video_page_url: data.video_page_url,
+                    prompt: data.prompt,
+                    created: data.created
+                };
+            });
+        }
+        
+        return { clips };
+    } catch (error) {
+        console.error('HeyGen clips error:', error);
+        return { error: error.message, clips: [] };
+    }
+}
+
+async function handleHeygenGenerate(req) {
+    // Handler receives parsed JSON directly (not req object)
+    const prompt = req?.prompt;
+    
+    if (!prompt) {
+        return { error: 'prompt is required' };
+    }
+    
+    const HEYGEN_SCRIPT = '/home/oris/.openclaw/workspace/skills/heygen-video/main.js';
+    
+    try {
+        // Run HeyGen script in background and return immediately
+        // The user can poll /api/heygen/clips to check status
+        const command = `node ${HEYGEN_SCRIPT} "${prompt.replace(/"/g, '\\"')}" --json > /tmp/heygen_generate.log 2>&1 &`;
+        exec(command);
+        
+        return { 
+            ok: true, 
+            message: 'Video generation started. Poll /api/heygen/clips to check status.',
+            prompt: prompt
+        };
+    } catch (error) {
+        console.error('HeyGen generate error:', error);
         return { error: error.message };
     }
 }
