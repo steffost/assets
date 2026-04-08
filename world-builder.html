@@ -469,6 +469,8 @@
             }
         }
         
+        let lastBuildTime = null;
+        
         async function pollBuildStatus(zone) {
             const statusEl = document.getElementById('buildStatus');
             const resultArea = document.getElementById('resultArea');
@@ -480,19 +482,28 @@
                 attempts++;
                 
                 try {
-                    const response = await fetch(`${BRIDGE_URL}/api/worldbuilder/status`);
+                    const response = await fetch(`${BRIDGE_URL}/api/world-builder/status`);
                     const data = await response.json();
                     
-                    if (data.building === false && data.lastBuilt) {
-                        log(`✓ Room completed: ${data.lastBuilt.name}`, 'success');
+                    // Check if a new room was just built by comparing timestamps
+                    const currentBuildTime = data.lastBuild || data.state?.lastBuild;
+                    
+                    if (currentBuildTime && currentBuildTime !== lastBuildTime) {
+                        lastBuildTime = currentBuildTime;
+                        log(`✓ Build completed: ${data.state?.lastTask?.name || zone}`, 'success');
                         
                         // Show result
-                        const lastRoom = data.lastBuilt;
-                        document.getElementById('resultZone').textContent = lastRoom.zone;
-                        document.getElementById('resultDescription').textContent = lastRoom.description || 'No description available.';
+                        const lastTask = data.state?.lastTask || {};
+                        document.getElementById('resultZone').textContent = zone.replace('_', ' ').replace('the_pearl', 'The Pearl');
+                        document.getElementById('resultDescription').textContent = lastTask.details || lastTask.brief || 'Room description available in history.';
                         
-                        if (lastRoom.image) {
-                            document.getElementById('resultImage').src = lastRoom.image;
+                        // Try to find the image
+                        const zoneData = data.zones?.find(z => z.id === zone);
+                        if (zoneData && zoneData.files.length > 0) {
+                            const latestFile = zoneData.files.sort((a,b) => b.time.localeCompare(a.time))[0];
+                            // Image path would be based on filename
+                            const imgPath = `/ombra_world/staging/${zone}/${latestFile.name.replace('.txt', '')}/image.png`;
+                            document.getElementById('resultImage').src = imgPath;
                         }
                         
                         resultArea.classList.add('show');
@@ -501,10 +512,10 @@
                         // Refresh history
                         loadHistory();
                         break;
-                    } else if (data.building === true) {
+                    } else if (data.state?.building === true) {
                         log(`Building... (${attempts}/${maxAttempts})`, 'info');
                     } else {
-                        log(`Waiting for build... (${attempts}/${maxAttempts})`, 'warning');
+                        log(`Waiting... (${attempts}/${maxAttempts})`, 'warning');
                     }
                 } catch (error) {
                     log(`Status check error: ${error.message}`, 'warning');
@@ -523,7 +534,7 @@
             const container = document.getElementById('historyContainer');
             
             try {
-                const response = await fetch(`${BRIDGE_URL}/api/worldbuilder/status`);
+                const response = await fetch(`${BRIDGE_URL}/api/world-builder/status`);
                 const data = await response.json();
                 
                 if (data.error) {
