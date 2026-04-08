@@ -139,6 +139,36 @@
             transform: none;
         }
         
+        .dimension-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .dim-btn {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            color: var(--text);
+            padding: 12px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dim-btn:hover {
+            border-color: var(--cyan);
+            background: rgba(0, 247, 255, 0.1);
+        }
+        
+        .dim-btn.active {
+            background: rgba(0, 247, 255, 0.2);
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+        
         .status {
             margin-top: 15px;
             padding: 15px;
@@ -284,6 +314,13 @@
         <div class="card">
             <h2>🎬 Generate Broadcast</h2>
             <textarea id="scriptInput" placeholder="Enter what Mara Rox should say in her broadcast...">Mara Rox here, broadcasting from The Spire with breaking news from Ombra Prime.</textarea>
+            
+            <div class="dimension-buttons">
+                <button class="dim-btn" id="dimPortrait" onclick="selectDimension('portrait')">📱 Portrait</button>
+                <button class="dim-btn active" id="dimLandscape" onclick="selectDimension('landscape')">📺 Landscape</button>
+                <button class="dim-btn" id="dimHd" onclick="selectDimension('hd')">⚡ HD</button>
+            </div>
+            
             <button class="btn" id="generateBtn" onclick="generateVideo()">Generate Video</button>
             <div class="status" id="statusBox"></div>
         </div>
@@ -334,13 +371,14 @@
                 container.innerHTML = data.clips.map(clip => `
                     <div class="clip-item">
                         <div class="clip-info">
-                            <h3>${formatDate(clip.created)}</h3>
-                            <p>ID: ${clip.video_id}</p>
-                            <p class="prompt">"${truncate(clip.prompt, 80)}"</p>
+                            <h3>${formatDate(clip.created)} ${clip.type === 'news' ? '📝' : '📹'}</h3>
+                            <p>${clip.type === 'news' ? 'News Script' : 'Video'} | ${clip.size ? Math.round(clip.size/1024) + ' KB' : ''}</p>
+                            <p class="prompt">"${truncate(clip.prompt || clip.filename, 80)}"</p>
                         </div>
                         <div class="clip-actions">
-                            ${clip.video_url ? `<a href="${clip.video_url}" target="_blank">▶ Watch</a>` : '<span style="color:var(--text-dim);font-size:0.8rem">Processing...</span>'}
+                            ${clip.video_url ? `<a href="${clip.video_url}" target="_blank">▶ Watch</a>` : ''}
                             ${clip.video_page_url ? `<a href="${clip.video_page_url}" target="_blank">📺 HeyGen</a>` : ''}
+                            ${clip.type === 'news' ? `<a href="/heygen_output/mara_rox_news/${clip.filename}" target="_blank">📄 View</a>` : ''}
                         </div>
                     </div>
                 `).join('');
@@ -348,6 +386,14 @@
             } catch (error) {
                 container.innerHTML = `<div class="empty"><p>Failed to load clips. Is the bridge server running?</p></div>`;
             }
+        }
+        
+        let selectedDimension = 'landscape';
+        
+        function selectDimension(dim) {
+            selectedDimension = dim;
+            document.querySelectorAll('.dim-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('dim' + dim.charAt(0).toUpperCase() + dim.slice(1)).classList.add('active');
         }
         
         async function generateVideo() {
@@ -364,13 +410,13 @@
             btn.disabled = true;
             btn.textContent = 'Generating...';
             btn.classList.add('generating');
-            showStatus('Starting video generation... This may take 5-15 minutes.', '');
+            showStatus(`Starting video generation (${selectedDimension})... This may take 5-15 minutes.`, '');
             
             try {
                 const response = await fetch(`${BRIDGE_URL}/api/heygen/generate`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ prompt })
+                    body: JSON.stringify({ prompt, dimension: selectedDimension })
                 });
                 
                 const data = await response.json();

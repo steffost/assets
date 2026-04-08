@@ -432,28 +432,53 @@ async function handleWorldBuilderStatus() {
 }
 
 async function handleHeygenClips() {
-    const HEYGEN_DIR = '/home/oris/.openclaw/workspace/heygen_output/mara_rox_news';
+    // Check both mara_rox_news (news scripts) and mara_rox_simple (videos)
+    const HEYGEN_DIR = '/home/oris/.openclaw/workspace/heygen_output/mara_rox_simple';
+    const NEWS_DIR = '/home/oris/.openclaw/workspace/heygen_output/mara_rox_news';
     
     try {
         let clips = [];
+        
+        // Get videos from mara_rox_simple
         if (fs.existsSync(HEYGEN_DIR)) {
             const files = fs.readdirSync(HEYGEN_DIR)
-                .filter(f => f.endsWith('.json'))
+                .filter(f => f.endsWith('.mp4'))
                 .sort()
                 .reverse();
             
             clips = files.map(f => {
-                const data = JSON.parse(fs.readFileSync(path.join(HEYGEN_DIR, f), 'utf-8'));
+                const stats = fs.statSync(path.join(HEYGEN_DIR, f));
                 return {
                     filename: f,
-                    video_id: data.video_id,
-                    video_url: data.video_url,
-                    video_page_url: data.video_page_url,
-                    prompt: data.prompt,
-                    created: data.created
+                    type: 'video',
+                    size: stats.size,
+                    created: stats.mtime
                 };
             });
         }
+        
+        // Get news scripts from mara_rox_news
+        if (fs.existsSync(NEWS_DIR)) {
+            const newsFiles = fs.readdirSync(NEWS_DIR)
+                .filter(f => f.startsWith('news_') && f.endsWith('.txt'))
+                .sort()
+                .reverse();
+            
+            const newsClips = newsFiles.map(f => {
+                const stats = fs.statSync(path.join(NEWS_DIR, f));
+                return {
+                    filename: f,
+                    type: 'news',
+                    size: stats.size,
+                    created: stats.mtime
+                };
+            });
+            
+            clips = [...clips, ...newsClips];
+        }
+        
+        // Sort by created date
+        clips.sort((a, b) => new Date(b.created) - new Date(a.created));
         
         return { clips };
     } catch (error) {
@@ -465,23 +490,30 @@ async function handleHeygenClips() {
 async function handleHeygenGenerate(req) {
     // Handler receives parsed JSON directly (not req object)
     const prompt = req?.prompt;
+    const dimension = req?.dimension || 'landscape'; // portrait, landscape, hd
     
     if (!prompt) {
         return { error: 'prompt is required' };
     }
     
-    const HEYGEN_SCRIPT = '/home/oris/.openclaw/workspace/skills/heygen-video/main.js';
+    // Valid dimensions
+    const validDimensions = ['portrait', 'landscape', 'hd'];
+    const dim = validDimensions.includes(dimension) ? dimension : 'landscape';
+    
+    // Use heygen-simple-video (cheaper, faster) with dimension support
+    const HEYGEN_SCRIPT = '/home/oris/.openclaw/workspace/skills/heygen-simple-video/main.js';
     
     try {
         // Run HeyGen script in background and return immediately
-        // The user can poll /api/heygen/clips to check status
-        const command = `node ${HEYGEN_SCRIPT} "${prompt.replace(/"/g, '\\"')}" --json > /tmp/heygen_generate.log 2>&1 &`;
+        // Use --json flag and run in background
+        const command = `node ${HEYGEN_SCRIPT} --dimension ${dim} "${prompt.replace(/"/g, '\\"')}" --json > /tmp/heygen_generate.log 2>&1 &`;
         exec(command);
         
         return { 
             ok: true, 
-            message: 'Video generation started. Poll /api/heygen/clips to check status.',
-            prompt: prompt
+            message: `Video generation started (${dim}). Poll /api/heygen/clips for status.`,
+            prompt: prompt,
+            dimension: dim
         };
     } catch (error) {
         console.error('HeyGen generate error:', error);
