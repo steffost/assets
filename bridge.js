@@ -418,17 +418,35 @@ async function handleWorldBuilderStatus() {
             state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf-8'));
         }
         
-        // List zones and their files
+        // List zones and their files (rooms in subfolders)
         const zones = ZONES.map(zone => {
             const zonePath = path.join(STAGING_DIR, zone.id);
             let files = [];
             if (fs.existsSync(zonePath)) {
-                files = fs.readdirSync(zonePath)
-                    .filter(f => f.endsWith('.txt'))
-                    .map(f => {
-                        const stat = fs.statSync(path.join(zonePath, f));
-                        return { name: f, time: formatTime(stat.mtime) };
-                    });
+                const entries = fs.readdirSync(zonePath, { withFileTypes: true });
+                entries.forEach(entry => {
+                    if (entry.isDirectory()) {
+                        // Room folder - look for description.txt inside
+                        const roomPath = path.join(zonePath, entry.name);
+                        const descPath = path.join(roomPath, 'description.txt');
+                        if (fs.existsSync(descPath)) {
+                            const stat = fs.statSync(descPath);
+                            files.push({ 
+                                name: entry.name + '.txt',  // Keep .txt suffix for compatibility
+                                folder: entry.name,  // The actual folder name
+                                time: formatTime(stat.mtime) 
+                            });
+                        }
+                    } else if (entry.name.endsWith('.txt')) {
+                        // Old format - single txt file in root
+                        const stat = fs.statSync(path.join(zonePath, entry.name));
+                        files.push({ 
+                            name: entry.name, 
+                            folder: entry.name.replace('.txt', ''),
+                            time: formatTime(stat.mtime) 
+                        });
+                    }
+                });
             }
             return {
                 id: zone.id,
