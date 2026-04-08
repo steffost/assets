@@ -43,6 +43,7 @@ const routes = {
     'POST /api/automation': handleAutomation,
     'POST /api/world-builder': handleWorldBuilder,
     'GET /api/world-builder/status': handleWorldBuilderStatus,
+    'GET /api/worldbuilder/image': handleWorldBuilderImage,
     'GET /api/heygen/clips': handleHeygenClips,
     'POST /api/heygen/generate': handleHeygenGenerate,
     'GET /api/health': () => ({ ok: true })
@@ -78,9 +79,26 @@ const server = http.createServer(async (req, res) => {
         req.on('data', chunk => body += chunk);
         req.on('end', async () => {
             try {
-                const result = await handler(body ? JSON.parse(body) : {});
-                res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify(result));
+                let params = {};
+                if (body) {
+                    params = JSON.parse(body);
+                } else if (method === 'GET') {
+                    // Parse query parameters for GET requests
+                    const url = new URL(req.url, `http://localhost:${PORT}`);
+                    url.searchParams.forEach((value, key) => {
+                        params[key] = value;
+                    });
+                }
+                const result = await handler(params);
+                
+                // Special handling for image responses
+                if (result && result.contentType && result.data) {
+                    res.writeHead(200, { 'Content-Type': result.contentType });
+                    res.end(Buffer.from(result.data, 'base64'));
+                } else {
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify(result));
+                }
             } catch (error) {
                 console.error('Handler error:', error);
                 res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -553,6 +571,39 @@ function formatTime(date) {
     if (minutes < 60) return `${minutes}m ago`;
     if (hours < 24) return `${hours}h ago`;
     return `${days}d ago`;
+}
+
+// Serve static image files from ombra_world staging
+async function handleWorldBuilderImage(req) {
+    const { zone, filename } = req || {};
+    
+    if (!zone || !filename) {
+        return { error: 'Missing zone or filename parameter' };
+    }
+    
+    const filePath = path.join('/home/oris/.openclaw/workspace/ombra_world/staging', zone, filename);
+    
+    if (!fs.existsSync(filePath)) {
+        return { error: 'File not found' };
+    }
+    
+    const ext = path.extname(filename).toLowerCase();
+    const contentTypes = {
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.gif': 'image/gif',
+        '.txt': 'text/plain'
+    };
+    
+    const contentType = contentTypes[ext] || 'application/octet-stream';
+    const data = fs.readFileSync(filePath);
+    
+    return {
+        contentType,
+        data: data.toString('base64'),
+        size: data.length
+    };
 }
 
 // Graceful shutdown

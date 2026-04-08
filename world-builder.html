@@ -497,12 +497,13 @@
                         document.getElementById('resultZone').textContent = zone.replace('_', ' ').replace('the_pearl', 'The Pearl');
                         document.getElementById('resultDescription').textContent = lastTask.details || lastTask.brief || 'Room description available in history.';
                         
-                        // Try to find the image
+                        // Try to find the image via bridge.js API
                         const zoneData = data.zones?.find(z => z.id === zone);
                         if (zoneData && zoneData.files.length > 0) {
                             const latestFile = zoneData.files.sort((a,b) => b.time.localeCompare(a.time))[0];
-                            // Image path would be based on filename
-                            const imgPath = `/ombra_world/staging/${zone}/${latestFile.name.replace('.txt', '')}/image.png`;
+                            const folderName = latestFile.name.replace('.txt', '');
+                            // Use bridge.js API to serve the image
+                            const imgPath = `${BRIDGE_URL}/api/worldbuilder/image?zone=${zone}&filename=${folderName}/image.png`;
                             document.getElementById('resultImage').src = imgPath;
                         }
                         
@@ -542,7 +543,28 @@
                     return;
                 }
                 
-                if (!data.rooms || data.rooms.length === 0) {
+                // Collect all rooms from all zones
+                const allRooms = [];
+                if (data.zones) {
+                    data.zones.forEach(zone => {
+                        if (zone.files && zone.files.length > 0) {
+                            zone.files.forEach(file => {
+                                if (file.name.endsWith('.txt')) {
+                                    const roomName = file.name.replace('.txt', '').replace(/_/g, ' ').replace(/room_/i, '').replace(/section_/i, '');
+                                    allRooms.push({
+                                        name: roomName,
+                                        zone: zone.name,
+                                        zoneId: zone.id,
+                                        folder: file.name.replace('.txt', ''),
+                                        time: file.time
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+                
+                if (allRooms.length === 0) {
                     container.innerHTML = `
                         <div class="empty">
                             <p>No rooms built yet</p>
@@ -552,14 +574,14 @@
                     return;
                 }
                 
-                container.innerHTML = data.rooms.slice(0, 10).map(room => `
+                container.innerHTML = allRooms.slice(0, 10).map(room => `
                     <div class="history-item">
                         <div class="history-info">
                             <h4>${room.name}</h4>
-                            <p>${room.zone} | ${room.type || 'room'}</p>
+                            <p>${room.zone} | ${room.time}</p>
                         </div>
                         <div class="history-actions">
-                            ${room.description ? `<a href="#" onclick="viewRoom('${room.folder}')">👁 View</a>` : ''}
+                            <a href="#" onclick="viewRoom('${room.zoneId}', '${room.folder}'); return false;">👁 View</a>
                         </div>
                     </div>
                 `).join('');
@@ -569,9 +591,10 @@
             }
         }
         
-        function viewRoom(folder) {
-            // Open the room folder or show details
-            window.open(`/heygen_output/mara_rox_news/${folder}/`, '_blank');
+        function viewRoom(zone, folder) {
+            // Open the room folder via bridge.js image endpoint
+            const imgUrl = `${BRIDGE_URL}/api/worldbuilder/image?zone=${zone}&filename=${folder}/image.png`;
+            window.open(imgUrl, '_blank');
         }
         
         function sleep(ms) {
