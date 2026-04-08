@@ -381,12 +381,14 @@
     </div>
     
     <script>
-        // Detect local IP where bridge is running (fallback for local testing)
+        // Detect local IP where bridge is running
+        // For local access: http://localhost:8080/mara-rox.html → bridge at localhost:3000
+        // For network/Tailscale access: http://<any-IP>:8080/mara-rox.html → bridge at <same-IP>:3000
         const isLocalhost = window.location.hostname === 'localhost' || 
                           window.location.hostname === '127.0.0.1';
         const BRIDGE_URL = isLocalhost 
             ? 'http://localhost:3000' 
-            : 'http://192.168.1.137:3000'; // Use fixed local IP for other origins
+            : `http://${window.location.hostname}:3000`;
         
         // Load clips on page load
         document.addEventListener('DOMContentLoaded', loadClips);
