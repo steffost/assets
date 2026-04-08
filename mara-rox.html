@@ -381,9 +381,12 @@
     </div>
     
     <script>
-        const BRIDGE_URL = window.location.hostname === 'localhost' 
+        // Detect local IP where bridge is running (fallback for local testing)
+        const isLocalhost = window.location.hostname === 'localhost' || 
+                          window.location.hostname === '127.0.0.1';
+        const BRIDGE_URL = isLocalhost 
             ? 'http://localhost:3000' 
-            : '';
+            : 'http://192.168.1.137:3000'; // Use fixed local IP for other origins
         
         // Load clips on page load
         document.addEventListener('DOMContentLoaded', loadClips);
