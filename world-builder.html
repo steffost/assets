@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Builder | Ombra Prime</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-dark: #050608;
+            --bg-card: #0a0c0f;
+            --cyan: #00f7ff;
+            --gold: #ff9d00;
+            --text: #e0e0e0;
+            --text-dim: #888;
+            --green: #00ff88;
+            --red: #ff3333;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            background: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--cyan), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            color: var(--cyan);
+            text-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+        
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+        
+        .back-link {
+            color: var(--cyan);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-left: auto;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .card h2 {
+            color: var(--cyan);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        .zone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .zone-btn {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            color: var(--text);
+            padding: 15px 10px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .zone-btn:hover {
+            border-color: var(--cyan);
+            background: rgba(0, 247, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .zone-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .zone-btn .emoji {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .zone-btn .zone-name {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+        
+        /* Result Area */
+        .result-area {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .result-area.show {
+            display: block;
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .result-header h3 {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+        
+        .result-zone {
+            color: var(--cyan);
+            font-size: 0.85rem;
+        }
+        
+        .result-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .result-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .result-image {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 300px;
+        }
+        
+        .result-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .result-text {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .result-text h4 {
+            color: var(--cyan);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .result-text p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text);
+            white-space: pre-wrap;
+        }
+        
+        /* Log Area */
+        .log-area {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 250px;
+            overflow-y: auto;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+        
+        .log-entry {
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+        
+        .log-entry .time {
+            color: var(--text-dim);
+            margin-right: 10px;
+        }
+        
+        .log-entry.success { color: var(--green); }
+        .log-entry.error { color: var(--red); }
+        .log-entry.info { color: var(--cyan); }
+        .log-entry.warning { color: var(--gold); }
+        
+        /* History */
+        .history-list {
+            margin-top: 15px;
+        }
+        
+        .history-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .history-item:hover {
+            border-color: var(--cyan);
+        }
+        
+        .history-info h4 {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+        
+        .history-info p {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+        
+        .history-actions a {
+            background: rgba(0, 247, 255, 0.1);
+            color: var(--cyan);
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.75rem;
+        }
+        
+        .history-actions a:hover {
+            background: var(--cyan);
+            color: #000;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-dim);
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-dim);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .generating {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--cyan), #00c4cc);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 247, 255, 0.4);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🏗️</div>
+            <div>
+                <h1>World Builder</h1>
+                <p class="subtitle">Build rooms in the Ombra Prime ship</p>
+            </div>
+            <a href="controlpanel.html" class="back-link">← Back to Control Center</a>
+        </header>
+        
+        <!-- Zone Selection -->
+        <div class="card">
+            <h2>🌍 Select Zone to Build</h2>
+            <div class="zone-grid">
+                <button class="zone-btn" onclick="buildInZone('the_pearl')">
+                    <span class="emoji">🌍</span>
+                    <span class="zone-name">The Pearl</span>
+                </button>
+                <button class="zone-btn" onclick="buildInZone('the_city')">
+                    <span class="emoji">🏙️</span>
+                    <span class="zone-name">The City</span>
+                </button>
+                <button class="zone-btn" onclick="buildInZone('industrial_domain')">
+                    <span class="emoji">🏭</span>
+                    <span class="zone-name">Industry</span>
+                </button>
+                <button class="zone-btn" onclick="buildInZone('research_spires')">
+                    <span class="emoji">🔬</span>
+                    <span class="zone-name">Research</span>
+                </button>
+                <button class="zone-btn" onclick="buildInZone('the_chamber')">
+                    <span class="emoji">⚙️</span>
+                    <span class="zone-name">Chamber</span>
+                </button>
+                <button class="zone-btn" onclick="buildInZone('hangar')">
+                    <span class="emoji">🚗</span>
+                    <span class="zone-name">Hangar</span>
+                </button>
+                <button class="zone-btn" onclick="buildInZone('ez_aqua_core')">
+                    <span class="emoji">🧪</span>
+                    <span class="zone-name">EZ Aqua</span>
+                </button>
+            </div>
+            <div id="buildStatus" style="color: var(--text-dim); font-size: 0.85rem;"></div>
+        </div>
+        
+        <!-- Result Area -->
+        <div class="card result-area" id="resultArea">
+            <div class="result-header">
+                <h3>✨ Last Built Room</h3>
+                <span class="result-zone" id="resultZone"></span>
+            </div>
+            <div class="result-content">
+                <div class="result-image">
+                    <img id="resultImage" src="" alt="Room render">
+                </div>
+                <div class="result-text">
+                    <h4>📝 Room Description</h4>
+                    <p id="resultDescription">Loading...</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Log Area -->
+        <div class="card">
+            <h2>📟 Build Log</h2>
+            <div class="log-area" id="logArea">
+                <div class="log-entry info"><span class="time">[--:--:--]</span> System ready. Select a zone to start building...</div>
+            </div>
+        </div>
+        
+        <!-- History -->
+        <div class="card">
+            <h2>📜 Build History</h2>
+            <div id="historyContainer">
+                <div class="loading">Loading history...</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Detect local IP where bridge is running
+        const isLocalhost = window.location.hostname === 'localhost' || 
+                          window.location.hostname === '127.0.0.1';
+        const BRIDGE_URL = isLocalhost 
+            ? 'http://localhost:3000' 
+            : `http://${window.location.hostname}:3000`;
+        
+        // Load history on page load
+        document.addEventListener('DOMContentLoaded', loadHistory);
+        
+        function log(message, type = 'info') {
+            const container = document.getElementById('logArea');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            const time = new Date().toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            entry.innerHTML = `<span class="time">[${time}]</span> ${message}`;
+            container.appendChild(entry);
+            container.scrollTop = container.scrollHeight;
+        }
+        
+        async function buildInZone(zone) {
+            const statusEl = document.getElementById('buildStatus');
+            const resultArea = document.getElementById('resultArea');
+            
+            log(`Starting build in ${zone}...`, 'info');
+            
+            // Disable all buttons
+            document.querySelectorAll('.zone-btn').forEach(btn => btn.disabled = true);
+            statusEl.innerHTML = '<span class="generating">Building... please wait.</span>';
+            
+            try {
+                const response = await fetch(`${BRIDGE_URL}/api/worldbuilder`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ zone })
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    log(`Error: ${data.error}`, 'error');
+                    statusEl.innerHTML = '';
+                    document.querySelectorAll('.zone-btn').forEach(btn => btn.disabled = false);
+                    return;
+                }
+                
+                log(`✓ ${data.message || 'Build started'}`, 'success');
+                
+                // Poll for completion
+                await pollBuildStatus(zone);
+                
+            } catch (error) {
+                log(`Failed to start build: ${error.message}`, 'error');
+                statusEl.innerHTML = '';
+                document.querySelectorAll('.zone-btn').forEach(btn => btn.disabled = false);
+            }
+        }
+        
+        async function pollBuildStatus(zone) {
+            const statusEl = document.getElementById('buildStatus');
+            const resultArea = document.getElementById('resultArea');
+            const maxAttempts = 60;
+            let attempts = 0;
+            
+            while (attempts < maxAttempts) {
+                await sleep(5000);
+                attempts++;
+                
+                try {
+                    const response = await fetch(`${BRIDGE_URL}/api/worldbuilder/status`);
+                    const data = await response.json();
+                    
+                    if (data.building === false && data.lastBuilt) {
+                        log(`✓ Room completed: ${data.lastBuilt.name}`, 'success');
+                        
+                        // Show result
+                        const lastRoom = data.lastBuilt;
+                        document.getElementById('resultZone').textContent = lastRoom.zone;
+                        document.getElementById('resultDescription').textContent = lastRoom.description || 'No description available.';
+                        
+                        if (lastRoom.image) {
+                            document.getElementById('resultImage').src = lastRoom.image;
+                        }
+                        
+                        resultArea.classList.add('show');
+                        statusEl.innerHTML = '';
+                        
+                        // Refresh history
+                        loadHistory();
+                        break;
+                    } else if (data.building === true) {
+                        log(`Building... (${attempts}/${maxAttempts})`, 'info');
+                    } else {
+                        log(`Waiting for build... (${attempts}/${maxAttempts})`, 'warning');
+                    }
+                } catch (error) {
+                    log(`Status check error: ${error.message}`, 'warning');
+                }
+                
+                if (attempts >= maxAttempts) {
+                    log(`Build timed out after ${maxAttempts} attempts`, 'error');
+                    statusEl.innerHTML = '';
+                }
+            }
+            
+            document.querySelectorAll('.zone-btn').forEach(btn => btn.disabled = false);
+        }
+        
+        async function loadHistory() {
+            const container = document.getElementById('historyContainer');
+            
+            try {
+                const response = await fetch(`${BRIDGE_URL}/api/worldbuilder/status`);
+                const data = await response.json();
+                
+                if (data.error) {
+                    container.innerHTML = `<div class="empty"><p>Error loading history: ${data.error}</p></div>`;
+                    return;
+                }
+                
+                if (!data.rooms || data.rooms.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty">
+                            <p>No rooms built yet</p>
+                            <p>Select a zone above to start building!</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                container.innerHTML = data.rooms.slice(0, 10).map(room => `
+                    <div class="history-item">
+                        <div class="history-info">
+                            <h4>${room.name}</h4>
+                            <p>${room.zone} | ${room.type || 'room'}</p>
+                        </div>
+                        <div class="history-actions">
+                            ${room.description ? `<a href="#" onclick="viewRoom('${room.folder}')">👁 View</a>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+                
+            } catch (error) {
+                container.innerHTML = `<div class="empty"><p>Failed to load history. Is the bridge server running?</p></div>`;
+            }
+        }
+        
+        function viewRoom(folder) {
+            // Open the room folder or show details
+            window.open(`/heygen_output/mara_rox_news/${folder}/`, '_blank');
+        }
+        
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
+        // Refresh history every 30 seconds
+        setInterval(loadHistory, 30000);
+    </script>
+</body>
+</html>
