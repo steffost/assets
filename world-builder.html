@@ -442,7 +442,7 @@
             statusEl.innerHTML = '<span class="generating">Building... please wait.</span>';
             
             try {
-                const response = await fetch(`${BRIDGE_URL}/api/worldbuilder`, {
+                const response = await fetch(`${BRIDGE_URL}/api/world-builder`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ zone })
