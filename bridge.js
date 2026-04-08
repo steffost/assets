@@ -491,6 +491,7 @@ async function handleHeygenGenerate(req) {
     // Handler receives parsed JSON directly (not req object)
     const prompt = req?.prompt;
     const dimension = req?.dimension || 'landscape'; // portrait, landscape, hd
+    const mode = req?.mode || 'avatar'; // avatar or agent
     
     if (!prompt) {
         return { error: 'prompt is required' };
@@ -500,20 +501,30 @@ async function handleHeygenGenerate(req) {
     const validDimensions = ['portrait', 'landscape', 'hd'];
     const dim = validDimensions.includes(dimension) ? dimension : 'landscape';
     
-    // Use heygen-simple-video (cheaper, faster) with dimension support
-    const HEYGEN_SCRIPT = '/home/oris/.openclaw/workspace/skills/heygen-simple-video/main.js';
+    // Choose script based on mode
+    let HEYGEN_SCRIPT;
+    let command;
+    
+    if (mode === 'agent') {
+        // heygen-video (Agent mode) - doesn't support --dimension
+        HEYGEN_SCRIPT = '/home/oris/.openclaw/workspace/skills/heygen-video/main.js';
+        command = `node ${HEYGEN_SCRIPT} "${prompt.replace(/"/g, '\\"')}" --json > /tmp/heygen_generate.log 2>&1 &`;
+    } else {
+        // heygen-simple-video (Avatar mode) - supports --dimension
+        HEYGEN_SCRIPT = '/home/oris/.openclaw/workspace/skills/heygen-simple-video/main.js';
+        command = `node ${HEYGEN_SCRIPT} --dimension ${dim} "${prompt.replace(/"/g, '\\"')}" --json > /tmp/heygen_generate.log 2>&1 &`;
+    }
     
     try {
         // Run HeyGen script in background and return immediately
-        // Use --json flag and run in background
-        const command = `node ${HEYGEN_SCRIPT} --dimension ${dim} "${prompt.replace(/"/g, '\\"')}" --json > /tmp/heygen_generate.log 2>&1 &`;
         exec(command);
         
         return { 
             ok: true, 
-            message: `Video generation started (${dim}). Poll /api/heygen/clips for status.`,
+            message: `Video generation started (${mode}, ${dim}). Poll /api/heygen/clips for status.`,
             prompt: prompt,
-            dimension: dim
+            dimension: dim,
+            mode: mode
         };
     } catch (error) {
         console.error('HeyGen generate error:', error);
