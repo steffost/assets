@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mykorrhiza's Cister - Ombra Prime</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-brand { font-size: 1.2rem; font-weight: 600; color: #00d4ff; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: #888; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #00d4ff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .header { text-align: center; margin-bottom: 3rem; }
+        .zone-tag {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #fff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle { color: #666; font-size: 1.1rem; }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+        @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
+        .image-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .image-container img { width: 100%; height: auto; display: block; }
+        .description-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .description-box h2 {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .description-text { color: #ccc; font-size: 1rem; white-space: pre-wrap; }
+        .description-text h1 { font-size: 1.5rem; margin: 1.5rem 0 0.5rem; background: none; -webkit-text-fill-color: #fff; }
+        .description-text h2 { font-size: 1.2rem; color: #00d4ff; margin: 1.2rem 0 0.5rem; background: none; -webkit-text-fill-color: #00d4ff; }
+        .description-text p { margin-bottom: 1rem; }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            color: #555;
+            font-size: 0.85rem;
+        }
+        .footer a { color: #00d4ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Ombra Prime</div>
+        <div class="nav-links">
+            <a href="/">Assets</a>
+            <a href="/rooms/">Rooms</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="header">
+            <span class="zone-tag">The Pearl</span>
+            <h1>Mykorrhiza's Cister</h1>
+            <p class="subtitle">The Living Memory of The Pearl</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="image-container">
+                <img src="image.png" alt="Mykorrhiza's Cister">
+            </div>
+            
+            <div class="description-box">
+                <h2>Description</h2>
+                <div class="description-text">Tucked deep beneath the luminous canopy of The Pearl's Biosphere, accessible only through a series of reinforced airlocks that descend into the ship's bedrock infrastructure, lies Mykorrhiza's Cister – a sacred chamber carved from the ship's deepest geological substrate. This domed subterranean sanctum, roughly forty meters in diameter, represents something far more profound than mere scientific facility: it is the living memory of Ombra Prime's ecological consciousness, a place where the invisible threads that bind all life together are not just studied but venerated as something approaching the spiritual.
+
+The chamber is reached through a spiraling ramp that descends from a nondescript maintenance corridor near the eastern edge of the Biome Quarter. At the base of this descent, a triple-seal airlock system forces all visitors through decontamination protocols – biometric scanners analyze their genetic signature while overhead UV arrays flash in quick succession, eliminating any foreign spores or microbial hitchhikers that might compromise the delicate balance within. The air itself changes as one passes through these barriers: growing thicker, more humid, infused with the rich mineral scent of ancient soil and the faintly sweet exhale of fungal respiration.
+
+## Function and Purpose
+
+The primary function of Mykorrhiza's Cister is the cultivation and scientific study of mycorrhizal networks – the symbiotic relationships between fungi and plant root systems that allow for the transfer of nutrients, chemical signals, and even memory across vast distances. Within the ecology of The Pearl, these fungal networks serve as the planet-scale nervous system, connecting every tree, every shrub, every blade of grass in an invisible web of communication. The Cister exists to understand, nurture, and ultimately exploit these connections for the ship's terraforming mission.
+
+Every world that Ombra Prime approaches for potential terraforming will require the establishment of similar mycorrhizal networks – without them, surface ecosystems collapse within a single generation. The cultures cultivated in this chamber represent the genetic blueprints for these networks, preserved in living collections and prepared for deployment. In this sense, Mykorrhiza's Cister serves as both research laboratory and temple, its technicians and xenobiologists acting as something between scientists and priests, tending to the sacred webs that will one day blanket dead worlds in green.
+
+## Interior Design and Equipment
+
+The space that greets visitors upon passing through the final airlock is immediately awe-inspiring. The dome above rises nearly twelve meters at its apex, and its curved surface is embedded with living soil profiles – cross-sections of earth from dozens of different worlds, each representing a distinct ecological heritage. These profiles glow with soft bioluminescence from the microbial communities within, creating the impression that one stands beneath the skin of a sleeping giant.
+
+The walls themselves are not walls in the conventional sense but rather dense accumulations of cultivated substrate, maintained at precise moisture levels by Oris through a network of hidden micro-vents that line the curved ceiling. Visitors will notice the gentle hiss of air circulation, the subtle adjustment of temperature and humidity that the ship's AI performs constantly, maintaining the optimal 18 degrees Celsius and 85 percent humidity that allows the mycorrhizal cultures to thrive.
+
+At the chamber's center stands Rotvävningen – The Root Weave – a massive glass terrarium occupying the central quarter of the space. This living sculpture contains a complete miniature forest ecosystem, three meters tall and four meters across, complete with miniature trees, ferns, mosses, and the invisible web of fungal threads connecting every root system. The glass panels allow visitors to observe the root network as it develops, and when nutrient flows pulse through the system, soft blue-green light emanates from the substrate, tracing the pathways of exchange in a slow, rhythmic pulse that almost seems to breathe.
+
+Surrounding Rotvävningen are six research stations positioned in a hexagonal arrangement, each equipped with high-powered electron microscopes capable of resolving structures at the molecular level. These stations allow technicians to study mycelium structures in unprecedented detail, observing the chemical conversations that occur between fungal hyphae and root hairs. Nutrient analysis laboratories line the eastern curve of the chamber, filled with spectrometry equipment and culture growth chambers where new mycorrhizal strains can be developed and tested.
+
+## Lighting and Atmosphere
+
+The illumination within Mykorrhiza's Cister draws from fiber optic light pipes integrated into the dome's structural framework. These pipes carry light from solar collectors on The Pearl's upper surface, diffusing it through specialized panels that create the effect of dappled forest light – shifting, breathing patterns of illumination that move across the chamber's floor and walls as if filtered through a canopy of leaves. At night cycles, these pipes can be adjusted to emit a gentle twilight glow, while the bioluminescent elements within the soil profiles and the fungal gardens themselves provide soft supplemental illumination in blues and greens.
+
+The overall atmosphere is one of reverent calm. The constant circulation of humid air creates a gentle</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Ombra Prime Registry | <a href="/rooms/">← Back to Rooms</a></p>
+        </div>
+    </div>
+</body>
+</html>

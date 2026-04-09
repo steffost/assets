@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms - Ombra Prime</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #00d4ff;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #00d4ff;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #fff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .zone-section {
+            margin-bottom: 3rem;
+        }
+        
+        .zone-title {
+            color: #00d4ff;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .room-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+        
+        .room-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .room-card-content {
+            padding: 1.5rem;
+        }
+        
+        .room-card h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .room-card p {
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .empty-zone {
+            color: #555;
+            font-style: italic;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            color: #555;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Ombra Prime</div>
+        <div class="nav-links">
+            <a href="/">Assets</a>
+            <a href="/rooms/" class="active">Rooms</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="header">
+            <h1>World Builder - Rooms</h1>
+            <p class="subtitle">Spaces and locations built by the World Builder Agent</p>
+        </div>
+        
+        <!-- The Pearl -->
+        <div class="zone-section">
+            <h2 class="zone-title">The Pearl - Biosphere</h2>
+            <div class="room-grid">
+                <a href="the_pearl/section_mykorrhizas_cister/presentation.html" class="room-card">
+                    <img src="the_pearl/section_mykorrhizas_cister/image.png" alt="Mykorrhiza's Cister">
+                    <div class="room-card-content">
+                        <h3>Mykorrhiza's Cister</h3>
+                        <p>The Living Memory of The Pearl - A sacred chamber carved from the ship's bedrock and lined with living fungal walls...</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- More zones will be added as rooms are generated -->
+        
+    </div>
+    
+    <div class="footer">
+        <p>Ombra Prime Registry | Generated by World Builder Agent</p>
+    </div>
+</body>
+</html>
