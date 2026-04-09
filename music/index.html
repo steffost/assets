@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ombra Prime // Music Registry</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00f7ff;
+            --gold: #ff9d00;
+            --dark-bg: #050608;
+            --panel-bg: #0d0f14;
+            --panel-border: #1a2030;
+            --text-primary: #e0e6ed;
+            --text-secondary: #6a7a8a;
+            --glow-cyan: 0 0 20px rgba(0, 247, 255, 0.4);
+            --purple: #b400ff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .header {
+            background: linear-gradient(180deg, #0a0d12 0%, var(--dark-bg) 100%);
+            border-bottom: 1px solid var(--panel-border);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--purple), transparent);
+        }
+        .corner { position: absolute; width: 20px; height: 20px; border: 1px solid rgba(180, 0, 255, 0.3); }
+        .corner.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .corner.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+        .tag {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            color: var(--purple);
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--purple);
+            text-shadow: 0 0 30px rgba(180, 0, 255, 0.5);
+            letter-spacing: 5px;
+        }
+        .subtitle {
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            border-bottom: 1px solid var(--panel-border);
+        }
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            padding: 8px 16px;
+            border: 1px solid var(--panel-border);
+            transition: all 0.3s;
+        }
+        .nav a:hover {
+            color: var(--cyan);
+            border-color: var(--cyan);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .music-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            padding: 25px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .music-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 20px;
+            right: 20px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--purple), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .music-card:hover::before { opacity: 1; }
+        .music-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(180, 0, 255, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        .music-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--purple);
+        }
+        .music-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .music-player {
+            width: 100%;
+            margin: 15px 0;
+            filter: invert(1) hue-rotate(180deg);
+        }
+        .music-meta {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+        .footer {
+            text-align: center;
+            padding: 60px 40px;
+            border-top: 1px solid var(--panel-border);
+            margin-top: 60px;
+        }
+        .footer-text {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--text-secondary);
+            opacity: 0.4;
+            text-transform: uppercase;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 80px 40px;
+            color: var(--text-secondary);
+        }
+        .empty-state-icon { font-size: 4rem; margin-bottom: 20px; opacity: 0.3; }
+        .empty-state-text { font-size: 1rem; margin-bottom: 10px; }
+        .empty-state-sub { font-size: 0.8rem; opacity: 0.6; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="tag">OMBRA PRIME // REGISTRY</div>
+        <h1>♪ MUSIC</h1>
+        <div class="subtitle">Cinematic soundscapes and ambient compositions</div>
+    </header>
+    
+    <nav class="nav">
+        <a href="hub.html">← HUB</a>
+        <a href="../">ASSETS</a>
+        <a href="../rooms/">ROOMS</a>
+    </nav>
+    
+    <div class="container">
+        <div class="music-grid" id="musicGrid">
+            <div class="empty-state">
+                <div class="empty-state-icon">♪</div>
+                <div class="empty-state-text">No music registered yet</div>
+                <div class="empty-state-sub">Music generated via Control Panel will appear here</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-text">Ombra Prime Registry // Audio Archive</div>
+    </footer>
+    
+    <script>
+        // Load music from bridge API
+        const BRIDGE_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000' 
+            : 'http://' + window.location.hostname + ':3000';
+        
+        async function loadMusic() {
+            try {
+                const response = await fetch(BRIDGE_URL + '/api/music/clips');
+                const data = await response.json();
+                
+                if (data.clips && data.clips.length > 0) {
+                    const grid = document.getElementById('musicGrid');
+                    grid.innerHTML = data.clips.map((clip, i) => '
+                        <div class="music-card">
+                            <div class="music-icon">♫</div>
+                            <div class="music-title">' + clip.name + '</div>
+                            <audio class="music-player" controls>
+                                <source src="' + BRIDGE_URL + clip.url + '" type="audio/mpeg">
+                            </audio>
+                            <div class="music-meta">' + new Date(clip.date).toLocaleDateString('en-US', { 
+                                year: 'numeric', month: 'short', day: 'numeric' 
+                            }) + '</div>
+                        </div>
+                    ').join('');
+                }
+            } catch (err) {
+                console.log('Could not load music:', err.message);
+            }
+        }
+        
+        loadMusic();
+    </script>
+</body>
+</html>
