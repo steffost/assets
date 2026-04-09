@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rooms - Ombra Prime</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
             color: #e0e0e0;
@@ -18,7 +13,6 @@
             min-height: 100vh;
             line-height: 1.6;
         }
-        
         .navbar {
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
@@ -31,40 +25,12 @@
             top: 0;
             z-index: 100;
         }
-        
-        .nav-brand {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #00d4ff;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: #888;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #00d4ff;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
+        .nav-brand { font-size: 1.2rem; font-weight: 600; color: #00d4ff; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: #888; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #00d4ff; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .header { text-align: center; margin-bottom: 3rem; }
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
@@ -73,30 +39,11 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .subtitle {
-            color: #666;
-            font-size: 1.1rem;
-        }
-        
-        .zone-section {
-            margin-bottom: 3rem;
-        }
-        
-        .zone-title {
-            color: #00d4ff;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
-        }
-        
-        .room-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-        
+        .subtitle { color: #666; font-size: 1.1rem; }
+        .zone-section { margin-bottom: 3rem; }
+        .zone-title { color: #00d4ff; font-size: 1.3rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0, 212, 255, 0.3); }
+        .zone-title.industrial { color: #ff9d00; border-bottom-color: rgba(255, 159, 0, 0.3); }
+        .room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; }
         .room-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -107,56 +54,12 @@
             color: inherit;
             display: block;
         }
-        
-        .room-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 212, 255, 0.5);
-        }
-        
-        .room-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .room-card-content {
-            padding: 1.5rem;
-        }
-        
-        .room-card h3 {
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .room-card p {
-            color: #888;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        .empty-zone {
-            color: #555;
-            font-style: italic;
-            padding: 2rem;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 3rem;
-            color: #555;
-            font-size: 0.85rem;
-        }
+        .room-card:hover { transform: translateY(-5px); border-color: rgba(0, 212, 255, 0.5); }
+        .room-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .room-card-content { padding: 1.5rem; }
+        .room-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .room-card p { color: #888; font-size: 0.9rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 3rem; color: #555; font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -188,7 +91,33 @@
             </div>
         </div>
         
-        <!-- More zones will be added as rooms are generated -->
+        <!-- The City -->
+        <div class="zone-section">
+            <h2 class="zone-title">The City - Metropolis</h2>
+            <div class="room-grid">
+                <a href="the_city/room_the_echoes_gallery/presentation.html" class="room-card">
+                    <img src="the_city/room_the_echoes_gallery/image.png" alt="The Echoes Gallery">
+                    <div class="room-card-content">
+                        <h3>The Echoes Gallery</h3>
+                        <p>The Living Memorial and Interactive Archive - Ombra Prime's cathedral of memory embedded within the ship's metallic flesh...</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Industrial Domain -->
+        <div class="zone-section">
+            <h2 class="zone-title industrial">Industrial Domain - Oris</h2>
+            <div class="room-grid">
+                <a href="industrial_domain/room_catalyst_synthesis_chamber/presentation.html" class="room-card">
+                    <img src="industrial_domain/room_catalyst_synthesis_chamber/image.png" alt="Catalyst Synthesis Chamber">
+                    <div class="room-card-content">
+                        <h3>Catalyst Synthesis Chamber</h3>
+                        <p>The Forge of Planetary Transformation - A cavernous hall that refines raw planetary catalysts into atmospheric compounds...</p>
+                    </div>
+                </a>
+            </div>
+        </div>
         
     </div>
     

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Echoes Gallery - Ombra Prime</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-brand { font-size: 1.2rem; font-weight: 600; color: #00d4ff; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: #888; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #00d4ff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .header { text-align: center; margin-bottom: 3rem; }
+        .zone-tag {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #fff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle { color: #666; font-size: 1.1rem; }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+        @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
+        .image-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .image-container img { width: 100%; height: auto; display: block; }
+        .description-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .description-box h2 {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .description-text { color: #ccc; font-size: 1rem; white-space: pre-wrap; }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            color: #555;
+            font-size: 0.85rem;
+        }
+        .footer a { color: #00d4ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Ombra Prime</div>
+        <div class="nav-links">
+            <a href="/">Assets</a>
+            <a href="/rooms/">Rooms</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="header">
+            <span class="zone-tag">The City</span>
+            <h1>The Echoes Gallery</h1>
+            <p class="subtitle">The Living Memorial and Interactive Archive</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="image-container">
+                <img src="image.png" alt="The Echoes Gallery">
+            </div>
+            
+            <div class="description-box">
+                <h2>Description</h2>
+                <div class="description-text">The Echoes Gallery rises three stories tall in the heart of The City zone, tucked against the eastern curve of The Commons Atrium like a cathedral of memory embedded within the ship's metallic flesh. Its location is deliberate—visible from the main promenade yet separated by an archway of brushed tungsten that signals transition from commerce to reverence. The gallery occupies what was originally designed as a cargo bay, but engineers redesigned the space after the third successful terraformation, transforming sterile storage into something far more sacred.
+
+The chamber serves as Ombra Prime's living memorial and interactive archive, the emotional nucleus where the ship's 847-year mission to resurrect dead worlds is given physical form and narrative weight. Every colonist who has ever breathed life into a barren planet, every scientist who died synthesizing The Breather compounds, every crew member who fell to hull breaches or system failures—their names are etched into titanium panels that climb the walls in orderly columns, each letter filled with luminescent pigment that catches the light.
+
+The central feature dominates the space: a massive holographic globe, forty meters in diameter, suspended from reinforced transparisteel panels that curve upward like the ribs of some vast organic creature. This globe projects real-time telemetry from every active terraforming operation across colonized worlds—atmospheric pressure readings, biodiversity indices, population growth curves, and the shifting colors of recovering ecosystems.
+
+The gallery's interior blends technological precision with ceremonial gravitas. Along the perimeter, climate-controlled display cases hold physical artifacts from key missions—a vial of the original Breather catalyst compound, a fragment of petrified forest from Kepler-442b, a child's drawing recovered from the wreckage of the colony ship Horizon's Dream. Interactive terminals allow visitors to drill deeper into the data streams, pulling up personal journals, mission logs, and video testimonials from colonists.
+
+A small chapel alcove branches off from the main chamber, its entrance marked by an arch of obsidian stone imported from the moon Io-7. Inside, curved obsidian benches face a single window of polarized glass through which a precisely focused beam of artificial starlight simulates Earth's sun.</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Ombra Prime Registry | <a href="/rooms/">← Back to Rooms</a></p>
+        </div>
+    </div>
+</body>
+</html>
