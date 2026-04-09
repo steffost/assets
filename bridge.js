@@ -661,49 +661,35 @@ async function handleMusicClips() {
 }
 
 async function handleMusicGenerate(req) {
-    const { prompt, is_instrumental, lyrics } = req || {};
+    const { prompt, title, is_instrumental, lyrics } = req || {};
     
     if (!prompt) {
         return { error: 'Missing prompt parameter' };
     }
     
-    console.log('[MUSIC] Generating:', prompt);
+    console.log('[MUSIC] Generating:', prompt, title ? `(title: ${title})` : '');
     
     // Build command
     let cmd = `node "${MUSIC_SKILL}" "${prompt.replace(/"/g, '\\"')}"`;
+    if (title) {
+        cmd += ` --title "${title.replace(/"/g, '\\"')}"`;
+    }
     if (!is_instrumental && lyrics) {
         cmd += ` --lyrics "${lyrics.replace(/"/g, '\\"')}"`;
     }
     
-    // Spawn generation (non-blocking)
+    // Spawn generation (non-blocking) - auto-deploy is now in the music skill itself
     exec(cmd, { cwd: '/home/oris/assets' }, (err, stdout, stderr) => {
         if (err) {
             console.error('[MUSIC] Generation failed:', err.message);
         } else {
-            console.log('[MUSIC] Generation complete - deploying to GitHub...');
-            // Copy new music files to assets/music and deploy
-            try {
-                const outputDir = '/home/oris/.openclaw/workspace/music_output';
-                const assetsMusicDir = '/home/oris/assets/music';
-                const files = fs.readdirSync(outputDir).filter(f => f.endsWith('.mp3')).sort().reverse();
-                if (files.length > 0) {
-                    const latestFile = files[0];
-                    const src = path.join(outputDir, latestFile);
-                    const dst = path.join(assetsMusicDir, latestFile);
-                    fs.copyFileSync(src, dst);
-                    console.log('[MUSIC] Copied', latestFile, 'to assets');
-                }
-                // Deploy to GitHub
-                exec('cd /home/oris/assets && git add music/ && git commit -m "Add music $(date +%Y-%m-%d\ %H:%M)" && git push 2>/dev/null &');
-            } catch (deployErr) {
-                console.error('[MUSIC] Deploy failed:', deployErr.message);
-            }
+            console.log('[MUSIC] Generation script completed');
         }
     });
     
     return { 
         id: Date.now().toString(),
-        message: 'Music generation started. Will deploy to GitHub when complete.' 
+        message: 'Music generation started. Check /api/music/clips for the result.' 
     };
 }
 
