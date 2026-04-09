@@ -46,6 +46,9 @@ const routes = {
     'GET /api/worldbuilder/image': handleWorldBuilderImage,
     'GET /api/heygen/clips': handleHeygenClips,
     'POST /api/heygen/generate': handleHeygenGenerate,
+    'GET /api/music/clips': handleMusicClips,
+    'POST /api/music/generate': handleMusicGenerate,
+    'GET /music/:filename': handleMusicFile,
     'GET /api/health': () => ({ ok: true })
 };
 
@@ -619,6 +622,85 @@ async function handleWorldBuilderImage(req) {
     
     return {
         contentType,
+        data: data.toString('base64'),
+        size: data.length
+    };
+}
+
+// ============================================
+// MUSIC HANDLERS
+// ============================================
+
+const MUSIC_OUTPUT_DIR = '/home/oris/.openclaw/workspace/music_output';
+
+const MUSIC_SKILL = '/home/oris/.openclaw/workspace/skills/minimax-music-generator/main.js';
+
+async function handleMusicClips() {
+    // Get list of music files
+    if (!fs.existsSync(MUSIC_OUTPUT_DIR)) {
+        return { clips: [] };
+    }
+    
+    const files = fs.readdirSync(MUSIC_OUTPUT_DIR)
+        .filter(f => f.endsWith('.mp3'))
+        .sort()
+        .reverse()
+        .slice(0, 20);
+    
+    const clips = files.map(f => {
+        const stats = fs.statSync(path.join(MUSIC_OUTPUT_DIR, f));
+        return {
+            name: f.replace('.mp3', '').replace(/_/g, ' '),
+            filename: f,
+            url: '/music/' + f,
+            date: stats.mtime.toISOString()
+        };
+    });
+    
+    return { clips };
+}
+
+async function handleMusicGenerate(req) {
+    const { prompt, is_instrumental, lyrics } = req || {};
+    
+    if (!prompt) {
+        return { error: 'Missing prompt parameter' };
+    }
+    
+    console.log('[MUSIC] Generating:', prompt);
+    
+    // Build command
+    let cmd = `node "${MUSIC_SKILL}" "${prompt.replace(/"/g, '\\"')}"`;
+    if (!is_instrumental && lyrics) {
+        cmd += ` --lyrics "${lyrics.replace(/"/g, '\\"')}"`;
+    }
+    
+    // Spawn generation (non-blocking)
+    exec(cmd, { cwd: '/home/oris/assets' }, (err, stdout, stderr) => {
+        if (err) {
+            console.error('[MUSIC] Generation failed:', err.message);
+        } else {
+            console.log('[MUSIC] Generation complete');
+        }
+    });
+    
+    return { 
+        id: Date.now().toString(),
+        message: 'Music generation started. Check /api/music/clips for the result.' 
+    };
+}
+
+// Serve music files
+async function handleMusicFile(req, filename) {
+    const filePath = path.join(MUSIC_OUTPUT_DIR, filename);
+    
+    if (!fs.existsSync(filePath)) {
+        return { error: 'File not found' };
+    }
+    
+    const data = fs.readFileSync(filePath);
+    return {
+        contentType: 'audio/mpeg',
         data: data.toString('base64'),
         size: data.length
     };
