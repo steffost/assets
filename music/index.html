@@ -22,7 +22,7 @@
             background: var(--dark-bg);
             color: var(--text-primary);
             min-height: 100vh;
-            background-image:
+            background-image: 
                 linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -87,6 +87,15 @@
             border-color: var(--cyan);
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .info-box {
+            background: rgba(180, 0, 255, 0.1);
+            border: 1px solid rgba(180, 0, 255, 0.3);
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .info-box .tag { color: var(--purple); margin-bottom: 10px; }
+        .info-box p { color: var(--text-secondary); font-size: 0.85rem; }
         .music-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -128,7 +137,6 @@
             color: var(--text-primary);
             margin-bottom: 10px;
             letter-spacing: 1px;
-            word-break: break-word;
         }
         .music-player {
             width: 100%;
@@ -163,55 +171,60 @@
         <h1>♪ MUSIC</h1>
         <div class="subtitle">Cinematic soundscapes and ambient compositions</div>
     </header>
-
+    
     <nav class="nav">
         <a href="../hub.html">← HUB</a>
         <a href="../">ASSETS</a>
         <a href="../rooms/">ROOMS</a>
     </nav>
-
+    
     <div class="container">
+        <div class="info-box">
+            <div class="tag">🎹 MUSIC STUDIO</div>
+            <p>Generate new music tracks from the Control Panel.<br>Only visible to you.</p>
+        </div>
+        
         <div class="music-grid">
-
+        
             <div class="music-card">
-                <div class="music-icon">♫</div>
+                <div class="music-icon">🚀</div>
                 <div class="music-title">Ombra Prime Mothership</div>
                 <audio class="music-player" controls>
                     <source src="Ombra_Prime_Mothership.mp3" type="audio/mpeg">
                 </audio>
-                <div class="music-meta">Generated: 2026-04-09</div>
+                <div class="music-meta">Ambient // Cinematic // Expansive</div>
             </div>
-
+        
             <div class="music-card">
-                <div class="music-icon">♫</div>
+                <div class="music-icon">🌊</div>
                 <div class="music-title">Ambient Soundscape</div>
                 <audio class="music-player" controls>
                     <source src="music_2026-04-09T19-37-51.mp3" type="audio/mpeg">
                 </audio>
-                <div class="music-meta">Generated: 2026-04-09</div>
+                <div class="music-meta">Atmospheric // Evolving // Deep</div>
             </div>
-
+        
             <div class="music-card">
-                <div class="music-icon">♫</div>
-                <div class="music-title">Test Music</div>
+                <div class="music-icon">🎇</div>
+                <div class="music-title">Test Composition</div>
                 <audio class="music-player" controls>
                     <source src="test_music_2026-04-09T18-06-53.mp3" type="audio/mpeg">
                 </audio>
-                <div class="music-meta">Generated: 2026-04-09</div>
+                <div class="music-meta">Test Track // 2026-04-09</div>
             </div>
-
+        
             <div class="music-card">
-                <div class="music-icon">♫</div>
-                <div class="music-title">Music</div>
+                <div class="music-icon">🎵</div>
+                <div class="music-title">Music Loop</div>
                 <audio class="music-player" controls>
                     <source src="music_2026-04-09T18-09-54.mp3" type="audio/mpeg">
                 </audio>
-                <div class="music-meta">Generated: 2026-04-09</div>
+                <div class="music-meta">Loop // Ambient // 2026-04-09</div>
             </div>
-
+        
         </div>
     </div>
-
+    
     <footer class="footer">
         <div class="footer-text">Ombra Prime Registry // Audio Archive</div>
     </footer>
