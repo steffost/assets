@@ -79,16 +79,23 @@
         .category-card.rooms:hover { border-color: var(--gold); box-shadow: var(--glow-gold), 0 20px 60px rgba(0, 0, 0, 0.5); }
         .category-card.rooms::before { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
         .category-card.rooms:hover::before { opacity: 1; }
+        .category-card.music { border-color: rgba(180, 0, 255, 0.3); }
+        .category-card.music:hover { border-color: #b400ff; box-shadow: 0 0 20px rgba(180, 0, 255, 0.4), 0 20px 60px rgba(0, 0, 0, 0.5); }
+        .category-card.music::before { background: linear-gradient(90deg, transparent, #b400ff, transparent); }
+        .category-card.music:hover::before { opacity: 1; }
         .category-icon { font-size: 4rem; margin-bottom: 20px; display: block; }
         .category-card.assets .category-icon { color: var(--cyan); }
         .category-card.rooms .category-icon { color: var(--gold); }
+        .category-card.music .category-icon { color: #b400ff; }
         .category-title { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; letter-spacing: 3px; }
         .category-card.assets .category-title { color: var(--cyan); }
         .category-card.rooms .category-title { color: var(--gold); }
+        .category-card.music .category-title { color: #b400ff; }
         .category-desc { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; margin-bottom: 25px; }
         .category-count { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; padding: 8px 16px; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--panel-border); }
         .category-card.assets .category-count { color: var(--cyan); border-color: rgba(0, 212, 255, 0.3); }
         .category-card.rooms .category-count { color: var(--gold); border-color: rgba(255, 157, 0, 0.3); }
+        .category-card.music .category-count { color: #b400ff; border-color: rgba(180, 0, 255, 0.3); }
         .footer { text-align: center; padding: 60px 40px; border-top: 1px solid var(--panel-border); margin-top: 60px; }
         .footer-text { font-size: 0.65rem; letter-spacing: 3px; color: var(--text-secondary); opacity: 0.4; text-transform: uppercase; }
         .scanlines { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 9999; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.03), rgba(0,0,0,0.03) 1px, transparent 1px, transparent 2px); }
@@ -118,6 +125,12 @@
                 <div class="category-title">ROOMS</div>
                 <div class="category-desc">Spaces and locations built by the World Builder. Architectural survey and environmental data.</div>
                 <div class="category-count">3 Registered Rooms</div>
+            </a>
+            <a href="/assets/music-studio.html" class="category-card music">
+                <span class="category-icon">♪</span>
+                <div class="category-title">MUSIC</div>
+                <div class="category-desc">Generate cinematic soundtracks with MiniMax AI. Ambient, orchestral, and atmospheric music.</div>
+                <div class="category-count">Open Music Studio</div>
             </a>
         </div>
     </main>
