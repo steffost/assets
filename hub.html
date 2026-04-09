@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ombra Prime // Registry Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00f7ff;
+            --gold: #ff9d00;
+            --dark-bg: #050608;
+            --panel-bg: #0d0f14;
+            --panel-border: #1a2030;
+            --text-primary: #e0e6ed;
+            --text-secondary: #6a7a8a;
+            --glow-cyan: 0 0 20px rgba(0, 247, 255, 0.4);
+            --glow-gold: 0 0 15px rgba(255, 157, 0, 0.3);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .header {
+            background: linear-gradient(180deg, #0a0d12 0%, var(--dark-bg) 100%);
+            border-bottom: 1px solid var(--panel-border);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 60%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            box-shadow: var(--glow-cyan);
+        }
+        .corner { position: absolute; width: 60px; height: 60px; border: 1px solid var(--cyan); opacity: 0.3; }
+        .corner.tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+        .corner.tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+        .corner.bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+        .corner.br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 6px; color: var(--cyan); text-transform: uppercase; margin-bottom: 30px; opacity: 0.7; }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; font-weight: 900; color: var(--gold); text-shadow: var(--glow-gold); margin-bottom: 15px; letter-spacing: 4px; }
+        .subtitle { color: var(--text-secondary); font-size: 0.85rem; font-weight: 300; letter-spacing: 2px; }
+        .main { max-width: 1400px; margin: 0 auto; padding: 60px 40px; }
+        .category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 900px; margin: 0 auto; }
+        .category-card {
+            background: var(--panel-bg);
+            border: 2px solid var(--panel-border);
+            padding: 50px 40px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .category-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .category-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); }
+        .category-card.assets:hover { border-color: var(--cyan); box-shadow: var(--glow-cyan), 0 20px 60px rgba(0, 0, 0, 0.5); }
+        .category-card.assets:hover::before { opacity: 1; }
+        .category-card.rooms { border-color: rgba(255, 157, 0, 0.3); }
+        .category-card.rooms:hover { border-color: var(--gold); box-shadow: var(--glow-gold), 0 20px 60px rgba(0, 0, 0, 0.5); }
+        .category-card.rooms::before { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+        .category-card.rooms:hover::before { opacity: 1; }
+        .category-icon { font-size: 4rem; margin-bottom: 20px; display: block; }
+        .category-card.assets .category-icon { color: var(--cyan); }
+        .category-card.rooms .category-icon { color: var(--gold); }
+        .category-title { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; letter-spacing: 3px; }
+        .category-card.assets .category-title { color: var(--cyan); }
+        .category-card.rooms .category-title { color: var(--gold); }
+        .category-desc { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; margin-bottom: 25px; }
+        .category-count { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; padding: 8px 16px; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--panel-border); }
+        .category-card.assets .category-count { color: var(--cyan); border-color: rgba(0, 212, 255, 0.3); }
+        .category-card.rooms .category-count { color: var(--gold); border-color: rgba(255, 157, 0, 0.3); }
+        .footer { text-align: center; padding: 60px 40px; border-top: 1px solid var(--panel-border); margin-top: 60px; }
+        .footer-text { font-size: 0.65rem; letter-spacing: 3px; color: var(--text-secondary); opacity: 0.4; text-transform: uppercase; }
+        .scanlines { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 9999; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.03), rgba(0,0,0,0.03) 1px, transparent 1px, transparent 2px); }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+    <header class="header">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        <div class="tag">Ombra Prime // Unified Registry</div>
+        <h1>SELECT MODULE</h1>
+        <div class="subtitle">Choose Your Destination</div>
+    </header>
+    <main class="main">
+        <div class="category-grid">
+            <a href="/assets/" class="category-card assets">
+                <span class="category-icon">◈</span>
+                <div class="category-title">ASSETS</div>
+                <div class="category-desc">Technical artifacts, tools, and equipment. Wireframes, specifications, and documentation.</div>
+                <div class="category-count">17 Registered Assets</div>
+            </a>
+            <a href="/assets/rooms/" class="category-card rooms">
+                <span class="category-icon">◉</span>
+                <div class="category-title">ROOMS</div>
+                <div class="category-desc">Spaces and locations built by the World Builder. Architectural survey and environmental data.</div>
+                <div class="category-count">3 Registered Rooms</div>
+            </a>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-text">Ombra Prime Registry // Technical Documentation System</div>
+    </footer>
+</body>
+</html>
