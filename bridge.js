@@ -680,13 +680,30 @@ async function handleMusicGenerate(req) {
         if (err) {
             console.error('[MUSIC] Generation failed:', err.message);
         } else {
-            console.log('[MUSIC] Generation complete');
+            console.log('[MUSIC] Generation complete - deploying to GitHub...');
+            // Copy new music files to assets/music and deploy
+            try {
+                const outputDir = '/home/oris/.openclaw/workspace/music_output';
+                const assetsMusicDir = '/home/oris/assets/music';
+                const files = fs.readdirSync(outputDir).filter(f => f.endsWith('.mp3')).sort().reverse();
+                if (files.length > 0) {
+                    const latestFile = files[0];
+                    const src = path.join(outputDir, latestFile);
+                    const dst = path.join(assetsMusicDir, latestFile);
+                    fs.copyFileSync(src, dst);
+                    console.log('[MUSIC] Copied', latestFile, 'to assets');
+                }
+                // Deploy to GitHub
+                exec('cd /home/oris/assets && git add music/ && git commit -m "Add music $(date +%Y-%m-%d\ %H:%M)" && git push 2>/dev/null &');
+            } catch (deployErr) {
+                console.error('[MUSIC] Deploy failed:', deployErr.message);
+            }
         }
     });
     
     return { 
         id: Date.now().toString(),
-        message: 'Music generation started. Check /api/music/clips for the result.' 
+        message: 'Music generation started. Will deploy to GitHub when complete.' 
     };
 }
 

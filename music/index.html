@@ -14,7 +14,6 @@
             --panel-border: #1a2030;
             --text-primary: #e0e6ed;
             --text-secondary: #6a7a8a;
-            --glow-cyan: 0 0 20px rgba(0, 247, 255, 0.4);
             --purple: #b400ff;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -129,6 +128,7 @@
             color: var(--text-primary);
             margin-bottom: 10px;
             letter-spacing: 1px;
+            word-break: break-word;
         }
         .music-player {
             width: 100%;
@@ -153,14 +153,6 @@
             opacity: 0.4;
             text-transform: uppercase;
         }
-        .empty-state {
-            text-align: center;
-            padding: 80px 40px;
-            color: var(--text-secondary);
-        }
-        .empty-state-icon { font-size: 4rem; margin-bottom: 20px; opacity: 0.3; }
-        .empty-state-text { font-size: 1rem; margin-bottom: 10px; }
-        .empty-state-sub { font-size: 0.8rem; opacity: 0.6; }
     </style>
 </head>
 <body>
@@ -173,57 +165,46 @@
     </header>
     
     <nav class="nav">
-        <a href="hub.html">← HUB</a>
+        <a href="../hub.html">← HUB</a>
         <a href="../">ASSETS</a>
         <a href="../rooms/">ROOMS</a>
     </nav>
     
     <div class="container">
-        <div class="music-grid" id="musicGrid">
-            <div class="empty-state">
-                <div class="empty-state-icon">♪</div>
-                <div class="empty-state-text">No music registered yet</div>
-                <div class="empty-state-sub">Music generated via Control Panel will appear here</div>
+        <div class="music-grid">
+        
+            <div class="music-card">
+                <div class="music-icon">♫</div>
+                <div class="music-title">Ombra Prime Mothership</div>
+                <audio class="music-player" controls>
+                    <source src="Ombra_Prime_Mothership.mp3" type="audio/mpeg">
+                </audio>
+                <div class="music-meta">Generated: 2026-04-09</div>
             </div>
+        
+            <div class="music-card">
+                <div class="music-icon">♫</div>
+                <div class="music-title">Test Music</div>
+                <audio class="music-player" controls>
+                    <source src="test_music_2026-04-09T18-06-53.mp3" type="audio/mpeg">
+                </audio>
+                <div class="music-meta">Generated: 2026-04-09</div>
+            </div>
+        
+            <div class="music-card">
+                <div class="music-icon">♫</div>
+                <div class="music-title">Music</div>
+                <audio class="music-player" controls>
+                    <source src="music_2026-04-09T18-09-54.mp3" type="audio/mpeg">
+                </audio>
+                <div class="music-meta">Generated: 2026-04-09</div>
+            </div>
+        
         </div>
     </div>
     
     <footer class="footer">
         <div class="footer-text">Ombra Prime Registry // Audio Archive</div>
     </footer>
-    
-    <script>
-        // Load music from bridge API
-        const BRIDGE_URL = window.location.hostname === 'localhost' 
-            ? 'http://localhost:3000' 
-            : 'http://' + window.location.hostname + ':3000';
-        
-        async function loadMusic() {
-            try {
-                const response = await fetch(BRIDGE_URL + '/api/music/clips');
-                const data = await response.json();
-                
-                if (data.clips && data.clips.length > 0) {
-                    const grid = document.getElementById('musicGrid');
-                    grid.innerHTML = data.clips.map((clip, i) => '
-                        <div class="music-card">
-                            <div class="music-icon">♫</div>
-                            <div class="music-title">' + clip.name + '</div>
-                            <audio class="music-player" controls>
-                                <source src="' + BRIDGE_URL + clip.url + '" type="audio/mpeg">
-                            </audio>
-                            <div class="music-meta">' + new Date(clip.date).toLocaleDateString('en-US', { 
-                                year: 'numeric', month: 'short', day: 'numeric' 
-                            }) + '</div>
-                        </div>
-                    ').join('');
-                }
-            } catch (err) {
-                console.log('Could not load music:', err.message);
-            }
-        }
-        
-        loadMusic();
-    </script>
 </body>
 </html>
