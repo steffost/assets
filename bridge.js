@@ -109,6 +109,31 @@ const server = http.createServer(async (req, res) => {
             }
         });
     } else {
+        // Try to serve static file from /home/oris/assets
+        const staticDir = '/home/oris/assets';
+        let filePath = pathname === '/' ? '/index.html' : pathname;
+        const fullPath = path.join(staticDir, filePath);
+        
+        // Security: ensure file is within staticDir
+        if (!fullPath.startsWith(staticDir)) {
+            res.writeHead(403);
+            res.end(JSON.stringify({ error: 'Forbidden' }));
+            return;
+        }
+        
+        try {
+            if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
+                const ext = path.extname(fullPath).toLowerCase();
+                const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+                const content = fs.readFileSync(fullPath);
+                res.writeHead(200, { 'Content-Type': contentType });
+                res.end(content);
+                return;
+            }
+        } catch (e) {
+            console.error('Static file error:', e.message);
+        }
+        
         res.writeHead(404);
         res.end(JSON.stringify({ error: 'Not found' }));
     }
