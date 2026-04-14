@@ -44,6 +44,12 @@ const routes = {
     'POST /api/world-builder': handleWorldBuilder,
     'GET /api/world-builder/status': handleWorldBuilderStatus,
     'GET /api/worldbuilder/image': handleWorldBuilderImage,
+    'GET /api/heygen/clips': handleHeygenClips,
+    'POST /api/heygen/generate': handleHeygenGenerate,
+    'GET /api/music/clips': handleMusicClips,
+    'POST /api/music/generate': handleMusicGenerate,
+    'GET /music/:filename': handleMusicFile,
+    'GET /api/health': () => ({ ok: true })
 };
 
 // ============================================
@@ -489,6 +495,162 @@ async function handleWorldBuilderStatus() {
     }
 }
 
+async function handleHeygenClips() {
+    // Check both mara_rox_news (news scripts) and mara_rox_simple (videos)
+    const HEYGEN_DIR = '/home/oris/.openclaw/workspace/heygen_output/mara_rox_simple';
+    const NEWS_DIR = '/home/oris/.openclaw/workspace/heygen_output/mara_rox_news';
+    
+    try {
+        let clips = [];
+        
+        // Get videos from mara_rox_simple
+        if (fs.existsSync(HEYGEN_DIR)) {
+            const files = fs.readdirSync(HEYGEN_DIR)
+                .filter(f => f.endsWith('.mp4'))
+                .sort()
+                .reverse();
+            
+            clips = files.map(f => {
+                const stats = fs.statSync(path.join(HEYGEN_DIR, f));
+                return {
+                    filename: f,
+                    type: 'video',
+                    size: stats.size,
+                    created: stats.mtime
+                };
+            });
+        }
+        
+        // Get news scripts from mara_rox_news
+        if (fs.existsSync(NEWS_DIR)) {
+            const newsFiles = fs.readdirSync(NEWS_DIR)
+                .filter(f => f.startsWith('news_') && f.endsWith('.txt'))
+                .sort()
+                .reverse();
+            
+            const newsClips = newsFiles.map(f => {
+                const stats = fs.statSync(path.join(NEWS_DIR, f));
+                return {
+                    filename: f,
+                    type: 'news',
+                    size: stats.size,
+                    created: stats.mtime
+                };
+            });
+            
+            clips = [...clips, ...newsClips];
+        }
+        
+        // Sort by created date
+        clips.sort((a, b) => new Date(b.created) - new Date(a.created));
+        
+        return { clips };
+    } catch (error) {
+        console.error('HeyGen clips error:', error);
+        return { error: error.message, clips: [] };
+    }
+}
+
+async function handleHeygenGenerate(req) {
+    // Handler receives parsed JSON directly (not req object)
+    const prompt = req?.prompt;
+    const dimension = req?.dimension || 'landscape'; // portrait, landscape, hd
+    const mode = req?.mode || 'avatar'; // avatar or agent
+    
+    if (!prompt) {
+        return { error: 'prompt is required' };
+    }
+    
+    // Valid dimensions
+    const validDimensions = ['portrait', 'landscape', 'hd'];
+    const dim = validDimensions.includes(dimension) ? dimension : 'landscape';
+    
+    // Choose script based on mode
+    let HEYGEN_SCRIPT;
+    let command;
+    
+    if (mode === 'agent') {
+        // heygen-video (Agent mode) - doesn't support --dimension
+        HEYGEN_SCRIPT = '/home/oris/.openclaw/workspace/skills/heygen-video/main.js';
+        command = `node ${HEYGEN_SCRIPT} "${prompt.replace(/"/g, '\\"')}" --json > /tmp/heygen_generate.log 2>&1 &`;
+    } else {
+        // heygen-simple-video (Avatar mode) - supports --dimension
+        HEYGEN_SCRIPT = '/home/oris/.openclaw/workspace/skills/heygen-simple-video/main.js';
+        command = `node ${HEYGEN_SCRIPT} --dimension ${dim} "${prompt.replace(/"/g, '\\"')}" --json > /tmp/heygen_generate.log 2>&1 &`;
+    }
+    
+    try {
+        // Run HeyGen script in background and return immediately
+        exec(command);
+        
+        return { 
+            ok: true, 
+            message: `Video generation started (${mode}, ${dim}). Poll /api/heygen/clips for status.`,
+            prompt: prompt,
+            dimension: dim,
+            mode: mode
+        };
+    } catch (error) {
+        console.error('HeyGen generate error:', error);
+        return { error: error.message };
+    }
+}
+
+function triggerDeploy() {
+    // Trigger deploy to GitHub Pages
+    try {
+        exec('cd /home/oris/assets && git add -A && git commit -m "Auto-deploy $(date)" && git push 2>/dev/null &');
+    } catch (error) {
+        console.error('Deploy trigger failed:', error);
+    }
+}
+
+function formatTime(date) {
+    const now = new Date();
+    const diff = now - new Date(date);
+    
+    const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+
+    if (minutes < 1) return 'just now';
+    if (minutes < 60) return `${minutes}m ago`;
+    if (hours < 24) return `${hours}h ago`;
+    return `${days}d ago`;
+}
+
+// Serve static image files from ombra_world staging
+async function handleWorldBuilderImage(req) {
+    const { zone, filename } = req || {};
+    
+    if (!zone || !filename) {
+        return { error: 'Missing zone or filename parameter' };
+    }
+    
+    const filePath = path.join('/home/oris/.openclaw/workspace/ombra_world/staging', zone, filename);
+    
+    if (!fs.existsSync(filePath)) {
+        return { error: 'File not found' };
+    }
+    
+    const ext = path.extname(filename).toLowerCase();
+    const contentTypes = {
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.gif': 'image/gif',
+        '.txt': 'text/plain'
+    };
+    
+    const contentType = contentTypes[ext] || 'application/octet-stream';
+    const data = fs.readFileSync(filePath);
+    
+    return {
+        contentType,
+        data: data.toString('base64'),
+        size: data.length
+    };
+}
 
 // ============================================
 // MUSIC HANDLERS
@@ -498,4 +660,83 @@ const MUSIC_OUTPUT_DIR = '/home/oris/.openclaw/workspace/music_output';
 
 const MUSIC_SKILL = '/home/oris/.openclaw/workspace/skills/minimax-music-generator/main.js';
 
+async function handleMusicClips() {
+    // Get list of music files
+    if (!fs.existsSync(MUSIC_OUTPUT_DIR)) {
+        return { clips: [] };
+    }
+    
+    const files = fs.readdirSync(MUSIC_OUTPUT_DIR)
+        .filter(f => f.endsWith('.mp3'))
+        .sort()
+        .reverse()
+        .slice(0, 20);
+    
+    const clips = files.map(f => {
+        const stats = fs.statSync(path.join(MUSIC_OUTPUT_DIR, f));
+        return {
+            name: f.replace('.mp3', '').replace(/_/g, ' '),
+            filename: f,
+            url: '/music/' + f,
+            date: stats.mtime.toISOString()
+        };
+    });
+    
+    return { clips };
+}
 
+async function handleMusicGenerate(req) {
+    const { prompt, title, is_instrumental, lyrics } = req || {};
+    
+    if (!prompt) {
+        return { error: 'Missing prompt parameter' };
+    }
+    
+    console.log('[MUSIC] Generating:', prompt, title ? `(title: ${title})` : '');
+    
+    // Build command
+    let cmd = `node "${MUSIC_SKILL}" "${prompt.replace(/"/g, '\\"')}"`;
+    if (title) {
+        cmd += ` --title "${title.replace(/"/g, '\\"')}"`;
+    }
+    if (!is_instrumental && lyrics) {
+        cmd += ` --lyrics "${lyrics.replace(/"/g, '\\"')}"`;
+    }
+    
+    // Spawn generation (non-blocking) - auto-deploy is now in the music skill itself
+    exec(cmd, { cwd: '/home/oris/assets' }, (err, stdout, stderr) => {
+        if (err) {
+            console.error('[MUSIC] Generation failed:', err.message);
+        } else {
+            console.log('[MUSIC] Generation script completed');
+        }
+    });
+    
+    return { 
+        id: Date.now().toString(),
+        message: 'Music generation started. Check /api/music/clips for the result.' 
+    };
+}
+
+// Serve music files
+async function handleMusicFile(req, filename) {
+    const filePath = path.join(MUSIC_OUTPUT_DIR, filename);
+    
+    if (!fs.existsSync(filePath)) {
+        return { error: 'File not found' };
+    }
+    
+    const data = fs.readFileSync(filePath);
+    return {
+        contentType: 'audio/mpeg',
+        data: data.toString('base64'),
+        size: data.length
+    };
+}
+
+// Graceful shutdown
+process.on('SIGINT', () => {
+    console.log('\nShutting down bridge server...');
+    server.close();
+    process.exit(0);
+});
