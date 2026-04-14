@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fröarkivet (The Seed Vault) - Ombra Prime</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #ff9d00;
+            --orange-dim: #cc7a00;
+            --orange-glow: rgba(255, 159, 0, 0.4);
+            --orange-bright: #ffb733;
+            --dark-bg: #050608;
+            --panel-bg: #0d0f14;
+            --panel-border: #1a2030;
+            --text-primary: #e0e6ed;
+            --text-secondary: #6a7a8a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(255, 159, 0, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 159, 0, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            border: 1px solid var(--orange);
+            background: rgba(255, 159, 0, 0.05);
+            position: relative;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--orange), transparent);
+            box-shadow: 0 0 20px var(--orange-glow);
+        }
+        .corner { position: absolute; width: 40px; height: 40px; border: 1px solid var(--orange); opacity: 0.3; }
+        .corner.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .corner.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+        .corner.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+        .corner.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 4px; color: var(--orange); margin-bottom: 15px; opacity: 0.7; }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--orange); text-shadow: 0 0 10px var(--orange-glow); margin-bottom: 10px; }
+        .subtitle { color: var(--text-secondary); font-size: 0.85rem; }
+        .image-container { width: 100%; margin: 30px 0; }
+        .image-container img { width: 100%; height: auto; display: block; border: 2px solid rgba(255, 159, 0, 0.3); }
+        .audio-container { margin: 30px 0; text-align: center; background: rgba(255, 159, 0, 0.03); border: 1px solid rgba(255, 159, 0, 0.2); border-radius: 8px; padding: 25px; }
+        .audio-label { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; letter-spacing: 3px; color: var(--orange); margin-bottom: 20px; text-shadow: 0 0 10px var(--orange-glow); }
+        .custom-audio-player { display: flex; align-items: center; gap: 15px; max-width: 500px; margin: 0 auto; padding: 15px 20px; background: linear-gradient(180deg, rgba(255, 159, 0, 0.1) 0%, rgba(255, 159, 0, 0.05) 100%); border: 1px solid var(--orange-dim); border-radius: 4px; box-shadow: 0 0 20px rgba(255, 159, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05); }
+        .play-btn { width: 50px; height: 50px; border: 2px solid var(--orange); border-radius: 50%; background: rgba(255, 159, 0, 0.1); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; flex-shrink: 0; box-shadow: 0 0 15px var(--orange-glow); }
+        .play-btn:hover { background: rgba(255, 159, 0, 0.2); box-shadow: 0 0 25px var(--orange-glow); transform: scale(1.05); }
+        .play-btn:active { transform: scale(0.95); }
+        .play-icon { width: 0; height: 0; border-left: 14px solid var(--orange); border-top: 9px solid transparent; border-bottom: 9px solid transparent; margin-left: 4px; transition: all 0.15s ease; }
+        .play-btn.paused .play-icon { border-left: 5px solid var(--orange); border-top: 8px solid transparent; border-bottom: 8px solid transparent; width: 5px; height: 16px; border-right: 5px solid var(--orange); margin-left: 0; }
+        .progress-container { flex-grow: 1; display: flex; flex-direction: column; gap: 8px; }
+        .progress-bar { width: 100%; height: 8px; background: rgba(255, 159, 0, 0.15); border-radius: 4px; overflow: hidden; cursor: pointer; position: relative; border: 1px solid rgba(255, 159, 0, 0.3); }
+        .progress-bar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: rgba(255, 255, 255, 0.03); pointer-events: none; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--orange-dim), var(--orange), var(--orange-bright)); border-radius: 3px; width: 0%; transition: width 0.1s linear; box-shadow: 0 0 10px var(--orange-glow); position: relative; }
+        .progress-fill::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; background: var(--orange-bright); border-radius: 50%; box-shadow: 0 0 10px var(--orange); opacity: 0; transition: opacity 0.2s; }
+        .progress-bar:hover .progress-fill::after { opacity: 1; }
+        .time-display { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--orange-dim); }
+        .time-current { color: var(--orange); }
+        .time-duration { opacity: 0.7; }
+        .volume-container { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .volume-btn { width: 32px; height: 32px; border: 1px solid rgba(255, 159, 0, 0.4); border-radius: 4px; background: rgba(255, 159, 0, 0.1); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .volume-btn:hover { background: rgba(255, 159, 0, 0.2); border-color: var(--orange); }
+        .volume-icon { font-size: 14px; color: var(--orange); }
+        .volume-slider { width: 60px; height: 4px; -webkit-appearance: none; appearance: none; background: rgba(255, 159, 0, 0.2); border-radius: 2px; cursor: pointer; }
+        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; background: var(--orange); border-radius: 50%; cursor: pointer; box-shadow: 0 0 8px var(--orange-glow); }
+        .content { background: var(--panel-bg); border: 1px solid var(--panel-border); padding: 30px; line-height: 1.8; }
+        .content p { margin-bottom: 15px; color: var(--text-secondary); }
+        .content p:last-child { margin-bottom: 0; }
+        footer { text-align: center; padding: 40px; margin-top: 40px; border-top: 1px solid var(--panel-border); }
+        .footer-text { font-size: 0.65rem; letter-spacing: 2px; color: var(--text-secondary); opacity: 0.5; text-transform: uppercase; }
+        .back-link { display: inline-block; margin-top: 20px; color: var(--orange); text-decoration: none; font-size: 0.85rem; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+            <div class="tag">WORLD BUILDER // ROOM SURVEY</div>
+            <h1>Fröarkivet (The Seed Vault)</h1>
+            <div class="subtitle">Environmental Scan Complete</div>
+        </header>
+        <div class="image-container">
+            <img src="image.png" alt="Fröarkivet (The Seed Vault)">
+        </div>
+        
+        <div class="content">
+            <p>Fröarkivet, known to the crew of Ombra Prime as “The Seed Vault,” lies deep beneath the rolling hills of Grodda Dalen, within the crystalline bedrock that forms the heart of The Pearl’s subterranean levels. The vault is not merely a storage room; it is a living memory bank, a subterranean cathedral of life that has been carved out of the ship’s very bones to preserve the genetic blueprints of every world that might one day be terraformed by The Breather technology. Access is granted only through a biometric checkpoint keyed to Oris, the ship’s central AI, ensuring that only those with the highest clearance—xenobiologists, senior terraforming engineers, and designated security personnel—can step through the heavy, pressure‑sealed doors that open into the vault’s climate‑controlled realm.</p>
+
+<p>The chamber is organized into three distinct preservation zones, each with its own micro‑climate and purpose. The first and most striking is the Cryostorage vault, a vast honeycomb of airtight glass containers stacked in towering rows that descend several levels into the rock. Within these containers, 2.3 million seed specimens are kept at a steady –20 °C, their surfaces frosted, their interiors sealed against the vacuum of space. The containers are arranged in a meticulous taxonomy: each target world has its own column, and within that column, seeds are sorted by ecosystem type—forest, desert, marsh, meadow, tundra. The rows are threaded with fiber‑optic lines that converge on a central atrium, where a massive illuminated globe hangs like a glowing moon, displaying every known target world in miniature. Thin fiber‑optic filaments run from the globe to each seed container, a visual metaphor for the threads of life waiting to be woven onto dead planets, a reminder that every seed is a promise of a future forest, field, or meadow.</p>
+
+<p>Adjacent to the cryostorage is the Active Germination Zone, a series of hydroponic growth chambers bathed in soft, adjustable light. Here, multi‑spectrum LED arrays replicate the gentle progression of a dawn‑to‑ dusk cycle, coaxing dormant embryos into life. The lighting is tunable, allowing xenobiologists to simulate the precise photoperiod and intensity required by each species. The chambers are equipped with automated seed dispensing kiosks that can retrieve a single seed, place it in a growth tray, and monitor its development with integrated sensors. DNA sequencers and mass spectrometers sit side‑by‑side on polished steel benches, ready to analyze the genetic makeup of emerging seedlings, while seed counter and sorter machines calibrate the exact number of seeds needed for a mission. The air in this zone is kept at a comfortable +20 °C to +25 °C, a warm breath compared to the chill of the cryostorage, and a subtle hum of circulating nutrient solution fills the space with a faint, earthy scent.</p>
+
+<p>The third zone is the Documentation Suite, a quiet enclave of polished desks, low‑light UV‑sterilized lamps, and walls lined</p>
+        </div>
+        <footer>
+            <div class="footer-text">Ombra Prime Registry // World Builder Agent</div>
+            <a href="../../" class="back-link">← Back to Rooms</a>
+        </footer>
+    </div>
+    <script>
+        const audio = document.getElementById('audio');
+        const playBtn = document.getElementById('playBtn');
+        const progressFill = document.getElementById('progressFill');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeIcon = document.getElementById('volumeIcon');
+        let isPlaying = false;
+        if (audio) {
+            audio.addEventListener('loadedmetadata', () => { if (durationEl) durationEl.textContent = formatTime(audio.duration); });
+            audio.addEventListener('timeupdate', () => { const percent = (audio.currentTime / audio.duration) * 100; if (progressFill) progressFill.style.width = percent + '%'; if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime); });
+            audio.addEventListener('ended', () => { if (playBtn) playBtn.classList.add('paused'); isPlaying = false; if (progressFill) progressFill.style.width = '0%'; if (currentTimeEl) currentTimeEl.textContent = '0:00'; });
+        }
+        function togglePlay() { if (!audio) return; if (isPlaying) { audio.pause(); if (playBtn) playBtn.classList.add('paused'); } else { audio.play(); if (playBtn) playBtn.classList.remove('paused'); } isPlaying = !isPlaying; }
+        function seek(event) { if (!audio || !progressBar) return; const rect = progressBar.getBoundingClientRect(); const percent = (event.clientX - rect.left) / rect.width; audio.currentTime = percent * audio.duration; }
+        function setVolume(value) { if (!audio) return; audio.volume = value / 100; updateVolumeIcon(); }
+        function toggleMute() { if (!audio) return; audio.muted = !audio.muted; if (volumeSlider) volumeSlider.value = audio.muted ? 0 : audio.volume * 100; updateVolumeIcon(); }
+        function updateVolumeIcon() { if (!audio || !volumeIcon) return; volumeIcon.textContent = (audio.muted || audio.volume === 0) ? '🔇' : audio.volume < 0.3 ? '🔈' : audio.volume < 0.7 ? '🔉' : '🔊'; }
+        function formatTime(seconds) { if (isNaN(seconds)) return '0:00'; return Math.floor(seconds / 60) + ':' + Math.floor(seconds % 60).toString().padStart(2, '0'); }
+    </script>
+</body>
+</html>
