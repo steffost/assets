@@ -3,241 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rooms - Ombra Prime</title>
+    <title>Ombra Prime - Rooms</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --cyan: #00f7ff;
+            --green: #22c55e;
+            --orange: #ff9d00;
+            --dark-bg: #0a0a0f;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+            font-family: "JetBrains Mono", monospace;
+            background: var(--dark-bg);
             color: #e0e0e0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             min-height: 100vh;
-            line-height: 1.6;
+            background-image: linear-gradient(rgba(0, 247, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 247, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
         }
-        .navbar {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-brand { font-size: 1.2rem; font-weight: 600; color: #00d4ff; }
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { color: #888; text-decoration: none; transition: color 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: #00d4ff; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
-        .header { text-align: center; margin-bottom: 3rem; }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, #fff, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .subtitle { color: #666; font-size: 1.1rem; }
-        .zone-section { margin-bottom: 3rem; }
-        .zone-title { 
-            color: #00d4ff; 
-            font-size: 1.3rem; 
-            margin-bottom: 1.5rem; 
-            padding-bottom: 0.5rem; 
-            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .zone-title.industrial { color: #ff9d00; border-bottom-color: rgba(255, 159, 0, 0.3); }
-        .zone-title.research { color: #a855f7; border-bottom-color: rgba(168, 85, 247, 0.3); }
-        .zone-title.city { color: #22c55e; border-bottom-color: rgba(34, 197, 94, 0.3); }
-        .zone-title.aqua { color: #06b6d4; border-bottom-color: rgba(6, 182, 212, 0.3); }
-        .zone-title.hangar { color: #f97316; border-bottom-color: rgba(249, 115, 22, 0.3); }
-        
-        .room-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-            gap: 1.5rem; 
-        }
-        .room-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .room-card:hover { 
-            transform: translateY(-5px); 
-            border-color: rgba(0, 212, 255, 0.5);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
-        }
-        .room-card .image-container {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            overflow: hidden;
-            background: #111;
-        }
-        .room-card img { 
-            width: 100%; 
-            height: 100%;
-            object-fit: cover; 
-            display: block;
-            transition: transform 0.5s;
-        }
-        .room-card:hover img { transform: scale(1.05); }
-        .room-card .title-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem 1rem 1rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-        }
-        .room-card h3 { 
-            color: #fff; 
-            font-size: 1.1rem; 
-            font-weight: 600;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-        }
-        .room-card .zone-tag {
-            font-size: 0.7rem;
-            color: #00d4ff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.3rem;
-        }
-        .footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 3rem; color: #555; font-size: 0.85rem; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 60px; padding: 40px; border: 1px solid var(--cyan); background: rgba(0, 247, 255, 0.05); }
+        h1 { font-family: "Orbitron", sans-serif; font-size: 2.5rem; color: var(--cyan); text-shadow: 0 0 20px rgba(0, 247, 255, 0.5); }
+        .subtitle { color: #888; margin-top: 10px; font-size: 0.9rem; }
+        .back-link { display: inline-block; margin-top: 20px; color: var(--cyan); text-decoration: none; padding: 10px 20px; border: 1px solid var(--cyan); }
+        .back-link:hover { background: rgba(0, 247, 255, 0.1); }
+        .zone-section { margin-bottom: 60px; }
+        .zone-title { font-family: "Orbitron", sans-serif; font-size: 1.5rem; margin-bottom: 30px; padding-bottom: 10px; border-bottom: 2px solid; }
+        .zone-title.pearl { color: var(--cyan); border-color: var(--cyan); }
+        .zone-title.city { color: var(--green); border-color: var(--green); }
+        .zone-title.hangar { color: var(--orange); border-color: var(--orange); }
+        .zone-title.industrial { color: var(--orange); border-color: var(--orange); }
+        .zone-title.research { color: #a855f7; border-color: #a855f7; }
+        .room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        .room-card { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; }
+        .room-card:hover { transform: scale(1.03); border-color: var(--cyan); box-shadow: 0 0 20px rgba(0, 247, 255, 0.3); }
+        .image-container { position: relative; overflow: hidden; background: #111; }
+        .image-container img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .title-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 20px; }
+        .zone-tag { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
+        .title-overlay h3 { font-size: 1.1rem; margin-top: 5px; color: #fff; }
+        footer { text-align: center; padding: 40px; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">Ombra Prime</div>
-        <div class="nav-links">
-            <a href="/assets/hub.html">Hub</a>
-        </div>
-    </nav>
-    
     <div class="container">
-        <div class="header">
-            <h1>World Builder - Rooms</h1>
-            <p class="subtitle">Spaces and locations built by the World Builder Agent</p>
-        </div>
-        
-        <!-- The Pearl -->
+        <header>
+            <h1>🏠 OMBRA PRIME ROOMS</h1>
+            <p class="subtitle">Explore the living spaces of the Mother Ship</p>
+            <a href="../hub.html" class="back-link">← Back to Hub</a>
+        </header>
+
         <div class="zone-section">
-            <h2 class="zone-title">🌿 The Pearl - Biosphere</h2>
+            <h2 class="zone-title pearl">The Pearl - Biosfär</h2>
             <div class="room-grid">
+
+                <a href="the_pearl/section_sporerens_helgedom/presentation.html" class="room-card">
+                    <div class="image-container">
+                        <img src="the_pearl/section_sporerens_helgedom/image.png" alt="section sporerens helgedom">
+                        <div class="title-overlay">
+                            <div class="zone-tag" style="color: #00f7ff;">The Pearl</div>
+                            <h3>section sporerens helgedom</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="the_pearl/section_faunens_tillflykt/presentation.html" class="room-card">
+                    <div class="image-container">
+                        <img src="the_pearl/section_faunens_tillflykt/image.png" alt="section faunens tillflykt">
+                        <div class="title-overlay">
+                            <div class="zone-tag" style="color: #00f7ff;">The Pearl</div>
+                            <h3>section faunens tillflykt</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="the_pearl/room_fröarkivet_the_seed_vault/presentation.html" class="room-card">
+                    <div class="image-container">
+                        <img src="the_pearl/room_fröarkivet_the_seed_vault/image.png" alt="room fröarkivet the seed vault">
+                        <div class="title-overlay">
+                            <div class="zone-tag" style="color: #00f7ff;">The Pearl</div>
+                            <h3>room fröarkivet the seed vault</h3>
+                        </div>
+                    </div>
+                </a>
+
                 <a href="the_pearl/section_mykorrhizas_cister/presentation.html" class="room-card">
                     <div class="image-container">
                         <img src="the_pearl/section_mykorrhizas_cister/image.png" alt="Mykorrhiza's Cister">
                         <div class="title-overlay">
-                            <div class="zone-tag">The Pearl</div>
+                            <div class="zone-tag" style="color: #00f7ff;">The Pearl</div>
                             <h3>Mykorrhiza's Cister</h3>
                         </div>
                     </div>
                 </a>
-                <a href="the_pearl/section_faunens_tillflykt/presentation.html" class="room-card">
-                    <div class="image-container">
-                        <img src="the_pearl/section_faunens_tillflykt/image.png" alt="Faunens Tillflykt">
-                        <div class="title-overlay">
-                            <div class="zone-tag">The Pearl</div>
-                            <h3>Faunens Tillflykt</h3>
-                        </div>
-                    </div>
-                </a>
+
                 <a href="the_pearl/section_vindens_pinnakel/presentation.html" class="room-card">
                     <div class="image-container">
-                        <img src="the_pearl/section_vindens_pinnakel/image.png" alt="Vindens Pinnakel">
+                        <img src="the_pearl/section_vindens_pinnakel/image.png" alt="section vindens pinnakel">
                         <div class="title-overlay">
-                            <div class="zone-tag">The Pearl</div>
-                            <h3>Vindens Pinnakel</h3>
+                            <div class="zone-tag" style="color: #00f7ff;">The Pearl</div>
+                            <h3>section vindens pinnakel</h3>
                         </div>
                     </div>
                 </a>
-                <a href="the_pearl/section_sporerens_helgedom/presentation.html" class="room-card">
-                    <div class="image-container">
-                        <img src="the_pearl/section_sporerens_helgedom/image.png" alt="Sporerens Helgedom">
-                        <div class="title-overlay">
-                            <div class="zone-tag">The Pearl</div>
-                            <h3>Sporerens Helgedom</h3>
-                        </div>
-                    </div>
-                </a>
-</div>
+
             </div>
         </div>
-        
-        <!-- The City -->
+
         <div class="zone-section">
-            <h2 class="zone-title city">🏙️ The City - Metropolis</h2>
+            <h2 class="zone-title city">The City - Metropolis</h2>
             <div class="room-grid">
-                <a href="metropolis/room_the_echoes_gallery/presentation.html" class="room-card">
-                    <div class="image-container">
-                        <img src="metropolis/room_the_echoes_gallery/image.png" alt="The Echoes Gallery">
-                        <div class="title-overlay">
-                            <div class="zone-tag" style="color: #22c55e;">The City</div>
-                            <h3>The Echoes Gallery</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="metropolis/section_the_hearthstone_thermal_nexus/presentation.html" class="room-card">
-                    <div class="image-container">
-                        <img src="metropolis/section_the_hearthstone_thermal_nexus/image.png" alt="The Hearthstone Thermal Nexus">
-                        <div class="title-overlay">
-                            <div class="zone-tag" style="color: #22c55e;">The City</div>
-                            <h3>The Hearthstone Thermal Nexus</h3>
-                        </div>
-                    </div>
-                </a>
-                            <a href="metropolis/section_the_pulse_medical_wellness_nexus/presentation.html" class="room-card">
-                    <div class="image-container">
-                        <img src="metropolis/section_the_pulse_medical_wellness_nexus/image.png" alt="The Pulse Medical & Wellness Nexus">
-                        <div class="title-overlay">
-                            <div class="zone-tag" style="color: #22c55e;">The City</div>
-                            <h3>The Pulse Medical & Wellness Nexus</h3>
-                        </div>
-                    </div>
-                </a>
+
                 <a href="metropolis/room_the_resonance_chamber/presentation.html" class="room-card">
                     <div class="image-container">
-                        <img src="metropolis/room_the_resonance_chamber/image.png" alt="The Resonance Chamber">
+                        <img src="metropolis/room_the_resonance_chamber/image.png" alt="room the resonance chamber">
                         <div class="title-overlay">
                             <div class="zone-tag" style="color: #22c55e;">The City</div>
-                            <h3>The Resonance Chamber</h3>
+                            <h3>room the resonance chamber</h3>
                         </div>
                     </div>
                 </a>
+
+                <a href="metropolis/section_the_pulse_medical_wellness_nexus/presentation.html" class="room-card">
+                    <div class="image-container">
+                        <img src="metropolis/section_the_pulse_medical_wellness_nexus/image.png" alt="section the pulse medical wellness nexus">
+                        <div class="title-overlay">
+                            <div class="zone-tag" style="color: #22c55e;">The City</div>
+                            <h3>section the pulse medical wellness nexus</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="metropolis/section_the_hearthstone_thermal_nexus/presentation.html" class="room-card">
+                    <div class="image-container">
+                        <img src="metropolis/section_the_hearthstone_thermal_nexus/image.png" alt="section the hearthstone thermal nexus">
+                        <div class="title-overlay">
+                            <div class="zone-tag" style="color: #22c55e;">The City</div>
+                            <h3>section the hearthstone thermal nexus</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="metropolis/room_the_echoes_gallery/presentation.html" class="room-card">
+                    <div class="image-container">
+                        <img src="metropolis/room_the_echoes_gallery/image.png" alt="room the echoes gallery">
+                        <div class="title-overlay">
+                            <div class="zone-tag" style="color: #22c55e;">The City</div>
+                            <h3>room the echoes gallery</h3>
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </div>
-        
-        <!-- Industrial Domain -->
+
         <div class="zone-section">
-            <h2 class="zone-title industrial">🏭 Industrial Domain</h2>
+            <h2 class="zone-title industrial">The Crypt - Industriell Domän</h2>
             <div class="room-grid">
+
                 <a href="the_crypt/room_catalyst_synthesis_chamber/presentation.html" class="room-card">
                     <div class="image-container">
-                        <img src="the_crypt/room_catalyst_synthesis_chamber/image.png" alt="Catalyst Synthesis Chamber">
+                        <img src="the_crypt/room_catalyst_synthesis_chamber/image.png" alt="room catalyst synthesis chamber">
                         <div class="title-overlay">
-                            <div class="zone-tag" style="color: #ff9d00;">Industrial</div>
-                            <h3>Catalyst Synthesis Chamber</h3>
+                            <div class="zone-tag" style="color: #ff9d00;">The Crypt</div>
+                            <h3>room catalyst synthesis chamber</h3>
                         </div>
                     </div>
                 </a>
+
             </div>
         </div>
-        
-        <footer class="footer">
-            Rooms generated by World Builder Agent · Ombra Prime Universe
+
+        <div class="zone-section">
+            <h2 class="zone-title research">The Spire - Forskningsdomän</h2>
+            <div class="room-grid">
+
+                <a href="the_spire/room_ekochochamber_the_resonance_vault/presentation.html" class="room-card">
+                    <div class="image-container">
+                        <img src="the_spire/room_ekochochamber_the_resonance_vault/image.png" alt="room ekochochamber the resonance vault">
+                        <div class="title-overlay">
+                            <div class="zone-tag" style="color: #ff9d00;">The Spire</div>
+                            <h3>room ekochochamber the resonance vault</h3>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <footer>
+            <p>Ombra Prime Registry • All spaces generated by AI</p>
         </footer>
     </div>
 </body>
 </html>
-
-
