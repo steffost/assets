@@ -432,12 +432,12 @@ async function handleWorldBuilderStatus() {
     
     const ZONES = [
         { id: 'the_pearl', name: 'The Pearl' },
-        { id: 'the_city', name: 'The City' },
-        { id: 'industrial_domain', name: 'Industrial Domain' },
-        { id: 'research_spires', name: 'Research Spires' },
-        { id: 'the_chamber', name: 'The Chamber' },
-        { id: 'hangar', name: 'Hangaren' },
-        { id: 'ez_aqua_core', name: 'EZ Aqua Core' }
+        { id: 'kommandobrygga', name: 'Kommandobrygga' },
+        { id: 'ez_aqua_core', name: 'EZ Aqua Core' },
+        { id: 'metropolis', name: 'Metropolis' },
+        { id: 'hangaren', name: 'Hangaren' },
+        { id: 'the_crypt', name: 'The Crypt' },
+        { id: 'the_spire', name: 'The Spire' }
     ];
     
     try {
