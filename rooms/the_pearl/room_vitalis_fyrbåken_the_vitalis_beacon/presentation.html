@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitalis Fyrbåken (The Vitalis Beacon) - Ombra Prime</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00f7ff;
+            --gold: #ffd700;
+            --dark-bg: #050608;
+            --panel-bg: #0d0f14;
+            --panel-border: #1a2030;
+            --text-primary: #e0e6ed;
+            --text-secondary: #6a7a8a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            border: 1px solid var(--cyan);
+            background: rgba(0, 247, 255, 0.05);
+            position: relative;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+        .corner { position: absolute; width: 40px; height: 40px; border: 1px solid var(--cyan); opacity: 0.3; }
+        .corner.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .corner.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+        .corner.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+        .corner.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 4px; color: var(--cyan); margin-bottom: 15px; opacity: 0.7; }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--gold); text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); margin-bottom: 10px; }
+        .subtitle { color: var(--text-secondary); font-size: 0.85rem; }
+        .image-container { width: 100%; margin: 30px 0; }
+        .image-container img { width: 100%; height: auto; display: block; border: 2px solid rgba(0, 247, 255, 0.3); }
+        .content { background: var(--panel-bg); border: 1px solid var(--panel-border); padding: 30px; line-height: 1.8; }
+        .content p { margin-bottom: 15px; color: var(--text-secondary); }
+        .content p:last-child { margin-bottom: 0; }
+        footer { text-align: center; padding: 40px; margin-top: 40px; border-top: 1px solid var(--panel-border); }
+        .footer-text { font-size: 0.65rem; letter-spacing: 2px; color: var(--text-secondary); opacity: 0.5; text-transform: uppercase; }
+        .back-link { display: inline-block; margin-top: 20px; color: var(--cyan); text-decoration: none; font-size: 0.85rem; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+            <div class="tag">WORLD BUILDER // ROOM SURVEY</div>
+            <h1>Vitalis Fyrbåken (The Vitalis Beacon)</h1>
+            <div class="subtitle">Environmental Scan Complete</div>
+        </header>
+        
+        <div class="image-container">
+            <img src="image.png" alt="Vitalis Fyrbåken (The Vitalis Beacon)">
+        </div>
+        
+        <div class="content">
+            <p>Vitalis Fyrbåken—affectionately called the Vitalis Beacon by the crew—is a luminous observation sanctum tucked deep within the heart of The Pearl, Ombra Prime’s premier ecological sector. The chamber occupies a domed recess that rises above the surrounding habitat decks, its curved ceiling echoing the gentle arc of a planet’s sky and offering an unobstructed view of the ship’s living interior.</p>
+
+<p>The room’s walls are lined with panels of bioluminescent algae that pulse in slow, rhythmic waves, each panel representing a different micro‑habitat of The Pearl’s ecosystem. The algae’s glow is synchronized with the collective “breathing” of the sector’s flora, fauna, and microbial life, so the entire surface seems to thrum like a living heart. At the chamber’s center stands the Vitalis Resonance Node—a crystalline obelisk formed from harvested bioluminescent organisms that have been solidified into a prismatic structure. The obelisk absorbs ambient Vitalis energy, the ship’s signature life‑force field, and refracts it into cascading aurora‑like curtains of soft green‑gold light that dance across the dome’s interior, turning the ceiling into a shifting tapestry of color.</p>
+
+<p>Functionally, the Beacon serves three interlinked purposes. First, it acts as the living heart monitor of The Pearl: every fluctuation in the obelisk’s glow corresponds to a change in plant growth, animal activity, or microbial health elsewhere in the sector. Spectral analyzers positioned around the base continuously sample the air for Vitalis particle density, feeding data to the ship’s central ecological AI, which interprets the shimmering patterns as real‑time health indicators. Second, the chamber is a meditative space where crew members can attune to the ship’s pulse. A circular seating arrangement surrounds the obelisk, inviting individuals to sit, breathe, and synchronize their own rhythms with the gentle pulsations of light, fostering calm and mental clarity. Third, the room doubles as an emergency beacon. In the event of catastrophic imbalance—such as a sudden die‑off of vital organisms or an uncontrolled surge of Vitalis energy—the obelisk shifts from green‑gold to a deep, urgent crimson, triggering automatic evacuation protocols and sealing bulkheads to contain the danger.</p>
+
+<p>Equipment within the Beacon is both functional and aesthetically integrated. Variable‑spectrum LEDs embedded in the dome’s framework mimic natural dawn‑dusk cycles, allowing the ecological AI to calibrate ecosystem rhythms without leaving the chamber. Redundant life‑support scrubbers run silently beneath the floor panels, ensuring the air remains sterile despite the high concentration of Vitalis particles that could pose a risk to prolonged human exposure. Emergency</p>
+        </div>
+        
+        <footer>
+            <div class="footer-text">Ombra Prime Registry // World Builder Agent</div>
+            <a href="../" class="back-link">← Back to Rooms</a>
+        </footer>
+    </div>
+</body>
+</html>
