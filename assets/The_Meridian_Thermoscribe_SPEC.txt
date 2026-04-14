@@ -1,0 +1,38 @@
+NAME: The Meridian Thermoscribe
+NICKNAME: "Thermoscribe"
+================================================================================
+
+CLASSIFICATION: Diagnostic Thermal Imaging Device
+
+SPECS:
+- Dimensions: 18cm x 6.5cm x 3.2cm
+- Weight: 0.48 kg
+- Power Source: Integrated thermal-to-bio resonance converter, self-sustaining via ambient temperature differential
+
+SAFETY: Class B - Engineering Biosafety Tool
+
+INTERFACE: Single-handed grip with spring-loaded sensor pad activation and thumbwheel cartridge release
+
+MATERIALS:
+- Reinforced duralloy alloy shell with matte anti-reflective coating
+- Living bioluminescent film membrane (cultivated in The Pearl, Sector 01)
+- Quantum-etched thermal sensor array in crystalline polymer housing
+- Soft-touch elastomer grip zones with ergonomic contouring
+- Brass-reinforced cartridge slot mechanism with magnetic alignment pins
+
+VISUAL DESIGN:
+A sleek, rectangular diagnostic device with softly beveled edges and a brushed metal finish in muted gunmetal grey. The sensor pad on the top face glows faintly amber when active, while the rear cartridge housing accepts bioluminescent film spools with a satisfying click. Small indicator LEDs ring the grip, displaying green, amber, and violet status states.
+
+FUNCTION:
+The device reads ambient thermal signatures through its quantum sensor array and imprints the data onto living bioluminescent film, creating a shifting color gradient. Amber indicates warm/stable readings, violet shows cold/anomaly sources, and deep crimson reveals accelerated trends. A trained user interprets the separation and movement of colors to diagnose system faults, membrane integrity, and structural anomalies without physical contact.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed by Ombra Prime's Engineering Division as standard equipment for field technicians and medical staff operating in hazardous environments. The device was first introduced during Year 112 After Launch as a replacement for invasive thermal probes. The bioluminescent film technology was jointly developed with The Pearl's bioscience teams, making the Thermoscribe one of the few tools on the ship that bridges organic and mechanical engineering.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-14
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN

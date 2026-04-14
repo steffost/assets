@@ -1,0 +1,47 @@
+THE MERIDIAN THERMOSCRIBE
+
+A compact diagnostic tool carried by Ombra Prime engineers and medical staff. The device reads thermal signatures and imprints them onto living bioluminescent film, creating a shifting display of amber, violet, and deep crimson. The gradient tells a trained eye not just the reading, but the trend: rising, falling, or stable. Small enough for a coat pocket. Film cartridges click in like bullets and last fifty readings.
+
+---
+
+LOGBOOK ENTRY:
+
+Logbook kept by Yusuf Caldicott, Junior Technician
+
+The Root Weave, Junction 23-Gamma
+
+Year 847 After Launch
+
+---
+
+The membrane tore again.
+
+Not the one in my suit. The one running along the eastern conduit junction. Cold air rushing in where it should not. I felt it on my neck before I saw it—that sharp kiss of wrong-temperature.
+
+I pulled the Thermoscribe and pressed the sensor flat against the membrane edge. The bioluminescent film began to glow.
+
+First amber came, warm and stable—my body heat. Then violet crept in at the edges, cold from the leak. The colors separated like oil meeting water, never quite mixing. A trained eye could read the whole story in that gradient: where the cold was coming from, how fast it was spreading, whether the membrane would seal on its own.
+
+I watched the violet edge pulse. Not rising fast. Manageable.
+
+My hands were shaking anyway.
+
+The Root Weave is not kind to the nervous. Down here, the wrong step is not a mistake. It is an absence. You fall and the void swallows you with no echo, no impact, just silence where you used to be. Eleven months here and I still feel that pull at the edge of imagination.
+
+The membrane was Aegis-strain, same as the hull. It should have been healing itself. But the Thermoscribe told a different story. The violet was too deep, too steady. This was not a small tear. This was structural fatigue.
+
+I logged the reading and marked the location. Cartridge slot opened with a soft click. The spent film fell into the disposal chute, its glow already fading into nothing. Fresh cartridge in, Thermoscribe back on my belt.
+
+Somewhere far above, the city breathed. A hundred thousand hearts beating in rhythm. But down here in the guts, there is only the sound of water going down, and the distant hum of systems that never sleep.
+
+I called it in. Then I started walking.
+
+The next junction was twelve minutes away and the membrane there was holding steady.
+
+Thank the machine for small mercies.
+
+---
+
+Character count: ~2150
+
+I tightened the prose by removing redundancies ("not a mistake. It is an absence" replaced the longer explanation), condensing sensory details where possible, and trimming transitions while keeping Yusuf's voice, the void's terror, and that final note of exhausted relief intact.
