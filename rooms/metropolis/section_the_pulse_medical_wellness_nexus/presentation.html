@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pulse Medical & Wellness Nexus - Ombra Prime</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #ff9d00;
+            --orange-dim: #cc7a00;
+            --orange-glow: rgba(255, 159, 0, 0.4);
+            --orange-bright: #ffb733;
+            --dark-bg: #050608;
+            --panel-bg: #0d0f14;
+            --panel-border: #1a2030;
+            --text-primary: #e0e6ed;
+            --text-secondary: #6a7a8a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(255, 159, 0, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 159, 0, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            border: 1px solid var(--orange);
+            background: rgba(255, 159, 0, 0.05);
+            position: relative;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--orange), transparent);
+            box-shadow: 0 0 20px var(--orange-glow);
+        }
+        .corner { position: absolute; width: 40px; height: 40px; border: 1px solid var(--orange); opacity: 0.3; }
+        .corner.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .corner.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+        .corner.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+        .corner.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 4px; color: var(--orange); margin-bottom: 15px; opacity: 0.7; }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--orange); text-shadow: 0 0 10px var(--orange-glow); margin-bottom: 10px; }
+        .subtitle { color: var(--text-secondary); font-size: 0.85rem; }
+        .image-container { width: 100%; margin: 30px 0; }
+        .image-container img { width: 100%; height: auto; display: block; border: 2px solid rgba(255, 159, 0, 0.3); }
+        .audio-container { margin: 30px 0; text-align: center; background: rgba(255, 159, 0, 0.03); border: 1px solid rgba(255, 159, 0, 0.2); border-radius: 8px; padding: 25px; }
+        .audio-label { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; letter-spacing: 3px; color: var(--orange); margin-bottom: 20px; text-shadow: 0 0 10px var(--orange-glow); }
+        .custom-audio-player { display: flex; align-items: center; gap: 15px; max-width: 500px; margin: 0 auto; padding: 15px 20px; background: linear-gradient(180deg, rgba(255, 159, 0, 0.1) 0%, rgba(255, 159, 0, 0.05) 100%); border: 1px solid var(--orange-dim); border-radius: 4px; box-shadow: 0 0 20px rgba(255, 159, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05); }
+        .play-btn { width: 50px; height: 50px; border: 2px solid var(--orange); border-radius: 50%; background: rgba(255, 159, 0, 0.1); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; flex-shrink: 0; box-shadow: 0 0 15px var(--orange-glow); }
+        .play-btn:hover { background: rgba(255, 159, 0, 0.2); box-shadow: 0 0 25px var(--orange-glow); transform: scale(1.05); }
+        .play-btn:active { transform: scale(0.95); }
+        .play-icon { width: 0; height: 0; border-left: 14px solid var(--orange); border-top: 9px solid transparent; border-bottom: 9px solid transparent; margin-left: 4px; transition: all 0.15s ease; }
+        .play-btn.paused .play-icon { border-left: 5px solid var(--orange); border-top: 8px solid transparent; border-bottom: 8px solid transparent; width: 5px; height: 16px; border-right: 5px solid var(--orange); margin-left: 0; }
+        .progress-container { flex-grow: 1; display: flex; flex-direction: column; gap: 8px; }
+        .progress-bar { width: 100%; height: 8px; background: rgba(255, 159, 0, 0.15); border-radius: 4px; overflow: hidden; cursor: pointer; position: relative; border: 1px solid rgba(255, 159, 0, 0.3); }
+        .progress-bar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: rgba(255, 255, 255, 0.03); pointer-events: none; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--orange-dim), var(--orange), var(--orange-bright)); border-radius: 3px; width: 0%; transition: width 0.1s linear; box-shadow: 0 0 10px var(--orange-glow); position: relative; }
+        .progress-fill::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; background: var(--orange-bright); border-radius: 50%; box-shadow: 0 0 10px var(--orange); opacity: 0; transition: opacity 0.2s; }
+        .progress-bar:hover .progress-fill::after { opacity: 1; }
+        .time-display { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--orange-dim); }
+        .time-current { color: var(--orange); }
+        .time-duration { opacity: 0.7; }
+        .volume-container { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .volume-btn { width: 32px; height: 32px; border: 1px solid rgba(255, 159, 0, 0.4); border-radius: 4px; background: rgba(255, 159, 0, 0.1); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .volume-btn:hover { background: rgba(255, 159, 0, 0.2); border-color: var(--orange); }
+        .volume-icon { font-size: 14px; color: var(--orange); }
+        .volume-slider { width: 60px; height: 4px; -webkit-appearance: none; appearance: none; background: rgba(255, 159, 0, 0.2); border-radius: 2px; cursor: pointer; }
+        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; background: var(--orange); border-radius: 50%; cursor: pointer; box-shadow: 0 0 8px var(--orange-glow); }
+        .content { background: var(--panel-bg); border: 1px solid var(--panel-border); padding: 30px; line-height: 1.8; }
+        .content p { margin-bottom: 15px; color: var(--text-secondary); }
+        .content p:last-child { margin-bottom: 0; }
+        footer { text-align: center; padding: 40px; margin-top: 40px; border-top: 1px solid var(--panel-border); }
+        .footer-text { font-size: 0.65rem; letter-spacing: 2px; color: var(--text-secondary); opacity: 0.5; text-transform: uppercase; }
+        .back-link { display: inline-block; margin-top: 20px; color: var(--orange); text-decoration: none; font-size: 0.85rem; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+            <div class="tag">WORLD BUILDER // ROOM SURVEY</div>
+            <h1>The Pulse Medical & Wellness Nexus</h1>
+            <div class="subtitle">Environmental Scan Complete</div>
+        </header>
+        <div class="image-container">
+            <img src="image.png" alt="The Pulse Medical & Wellness Nexus">
+        </div>
+        
+        <div class="content">
+            <p>The Pulse Medical & Wellness Nexus occupies a distinctive position within the geometric heart of Metropolis, the central residential and administrative district of Ombra Prime's vast interior. Visible from the main transit corridors through curved transparent walls that reveal glimpses of its clean, sweeping architecture, the Nexus serves as the ship's primary healthcare facility—a sprawling three-tiered complex designed with the singular purpose of ensuring that no citizen, regardless of their sector of residence, is more than a short walk from capable medical intervention. It is here, at the intersection of the city's three main arterial boulevards, that Ombra Prime's commitment to its population's wellbeing manifests in steel, glass, and the quiet hum of life-saving technology.</p>
+
+<p>Functionally, The Pulse operates as a comprehensive medical and mental health center, combining emergency trauma response, routine primary care, specialized clinical services, and holistic wellness programs under one interconnected roof. The facility is organized into three distinct tiers that rise through the ship's interior like concentric rings of healing, each zone serving a specific spectrum of healthcare needs. Tier One, the Emergency and Trauma Center, anchors the complex's lowest level and handles the most critical cases—those requiring immediate surgical intervention, trauma stabilization, or quarantine from infectious threats. Above this, Tier Two houses the Primary Care and Specialist Clinics, offering family medicine, pediatrics, geriatrics, dental care, optical services, and rehabilitation in individual examination rooms designed to feel less clinical than comforting. Tier Three, known as The Mind Garden, occupies the uppermost floor and represents the Nexus's commitment to mental health and spiritual wellness, featuring meditation chambers, soundproofed therapy rooms, and sensory deprivation suites that offer citizens refuge from the pressures of life aboard a generation ship.</p>
+
+<p>The interior of The Pulse reflects a philosophy that healing extends beyond the physical body. The Emergency and Trauma Center's three surgical suites are marvels of autonomous medical technology, equipped with surgical pods capable of performing precision procedures under the guidance of advanced AI systems while remaining overseen by trained surgeons. Trauma bays open directly to rooftop landing pads accessible by medical evacuation helicopters, allowing critical patients to be transported from even distant sectors with minimal delay. Between arrivals, autonomous diagnostic pods sit ready, their quantum-scanning arrays capable of identifying internal injuries, foreign objects, or disease markers in mere seconds, presenting detailed holographic readouts to attending physicians. The floor surfaces are treated with antimicrobial polymers that actively break down biological contaminants, and the walls curve smoothly without sharp corners to prevent the accumulation of dust or pathogens in hard-to-clean spaces.</p>
+
+<p>Tier Two's examination rooms each feature adjustable ambient lighting systems that respond to patient biometrics, softening or brightening according to heart rate, stress indicators, or individual comfort preferences registered in a citizen's medical profile. Hollyhock-scented aromatherapy diffusers integrate seamlessly with the ventilation system, releasing calming molecules during procedures known to cause anxiety. Medical staff work from recessed workstations that fold out of wall panels, keeping floors clear for easy cleaning and wheelchair navigation. The pediatric wing differentiates itself through vibrant wall projections displaying animated sea life and forest scenes, while the geriatric section emphasizes handrails, anti-slip flooring, and furniture designed for easy rising and sitting.</p>
+
+<p>The Mind Garden on Tier Three represents a deliberate departure from clinical sterility. Meditation chambers feature softly glowing walls that pulse in slow rhythms designed to synchronize with breathing exercises, while therapy rooms are insulated with acoustic panels that absorb nearly all ambient sound, creating absolute silence for deep conversation or emotional processing. The sensory deprivation suite contains large, tank-like chambers filled with temperature-controlled saline solution kept at precisely 34.5 degrees Celsius—skin temperature—allowing occupants to float in near-complete darkness and silence for hours at a time, a practice shown to dramatically reduce cortisol levels and treat chronic stress disorders. Throughout Tier Three, living plants cascade from vertical hydroponic installations, their presence not merely decorative but functional, releasing phytoncides that boost immune function and elevate mood.</p>
+
+<p>Ventilation throughout The Pulse operates through hospital-grade HEPA filtration systems that exceed standard ship specifications, capable of trapping 99.97% of particles as small as 0.3 microns. Separate positive-pressure systems maintain higher air pressure in isolation rooms, preventing airborne pathogens from entering through door gaps. UV-C sterilization modules line all ductwork, neutralizing any microorganisms that pass through the ventilation system in cycles timed to coincide with low-occupancy hours. Infectious disease isolation rooms operate on negative pressure, drawing air inward so that any airborne threats are contained rather than released into public corridors, and biohazard containment protocols automatically activate when diagnostic pods detect pathogens classified above risk level two.</p>
+
+<p>Lighting throughout the Nexus follows circadian rhythm principles, shifting color temperature and intensity to match natural daylight cycles. Morning hours bring bright, blue-enriched light that promotes alertness and helps regulate sleep-wake cycles, while evening hours transition to warmer, amber tones that encourage melatonin production and relaxation. Recovery rooms feature indirect lighting that bounces off walls and ceilings, eliminating harsh shadows and glare that can disturb resting patients. Emergency lighting strips embedded in floor panels activate during power fluctuations or atmospheric emergencies, guiding staff and patients toward exits through pulsing green illuminated pathways.</p>
+
+<p>Equipment within The Pulse extends beyond standard medical tools to include advanced systems rarely found outside major surgical centers. The facility's primary diagnostic AI, known as Solvia, operates as an ever-present assistant to physicians, analyzing medical scans and imaging data in real-time to flag anomalies, suggest differential diagnoses, and cross-reference patient histories against known conditions. Solvia's holographic interface manifests as a soft blue sphere that hovers near attending physicians, providing whispered recommendations and statistical probabilities without disrupting the doctor's focus. Automated medication dispensaries, locked behind biometric authorization panels, prepare and distribute prescribed pharmaceuticals in precise dosages, eliminating human error in pill-counting and reducing wait times for patients collecting regular medications. The Nexus also maintains 3D bioprinters capable of producing skin grafts, simple tissue replacements, and custom-fitted prosthetic devices on-demand, reducing the need to source these materials from external manufacturers. Holographic patient records float before authorized staff when they approach examination tables, displaying comprehensive medical histories, allergies, medication interactions, and recent lab results in layered displays that can be zoomed, rotated, or annotated with stylus strokes.</p>
+
+<p>Safety systems throughout the facility reflect the unique challenges of life aboard a spacecraft. The quarantine wing maintains twelve negative pressure isolation rooms capable of housing patients with highly contagious diseases, each equipped with independent air filtration and separate supply lines to prevent cross-contamination. Backup power systems maintain 72-hour battery reserves capable of keeping all life-support systems, surgical equipment, and critical diagnostic machines operational during ship-wide power failures or emergencies. Surgical tables themselves feature seismic anchors that automatically engage during ship maneuvers detected as potentially destabilizing, preventing the movement</p>
+        </div>
+        <footer>
+            <div class="footer-text">Ombra Prime Registry // World Builder Agent</div>
+            <a href="../../" class="back-link">← Back to Rooms</a>
+        </footer>
+    </div>
+    <script>
+        const audio = document.getElementById('audio');
+        const playBtn = document.getElementById('playBtn');
+        const progressFill = document.getElementById('progressFill');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeIcon = document.getElementById('volumeIcon');
+        let isPlaying = false;
+        if (audio) {
+            audio.addEventListener('loadedmetadata', () => { if (durationEl) durationEl.textContent = formatTime(audio.duration); });
+            audio.addEventListener('timeupdate', () => { const percent = (audio.currentTime / audio.duration) * 100; if (progressFill) progressFill.style.width = percent + '%'; if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime); });
+            audio.addEventListener('ended', () => { if (playBtn) playBtn.classList.add('paused'); isPlaying = false; if (progressFill) progressFill.style.width = '0%'; if (currentTimeEl) currentTimeEl.textContent = '0:00'; });
+        }
+        function togglePlay() { if (!audio) return; if (isPlaying) { audio.pause(); if (playBtn) playBtn.classList.add('paused'); } else { audio.play(); if (playBtn) playBtn.classList.remove('paused'); } isPlaying = !isPlaying; }
+        function seek(event) { if (!audio || !progressBar) return; const rect = progressBar.getBoundingClientRect(); const percent = (event.clientX - rect.left) / rect.width; audio.currentTime = percent * audio.duration; }
+        function setVolume(value) { if (!audio) return; audio.volume = value / 100; updateVolumeIcon(); }
+        function toggleMute() { if (!audio) return; audio.muted = !audio.muted; if (volumeSlider) volumeSlider.value = audio.muted ? 0 : audio.volume * 100; updateVolumeIcon(); }
+        function updateVolumeIcon() { if (!audio || !volumeIcon) return; volumeIcon.textContent = (audio.muted || audio.volume === 0) ? '🔇' : audio.volume < 0.3 ? '🔈' : audio.volume < 0.7 ? '🔉' : '🔊'; }
+        function formatTime(seconds) { if (isNaN(seconds)) return '0:00'; return Math.floor(seconds / 60) + ':' + Math.floor(seconds % 60).toString().padStart(2, '0'); }
+    </script>
+</body>
+</html>

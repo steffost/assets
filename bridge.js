@@ -401,7 +401,7 @@ async function handleWorldBuilder(req) {
             `node /home/oris/.openclaw/workspace/skills/world-builder-agent/main.js ${zone} 2>&1`,
             {
                 encoding: 'utf-8',
-                timeout: 120000,
+                timeout: 300000,  // 5 minuter - musik kan ta 1-3 min
                 cwd: '/home/oris/.openclaw/workspace/skills/world-builder-agent'
             }
         );
