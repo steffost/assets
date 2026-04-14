@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Gallery - Ombra Prime</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand { font-size: 1.2rem; font-weight: 600; color: #b400ff; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: #888; text-decoration: none; }
+        .nav-links a:hover { color: #b400ff; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, #fff, #b400ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .music-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+        .music-card {
+            background: rgba(180, 0, 255, 0.1);
+            border: 1px solid rgba(180, 0, 255, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .music-title { font-size: 1.2rem; color: #b400ff; margin-bottom: 1rem; }
+        audio { width: 100%; margin-top: 1rem; }
+        .footer { text-align: center; padding: 2rem; color: #666; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🎵 Music Gallery</div>
+        <div class="nav-links">
+            <a href="../../hub.html">← Hub</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>🎵 Music</h1>
+        <div class="music-grid" id="musicGrid">
+            <p>Laddar...</p>
+        </div>
+    </div>
+    <footer class="footer">
+        Generated with MiniMax AI · Ombra Prime Universe
+    </footer>
+    <script>
+        async function loadMusic() {
+            try {
+                const res = await fetch('/api/music/clips');
+                const data = await res.json();
+                const grid = document.getElementById('musicGrid');
+                if (data.clips && data.clips.length > 0) {
+                    grid.innerHTML = data.clips.map(clip => `
+                        <div class="music-card">
+                            <div class="music-title">${clip.name}</div>
+                            <audio controls src="${clip.url}"></audio>
+                        </div>
+                    `).join('');
+                } else {
+                    grid.innerHTML = '<p>Inga musikfiler ännu.</p>';
+                }
+            } catch (e) {
+                grid.innerHTML = '<p>Kunde inte ladda musik.</p>';
+            }
+        }
+        loadMusic();
+    </script>
+</body>
+</html>
