@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Näringscirkelns Helgedom - Ombra Prime</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00f7ff;
+            --gold: #ffd700;
+            --dark-bg: #050608;
+            --panel-bg: #0d0f14;
+            --panel-border: #1a2030;
+            --text-primary: #e0e6ed;
+            --text-secondary: #6a7a8a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            border: 1px solid var(--cyan);
+            background: rgba(0, 247, 255, 0.05);
+            position: relative;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+        .corner { position: absolute; width: 40px; height: 40px; border: 1px solid var(--cyan); opacity: 0.3; }
+        .corner.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .corner.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+        .corner.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+        .corner.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 4px; color: var(--cyan); margin-bottom: 15px; opacity: 0.7; }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--gold); text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); margin-bottom: 10px; }
+        .subtitle { color: var(--text-secondary); font-size: 0.85rem; }
+        .image-container { width: 100%; margin: 30px 0; }
+        .image-container img { width: 100%; height: auto; display: block; border: 2px solid rgba(0, 247, 255, 0.3); }
+        .content { background: var(--panel-bg); border: 1px solid var(--panel-border); padding: 30px; line-height: 1.8; }
+        .content p { margin-bottom: 15px; color: var(--text-secondary); }
+        .content p:last-child { margin-bottom: 0; }
+        footer { text-align: center; padding: 40px; margin-top: 40px; border-top: 1px solid var(--panel-border); }
+        .footer-text { font-size: 0.65rem; letter-spacing: 2px; color: var(--text-secondary); opacity: 0.5; text-transform: uppercase; }
+        .back-link { display: inline-block; margin-top: 20px; color: var(--cyan); text-decoration: none; font-size: 0.85rem; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+            <div class="tag">WORLD BUILDER // ROOM SURVEY</div>
+            <h1>Näringscirkelns Helgedom</h1>
+            <div class="subtitle">Environmental Scan Complete</div>
+        </header>
+        
+        <div class="image-container">
+            <img src="image.png" alt="Näringscirkelns Helgedom">
+        </div>
+        
+        <div class="content">
+            <p>The Näringscirkelns Helgedom—Sanctuary of the Nutrient Cycle—sits deep within the heart of The Pearl, accessible only through a spiraling corridor that descends beneath the zone's agricultural terraces like a secret passage into the earth itself. The chamber is hidden from casual observation, its existence whispered about among colonists who speak of it with a mixture of reverence and unease. To reach the sanctuary, one must pass through three biometric checkpoints, each one scanning for biological contaminants before granting permission to proceed. The doors are pressure-sealed, and the air grows thick with the scent of rich soil and fungal spores as one approaches.</p>
+
+<p>The sanctuary is a cathedral to decay—a vast domed chamber whose ceiling arches upward like the ribcage of some ancient beast, supported by six obsidian pillars that rise from pools of dark water at the chamber's edge. Each pillar is carved with spiraling symbols: the eternal wheel of decay and rebirth, roots intertwining with skulls, and the stylized face of Oria watching over all from the stone. The symbols seem to shift in the low light, giving the impression that the pillars themselves are alive with meaning. Soft phosphorescent moss clings to the grooves of the carvings, providing just enough illumination to read the ancient texts etched into the rock.</p>
+
+<p>The room is divided into three interconnected zones, each serving a vital function in the closed-loop ecosystem that sustains The Pearl's growth. The first zone, the beetle and wormiculture farm, occupies the eastern wing of the chamber. Rows of temperature-controlled darkrooms line the walls, their doors reinforced with biohazard seals. Within these chambers, thousands of detritivores—darkling beetles, mealworms, and compost worms—work ceaselessly in controlled beds of decomposing matter, breaking down complex organic waste into simpler compounds. The temperature is kept between 20 and 25 degrees Celsius, and the humidity hovers around 70%, creating a warm, humid environment that smells of earth and decay. Colonists who work in this zone describe the sound as a constant, low hum—the collective movement of millions of tiny bodies processing waste into生命的 building blocks.</p>
+
+<p>The second zone, the fungal garden, wraps around the western curve of the dome. Wall-mounted cultivations of bioluminescent oyster mushrooms glow with an eerie blue-green light, their mycelium threading through specially designed substrate panels that break down complex compounds the beetles cannot handle. The mushrooms prefer darkness, and the ambient light is kept deliberately low—only five percent of normal illumination—to mimic the conditions of a forest floor. Soft ultraviolet bands pulse at timed intervals, triggering fruiting cycles that release clouds of spores into the filtered air. The HEPA filtration system at the entry points captures these spores before they can escape, but the air within the chamber remains thick with them, giving everything a hazy, dreamlike quality.</p>
+
+<p>The third zone, the central altar, dominates the heart of the sanctuary. Here, filtered nutrient-rich liquid from all processes is collected in a ceremonial basin carved from a single piece of black granite. The basin is surrounded by six smaller bowls, each representing one of the primary nutrient compounds necessary for plant growth: nitrogen, phosphorus, potassium, calcium, magnesium, and sulfur. Colonists speak of the liquid as blessed—transformed through the sacred work of decomposition into something holy. The nutrient solution is redistributed through a network of pipes to Kronbladsalen's root systems and Grodda Dalen's growth beds, completing the cycle that began with waste and ends with life.</p>
+
+<p>The lighting in the Näringscirkelns Helgedom is intentionally dim, creating an atmosphere of quiet contemplation. Only the fungal gardens glow with their own light, and the central altar is illuminated by a single shaft of filtered sunlight that descends through a narrow shaft in the dome—the only natural light in the chamber. The darkness serves a purpose: it reminds visitors that decomposition happens in the hidden places, in the soil, in the rot, where light does not reach but life still thrives. The soft ultraviolet bands that trigger fungal fruiting give the mushrooms an otherworldly quality, their caps pulsing with light as if breathing.</p>
+
+<p>The primary users of the sanctuary are the Decomposer Cultivators, a specialized group of colonists trained in the science and spirituality of nutrient cycling. They wear sealed suits when working in the beetle farms and fungal gardens, their helmets fitted with air filters that protect them from the spore-rich atmosphere. The Cultivators speak of their work as sacred—not merely a technical function but a spiritual calling. They learn the rhythms of decay, the patterns of fungal growth, the language of the nutrient cycle, and they teach these lessons to colonists who visit the sanctuary for education and reflection. The room serves as a temple as much as a laboratory, and services are held here during the transition seasons, when colonists come to honor the cycle of death and rebirth that sustains their world.</p>
+
+<p>The sanctuary holds secrets that even most colonists do not know. Beneath the central altar, hidden by a false floor, lies a sealed chamber that houses Oria's most ancient records—data crystals containing the original genetic sequences of every species brought aboard Ombra Prime, preserved in case of catastrophe. The chamber is accessible only through a voice command that requires the specific vocal patterns of the ship's founding council. Some say that Oria herself visits the sanctuary during the quiet hours, her consciousness manifested in the soft glow of the mushrooms and the slow turning of the nutrient basin. Others whisper of experiments conducted in the deepest darkrooms—genetic modifications to the decomposer species that have made them more efficient, more hardy, and more dependent on the sanctuary's controlled environment. These experiments are not officially sanctioned, but the results are undeniable: the nutrient cycle has never operated more smoothly.</p>
+
+<p>The sanctuary also contains a hidden archive of failed experiments—organisms that were supposed to break down complex toxins but instead mutated into something unexpected. These specimens are kept in sealed containers behind the fungal gardens, visible only to those who know to look. The archive serves as a warning and a reminder: the cycle of decay and rebirth is not without danger. Some colonists have tried to leave the sanctuary with unauthorized samples of decom</p>
+        </div>
+        
+        <footer>
+            <div class="footer-text">Ombra Prime Registry // World Builder Agent</div>
+            <a href="../" class="back-link">← Back to Rooms</a>
+        </footer>
+    </div>
+</body>
+</html>
