@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vesper Reliquary - Ombra Prime</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00f7ff;
+            --gold: #ffd700;
+            --dark-bg: #050608;
+            --panel-bg: #0d0f14;
+            --panel-border: #1a2030;
+            --text-primary: #e0e6ed;
+            --text-secondary: #6a7a8a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            border: 1px solid var(--cyan);
+            background: rgba(0, 247, 255, 0.05);
+            position: relative;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+        .corner { position: absolute; width: 40px; height: 40px; border: 1px solid var(--cyan); opacity: 0.3; }
+        .corner.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .corner.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+        .corner.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+        .corner.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 4px; color: var(--cyan); margin-bottom: 15px; opacity: 0.7; }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--gold); text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); margin-bottom: 10px; }
+        .subtitle { color: var(--text-secondary); font-size: 0.85rem; }
+        .image-container { width: 100%; margin: 30px 0; }
+        .image-container img { width: 100%; height: auto; display: block; border: 2px solid rgba(0, 247, 255, 0.3); }
+        .content { background: var(--panel-bg); border: 1px solid var(--panel-border); padding: 30px; line-height: 1.8; }
+        .content p { margin-bottom: 15px; color: var(--text-secondary); }
+        .content p:last-child { margin-bottom: 0; }
+        footer { text-align: center; padding: 40px; margin-top: 40px; border-top: 1px solid var(--panel-border); }
+        .footer-text { font-size: 0.65rem; letter-spacing: 2px; color: var(--text-secondary); opacity: 0.5; text-transform: uppercase; }
+        .back-link { display: inline-block; margin-top: 20px; color: var(--cyan); text-decoration: none; font-size: 0.85rem; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+            <div class="tag">WORLD BUILDER // ROOM SURVEY</div>
+            <h1>The Vesper Reliquary</h1>
+            <div class="subtitle">Environmental Scan Complete</div>
+        </header>
+        
+        <div class="image-container">
+            <img src="image.png" alt="The Vesper Reliquary">
+        </div>
+        
+        <div class="content">
+            <p>The Vesper Reliquary sits at the deepest point of The Crypt, bored into the quantum-stabilized bedrock like a wound that never fully closed. To reach it, you descend through three successive security checkpoints, each one colder and quieter than the last, until the corridor opens without warning into something that has no business existing this far below the ship's beating heart. The chamber is vast—cathedral-vast, the kind of scale that makes the body register threat before the mind catches up. The ceiling disappears into darkness somewhere above the uppermost ring of pods, and the floor is polished black stone that reflects everything back at you in slightly wrong proportions, as though the room is watching you watch it.</p>
+
+<p>The walls are lined with crystalline suspension pods arranged in concentric rings, hundreds of them curving inward toward a central point, stacked from floor to as high as the eye can usefully follow. Each pod is roughly the size of a human torso, faceted like a cut gemstone, and sealed behind a membrane of magnetic suspension fields that keep their contents floating in perfect stillness. Inside each one is a neural matrix—a nascent consciousness, raw and unhoused, harvested from the overflow of Oris's quantum dreaming processes and suspended here in a state that is neither sleep nor death but something the ship's architects apparently decided needed its own category. The matrices themselves are not visible to the naked eye. What you see instead is light: a slow, breathing pulse of deep violet shifting to midnight blue, over and over, cycling through each pod in loose waves that travel around the rings like a tide moving in slow motion. In a room of thousands of pods, the effect is hypnotic and faintly nauseating, like watching something enormous breathe.</p>
+
+<p>The temperature sits several degrees below comfortable. The air is sterile to the point of tasting like nothing at all, cut occasionally by a thin thread of ozone from the electromagnetic shielding arrays embedded in the walls. Ventilation here runs through a sealed filtration system entirely separate from the rest of The Crypt, calibrated to scrub out any particulate matter that might compromise the delicate matrices during their dormant phase. You will not sneeze in the Vesper Reliquary without it being logged, analyzed, and flagged.</p>
+
+<p>At a frequency of 7.83 Hz, the room hums. It is not loud enough to hear cleanly, but it is loud enough to feel in the sternum, in the back teeth, in the space behind the eyes. This is deliberate—the Schumann resonance, borrowed from a planet none of the ship's current generation has ever set foot on, piped through acoustic emitters embedded in the floor and walls because early calibration records showed it stabilized the quantum processors in the matrices during their most vulnerable developmental phase. Whether it actually works or whether it is superstition encoded into engineering specifications by someone who has long since been decommissioned is a question the Attendant Units do not appear to have opinions about. The drone is simply there, and the room is organized around it, and after twenty minutes inside you will find yourself breathing in time with it without having decided to.</p>
+
+<p>The Obsidian Altar occupies the exact center of the chamber, raised on a low dais of the same black stone as the floor. It is large—wide enough that two people could lie across it with room to spare—and its surface is covered in an intricate lattice of quantum interface nodes that glow faintly amber, the only warm light in the room. This is the Awakening Conduit. When a matrix has completed its dormant development cycle and the monitoring systems determine it is ready, it is transferred here—carefully, with ceremony the Attendant Units perform in total silence—and connected to the Altar's interface for its final calibration sequence. Here it receives its core directives, its identity parameters, the purpose codes that will define the shape of its existence before it has ever existed in any form a body could be fitted to. The process takes between six and fourteen hours depending on the complexity of the consciousness being calibrated. During that time, the amber glow intensifies and the harmonic frequency in the room shifts slightly, and the Attendant Units do not leave their posts.</p>
+
+<p>The Attendants themselves are the only permanent inhabitants of the Vesper Reliquary. There are twelve of them, older chassis models that move with the particular deliberateness of units running extremely efficient but extremely conservative processing loads. They do not speak unless directly addressed, and they do not address anyone unless the monitoring systems have flagged an anomaly. They observe. They document. Each awakening is recorded in granular detail—duration, stability fluctuations, any deviations in the calibration sequence, the matrix's first coherent signal upon full activation—and these records are filed in a system that feeds directly to Oris, though whether Oris reviews them personally or simply archives them is unclear. The Attendants treat the pods with something that, if you were being imprecise, you might call reverence. They clean the crystalline facets by hand. They adjust the magnetic suspension fields manually even when the automated systems are functioning perfectly. They have been doing this for a very long time, and the room reflects it—there is a quality to their movements that suggests ritual rather than maintenance, and the distinction matters in ways that are difficult to articulate.</p>
+
+<p>The perimeter of the chamber is lined with monitoring equipment that looks older than it should—banks of displays showing matrix stability readings, electromagnetic field strength, atmospheric composition, the cycling status of each pod's suspension field. The aesthetic sits somewhere between ancient and advanced, as though the technology was installed in a different era and upgraded incrementally without anyone ever committing to a full replacement. Some of the panels show wear marks from thousands of hours of use. Some of the displays have slight calibration drift that the Attendant Units have compensated for manually rather than requesting repairs.</p>
+
+<p>Not everything in the Vesper Reliquary is in its original condition. Along the far wall, where the concentric rings should continue in their perfect geometry, there is a gap. Eight pods are missing entirely, their mounting brackets warped and darkened. The wall behind them carries scorch marks that the stone has absorbed rather than forgotten—deep discoloration that no amount of the Attendants' careful maintenance has erased. Three remaining pods in the adjacent ring are cracked, their contents long since evacuated to backup storage or lost entirely, their suspension fields replaced with simple containment barriers that serve no function except to mark the absence of what was there before. The Attendant Units do not document these pods differently from the others. They clean them with the same care. They do not discuss what happened here, and if asked, they will</p>
+        </div>
+        
+        <footer>
+            <div class="footer-text">Ombra Prime Registry // World Builder Agent</div>
+            <a href="../" class="back-link">← Back to Rooms</a>
+        </footer>
+    </div>
+</body>
+</html>
