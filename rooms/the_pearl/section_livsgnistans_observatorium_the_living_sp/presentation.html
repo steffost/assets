@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livsgnistans Observatorium (The Living Spark Observatory) - Ombra Prime</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00f7ff;
+            --gold: #ffd700;
+            --dark-bg: #050608;
+            --panel-bg: #0d0f14;
+            --panel-border: #1a2030;
+            --text-primary: #e0e6ed;
+            --text-secondary: #6a7a8a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            border: 1px solid var(--cyan);
+            background: rgba(0, 247, 255, 0.05);
+            position: relative;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+        .corner { position: absolute; width: 40px; height: 40px; border: 1px solid var(--cyan); opacity: 0.3; }
+        .corner.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .corner.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+        .corner.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+        .corner.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 4px; color: var(--cyan); margin-bottom: 15px; opacity: 0.7; }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--gold); text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); margin-bottom: 10px; }
+        .subtitle { color: var(--text-secondary); font-size: 0.85rem; }
+        .image-container { width: 100%; margin: 30px 0; }
+        .image-container img { width: 100%; height: auto; display: block; border: 2px solid rgba(0, 247, 255, 0.3); }
+        .content { background: var(--panel-bg); border: 1px solid var(--panel-border); padding: 30px; line-height: 1.8; }
+        .content p { margin-bottom: 15px; color: var(--text-secondary); }
+        .content p:last-child { margin-bottom: 0; }
+        footer { text-align: center; padding: 40px; margin-top: 40px; border-top: 1px solid var(--panel-border); }
+        .footer-text { font-size: 0.65rem; letter-spacing: 2px; color: var(--text-secondary); opacity: 0.5; text-transform: uppercase; }
+        .back-link { display: inline-block; margin-top: 20px; color: var(--cyan); text-decoration: none; font-size: 0.85rem; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+            <div class="tag">WORLD BUILDER // ROOM SURVEY</div>
+            <h1>Livsgnistans Observatorium (The Living Spark Observatory)</h1>
+            <div class="subtitle">Environmental Scan Complete</div>
+        </header>
+        
+        <div class="image-container">
+            <img src="image.png" alt="Livsgnistans Observatorium (The Living Spark Observatory)">
+        </div>
+        
+        <div class="content">
+            <p>Livsgnistans Observatorium – the Living Spark Observatory – rises from the verdant floor of The Pearl like a towering helix of living crystal. Its base emerges where the forest’s root‑layer meets the soft, loamy earth of the sector’s artificial biome, and it climbs upward through the canopy, culminating in a translucent apex dome that can be sealed against the void of space. The tower is a vertical spine of The Pearl’s ecosystem, a physical conduit that connects the subterranean microbes, the mid‑forest flora, and the high‑altitude flyers into a single, shimmering lattice of life‑energy.</p>
+
+<p>Functionally, the observatory is the nerve centre of The Pearl’s ecological health. It continuously monitors and translates the invisible Vitalis energy that courses through the symbiotic web of the ship’s living ark, turning raw bio‑electric pulses into aurora‑like ribbons that dance through clear conduits lining every deck. These ribbons are the visible manifestation of nutrient flows, pollination patterns, predator‑prey oscillations, and the subtle, ever‑shifting balance of the ecosystem. The data streams feed directly into the tower’s holographic projection chambers, where real‑time visualisations of population dynamics, soil moisture, atmospheric composition, and even the emotional resonance of the biota are projected as living, breathing maps that can be manipulated by the engineers who tend the tower.</p>
+
+<p>The interior is a series of seven observation decks, each suspended at a different height and dedicated to a distinct ecological stratum. The lowest deck hovers just above the root‑zone, its walls dense with micro‑sensor arrays that detect the faintest fluctuations in soil microbiota and the exchange of nutrients through the Mykorrhiza‑like fungal filaments that form the tower’s load‑bearing structure. Ascending, one passes decks that monitor the understory, the mid‑forest canopy, the emergent trees, the aerial pollinators, the high‑altitude flyers, and finally the apex where atmospheric ions and cosmic influences are measured. Every level is lined with transparent conduits that glow softly in cyan, their luminescence a product of the biolumines</p>
+        </div>
+        
+        <footer>
+            <div class="footer-text">Ombra Prime Registry // World Builder Agent</div>
+            <a href="../" class="back-link">← Back to Rooms</a>
+        </footer>
+    </div>
+</body>
+</html>
