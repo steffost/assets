@@ -3,98 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Kelp Sanctum - Ombra Prime</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>The Kelp Sanctum</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cyan: #00f7ff;
-            --gold: #ffd700;
-            --dark-bg: #050608;
-            --panel-bg: #0d0f14;
-            --panel-border: #1a2030;
-            --text-primary: #e0e6ed;
-            --text-secondary: #6a7a8a;
+            --orange: #00ff88;
+            --bg: #050608;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'JetBrains Mono', monospace;
-            background: var(--dark-bg);
-            color: var(--text-primary);
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            background-image: linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 40px;
-            border: 1px solid var(--cyan);
-            background: rgba(0, 247, 255, 0.05);
-            position: relative;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-            box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        .back-link {
+            color: var(--orange);
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 20px;
         }
-        .corner { position: absolute; width: 40px; height: 40px; border: 1px solid var(--cyan); opacity: 0.3; }
-        .corner.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
-        .corner.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
-        .corner.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
-        .corner.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
-        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 4px; color: var(--cyan); margin-bottom: 15px; opacity: 0.7; }
-        h1 { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--gold); text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); margin-bottom: 10px; }
-        .subtitle { color: var(--text-secondary); font-size: 0.85rem; }
-        .image-container { width: 100%; margin: 30px 0; }
-        .image-container img { width: 100%; height: auto; display: block; border: 2px solid rgba(0, 247, 255, 0.3); }
-        .content { background: var(--panel-bg); border: 1px solid var(--panel-border); padding: 30px; line-height: 1.8; }
-        .content p { margin-bottom: 15px; color: var(--text-secondary); }
-        .content p:last-child { margin-bottom: 0; }
-        footer { text-align: center; padding: 40px; margin-top: 40px; border-top: 1px solid var(--panel-border); }
-        .footer-text { font-size: 0.65rem; letter-spacing: 2px; color: var(--text-secondary); opacity: 0.5; text-transform: uppercase; }
-        .back-link { display: inline-block; margin-top: 20px; color: var(--cyan); text-decoration: none; font-size: 0.85rem; }
         .back-link:hover { text-decoration: underline; }
+        .image-container {
+            border: 2px solid var(--orange);
+            box-shadow: 0 0 30px rgba(255, 157, 0, 0.3);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .content {
+            border-left: 3px solid var(--orange);
+            padding-left: 25px;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--orange);
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 157, 0, 0.5);
+        }
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-dim);
+            white-space: pre-wrap;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 157, 0, 0.2);
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="corner tl"></div>
-            <div class="corner tr"></div>
-            <div class="corner bl"></div>
-            <div class="corner br"></div>
-            <div class="tag">WORLD BUILDER // ROOM SURVEY</div>
-            <h1>The Kelp Sanctum</h1>
-            <div class="subtitle">Environmental Scan Complete</div>
-        </header>
+        <a href="../../index.html" class="back-link">← Back to Rooms</a>
         
         <div class="image-container">
-            <img src="image.png" alt="The Kelp Sanctum">
+            <img src="image.png" alt="The Kelp Sanctum" style="width:100%;height:auto;display:block;">
         </div>
         
         <div class="content">
-            <p>The Kelp Sanctum rises like a luminous cathedral within the EZ Aqua Core, a vertical hydroponic bay that stretches across three deck levels of Ombra Prime. Its glass‑walled chambers are filled with deep, bioluminescent blue‑green water that glows with the soft phosphorescence of engineered macroalgae, and towering columns of Macrocystis ombraelis—giant kelp bred for life in the void—pierce upward through transparent tubes, their fronds swaying gently in artificially created currents. The space feels as if a piece of the ocean has been lifted into space, a living forest suspended in a steel hull, its canopy constantly filtering and purifying the ship’s water while exhaling the very breath that keeps the crew alive.</p>
+            <h1>The Kelp Sanctum</h1>
+            <div class="description"># THE KELP SANCTUM
+## EZ Aqua Core | Sector 01 – The Pearl
 
-<p>Functionally, the Sanctum is the ship’s lungs and metabolic heart. By day the kelp absorbs carbon dioxide and releases oxygen, while at night the bioluminescent glow of its chlorophyll‑rich cells continues to recycle waste gases. The macroalgae also synthesize nutrients—proteins, sugars, and vitamins—that are harvested by a fleet of autonomous drones and fed into the protein converters for crew nutrition. Most critically, the kelp’s collective bio‑energy, harvested through the Vitalis Conduit at the chamber’s core, is converted into a high‑grade power surge that feeds Ombra Prime’s main grid, making the Sanctum an indispensable component of the ship’s life‑support and energy infrastructure.</p>
+---
 
-<p>Inside the Sanctum, the interior is a blend of high‑tech horticulture and ambient naturalism. Rows of illuminated tanks line the walls, each capped with a lattice of red and blue LED arrays that emulate the deep‑sea spectrum, maximizing photosynthetic efficiency. Circulating pumps generate slow, rhythmic currents that cause the kelp to sway as if caught in a gentle tide. Harvesting drones—sleek, spider‑like machines—patrol the forest, trimming overgrown fronds and ferrying the trimmed biomass to the protein converters with precision timing. The floor is textured with non‑slip composites to prevent slipping on the perpetual moisture, and emergency oxygen masks hang at every access point for quick deployment in case of a sudden loss of pressure or contamination. UV sterilization gates flank the main entrances, ensuring that no rogue microorganisms can infiltrate the carefully balanced ecosystem.</p>
+### Purpose and Function
 
-<p>The lighting is deliberately layered: a deep‑blue base from the water’s bioluminescence, punctuated by pulsing red LEDs that highlight the photosynthetic centers, and occasional bursts of soft white light that simulate sunrise for the kelp’s circadian cycles. The atmosphere is thick and humid, carrying the scent of fresh ocean breeze and the faint earthy aroma of growing algae, a scent that many crew members find both comforting and invigorating.</p>
+The Kelp Sanctum stands as one of the most technically sophisticated subsections within The Pearl's eastern quadrant—a pressurized aquatic biotopia designed to cultivate and study marine photosynthetic organisms. Its primary function is threefold: act as a living laboratory for genetically engineered kelp strains, generate bio-luminescent compounds used in medical research, and contribute to the ship's closed-loop life support by converting carbon dioxide into oxygen through high-efficiency photosynthesis cycles. The sanctum produces approximately 12% of Ombra Prime's total atmospheric oxygen output, making it an indispensable component of the ship's biospheric maintenance.
 
-<p>A variety of personnel call the Kelp Sanctum their workplace. Hydroponics engineers monitor the LED spectra, nutrient levels, and water flow rates, while biotech teams harvest medicinal compounds that the engineered kelp produces—antivirals, analgesics, and regenerative peptides that are then refined in adjacent labs. Maintenance crews keep the drones, pumps, and UV gates operational, and a dedicated medical staff uses the Sanctum’s pharmacy to treat injuries and chronic conditions aboard the ship. Oris, Ombra Prime’s maternal AI, watches over the Sanctum with a constant stream of data, adjusting currents, light cycles, and even the subtle chemical gradients to maintain optimal growth.</p>
+The cultivation tanks house over forty distinct cultivars of macroalgae, ranging from native Earth species to radiation-resistant variants engineered specifically for interstellar conditions. Scientists here work alongside Oris to monitor growth rates, nutrient absorption, and symbiotic relationships between the kelp and various fish species that patrol the tanks in carefully balanced ecosystems.
 
-<p>Beneath the serene surface, the Kelp Sanctum hides layers of intrigue. Whispers circulate among the biotech crews of a rogue strain of Macrocystis ombraelis that has begun to produce a previously unknown compound—one that reacts with the Vitalis Conduit to generate a faint, harmonic pulse that can be heard as a low, resonant hum through the deck. Some engineers suspect this pulse could be a hidden signal, perhaps a leftover of the Breather technology, while others fear it could be a sabotage vector introduced by a rival faction vying for control of the ship’s power grid. A series of unexplained drops in oxygen output have been recorded, and investigations reveal that a harvesting drone was remotely disabled and replaced with a counterfeit unit that subtly drains energy from the conduit. The source of the sabotage remains unknown, but the trail points to a hidden compartment within the Sanctum’s deepest kelp tanks—an area that only senior biotech officers and Oris know about, where experimental strains are kept in isolation.</p>
+---
 
-<p>There are also rumors of an ancient stash of kelp seeds—genetic backups from Earth’s oceans—locked away in a pressure‑sealed vault beneath the Sanctum. Some believe these seeds could revive the Sanctum after a catastrophic failure, while others think they hold the key to unlocking a new stage of the Breather terraforming process. A missing biotech researcher, last seen entering</p>
+### Atmosphere and Sensory Experience
+
+Visitors descend through a cylindrical entrance shaft into the sanctum's main chamber, and the transition is immediate and profound. The oppressive weight of recycled ship air gives way to a thick, humid atmosphere laden with the unmistakable scent of the ocean—brine, seaweed, and the faint mineral tang of dissolved nutrients. The sound of circulating water fills every corridor: a constant, low murmur punctuated by the soft bubbling of aeration systems and the occasional darting splash of schooling fish.
+
+Lighting within the sanctum is deliberately designed to replicate natural underwater conditions. Vast overhead panels emit a diffused blue-white glow that simulates shallow coastal sunlight, while deep-water sections utilize bio-luminescent kelp strains that emit a gentle green phosphorescence in the darkness. The effect is dreamlike—visitors often report a sense of weightlessness despite the standard gravity, as the shifting light patterns play across glass walls and create the illusion of being submerged.
+
+---
+
+### Architectural and Technical Details
+
+The sanctum's primary structure consists of interconnected spherical and cylindrical glass modules—each constructed from a composite of transparent aluminum oxide and synthetic polymer layers capable of withstanding pressures exceeding 2.5 atmospheres. These modules range from small specimen tanks measuring two meters in diameter to the massive central cultivation chamber, a cathedral-like space standing twelve meters at its tallest point.
+
+Mushroom cultivation occurs in designated microclimate pods attached to the sanctum's periphery. These fungal gardens occupy tiered shelving systems and serve a dual purpose: they filter excess organic matter from the water and produce edible fruiting bodies for the crew's rations. The mushrooms exist in symbiosis with the kelp, breaking down waste products into bioavailable nutrients that the macroalgae then absorb.
+
+Fish species within the sanctum—primarily engineered variants of damselfish, surgeonfish, and small schooling species—serve as both aesthetic companions and functional components. They control algae growth on tank surfaces, aerate the water through their movement, and provide a continuous data stream to Oris through embedded biometric sensors. Each fish carries a subdermal transponder that tracks its metabolic rate, stress levels, and contribution to nutrient cycling.
+
+---
+
+### Significance to Ombra Prime
+
+The Kelp Sanctum is more than a botanical curiosity—it represents one of the ship's most critical sustainability investments. The kelp strains cultivated here have been modified to thrive in low-light, high-radiation environments, making them ideal candidates for deployment on dead worlds during terraforming missions. When The Breather releases its synthetic atmosphere onto a barren planet, these kelp cultures will be among the first organisms introduced to establish photosynthetic foundations for future ecosystems.
+
+Every frond that sways in the sanctum's currents carries the potential to transform a lifeless rock into a living world. The engineers and biologists who tend this space understand their work as something sacred—not merely scientific, but mythic. They are gardeners of worlds yet unborn, and the kelp that grows here is the seed of civilizations that may one day bloom across the galaxy.</div>
         </div>
         
-        <footer>
-            <div class="footer-text">Ombra Prime Registry // World Builder Agent</div>
-            <a href="../" class="back-link">← Back to Rooms</a>
-        </footer>
+        <div class="footer">
+            OMBRA PRIME REGISTRY • SECTOR SECTION_THE_KELP_SANCTUM
+        </div>
     </div>
 </body>
 </html>
