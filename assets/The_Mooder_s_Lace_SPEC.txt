@@ -1,0 +1,38 @@
+NAME: The Mooder's Lace
+NICKNAME: "The Second Skin"
+================================================================================
+
+CLASSIFICATION: Biosensory Personal Protection Device
+
+SPECS:
+- Dimensions: 22cm circumference, 1cm width, 2mm thickness (adjustable via natural growth regulation)
+- Weight: 18 grams
+- Power Source: Symbiotic bioelectric integration with wearer - draws ambient thermal and bioelectrical energy from human contact, supplemented by micro-channel circulation of EZ-water electrolyte fluid
+
+SAFETY: Class C - Standard Biosafety Wearable, approved for extended skin contact in hazardous atmospheres
+
+INTERFACE: Fully passive - requires no activation. Responds automatically to wearer's bioelectrical signature through direct skin contact. Color changes require no conscious interpretation.
+
+MATERIALS:
+- Aegis-fungus mycelium (primary structural matrix, bioluminescent responsive)
+- EZ-water micro-channel tubing (integrated fluid transport network)
+- Biosynthetic threading (secondary weave layer for tensile strength)
+- Conductive protein filaments (embedded throughout for bioelectric sensing)
+- Nano-membrane outer coating (protective barrier against moisture and debris)
+
+VISUAL DESIGN:
+A seamless, organic woven cord that circles the wrist like a living bracelet. The surface has a subtle natural texture - soft ridges and valleys created by the mycelium growth pattern. Color flows across its surface in slow waves - deep forest green shifting to ash grey and back again. The material has a slight translucent quality, revealing faint internal channels running like veins through the weave. No clasps, no adjustments visible - it appears grown rather than manufactured.
+
+FUNCTION:
+The mycelium structure constantly monitors the wearer's bioelectrical signature for stress indicators and fatigue markers. Integrated micro-channels detect ambient Vitalis energy field fluctuations and environmental hazards. Color shifts communicate these readings in real-time: green indicates normal conditions and safety, grey signals approaching danger zones and structural weaknesses, amber indicates elevated stress in the wearer. The lace operates autonomously without conscious input from its wearer.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Developed by maintenance crews working the Root Weave tunnel networks in the late 800s After Launch. The deep sections of the tunnel system challenged existing sensor technology, and workers discovered that Aegis-fungus mycelium naturally responded to hull stress before instrumentation could detect problems. Early prototypes were crude bands of compressed fungus, but genetic refinement over decades produced the sophisticated woven cord known today. The Mooder's Lace became standard equipment for all Root Weave personnel by Year 890.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-20
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN

@@ -1,0 +1,38 @@
+NAME: The Vitae Locket
+NICKNAME: "Seed of the Pearl"
+================================================================================
+
+CLASSIFICATION: Personal Devotional Object / Heirloom / Bioluminescent Keepsake
+
+SPECS:
+- Dimensions: 5.2cm x 3.4cm x 1.4cm
+- Weight: 47 grams
+- Power Source: Bioluminescent spore core metabolizing ambient trace radiation, self-sustaining biological cycle
+
+SAFETY: Class A - Personal Belongings, No Hazard Rating
+
+INTERFACE: Single-hand mechanical clasp release, palm-held viewing
+
+MATERIALS:
+- Copper alloy casing (87% Cu, 9% Zn, 4% trace metals for durability)
+- Tempered borosilicate glass viewing panel
+- Bioluminescent Ganoderma spore culture (genetically stabilized)
+- Silver hinge mechanism with micro-springs
+- Nickel-plated clasp with safety lock
+
+VISUAL DESIGN:
+An elegant oval locket in warm hammered copper with subtle floral etchings along its edges. A clear glass rondelle dominates the center, revealing a softly pulsing golden spore within. The warm glow creates an organic halo around the metallic surface. Chain links are forged from matching copper, creating a unified heirloom aesthetic. The overall mood is intimate, timeless, and quietly sacred.
+
+FUNCTION:
+The encapsulated Ganoderma spore metabolizes ambient radiation from the ship's systems, converting trace energy into soft golden bioluminescence through a stabilized genetic process developed in Sector 1. The spore pulses rhythmically like a heartbeat, providing psychological comfort and symbolic connection to The Pearl's living biosphere. The locket serves as a portable reminder of home for workers in enclosed or distant ship sections.
+
+TECHNOLOGY ERA: Year 3000
+
+HISTORY:
+Created by biotechnicians in Sector 1 during Year 2876 as part of a program to produce personal devotional items from Pearl-derived organisms. The Vitae Locket was designed specifically for families of workers assigned to lower ship sections. Vera Okonkwo received her locket from her mother upon descending to The Root Weave, beginning a 31-year lineage of symbolic ownership connecting generations to the ship's living heart.
+
+================================================================================
+Generated from Ombra Prime World Bible
+Year: 3000
+Stardate: 2026-04-20
+OMBRA PRIME ASSET REGISTRY // CLASSIFICATION: OPEN
