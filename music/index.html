@@ -71,6 +71,12 @@
                     grid.innerHTML = data.clips.map(clip => `
                         <div class="music-card">
                             <div class="music-title">${clip.name}</div>
+            <div class="music-card">
+                <div class="music-title">music 2026-04-22T17-02-50</div>
+                <audio controls>
+                    <source src="music_2026-04-22T17-02-50.mp3" type="audio/mpeg">
+                </audio>
+            </div>
                             <audio controls src="${clip.url}"></audio>
                         </div>
                     `).join('');
