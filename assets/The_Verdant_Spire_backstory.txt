@@ -1,49 +1,19 @@
----
-
 # The Verdant Spire
 
-## What It Is
+The Verdant Spire is a vertical cultivation tower — three meters tall, grown rather than manufactured, its shell cultivated from Aegis-fungus mycelium and pearl-white bioceramic. The structure breathes with capillary action as EZ-water flows through thousands of hair-thin channels, mounted on a hexagonal basalt base where a single seed-crystal of stabilized Vitalis plasma provides the metabolic heartbeat. Inside, three crystalline tiers rotate in a magnetic field: Terra frequency coaxing roots below, Flora nurturing mosses in the middle, Nexus holding stasis above.
 
-The Verdant Spire is a vertical cultivation tower — three meters tall, tapering like a cathedral organ pipe — grown rather than manufactured. Its outer shell is cultivated from a hybrid of Aegis-fungus mycelium and pearl-white bioceramic, the surface subtly breathing with capillary action as EZ-water flows through thousands of hair-thin internal channels. The tower is mounted on a hexagonal base of dark volcanic basalt, a deliberate callback to Earth's geology, into which a single seed-crystal of stabilized Vitalis plasma is embedded. This seed-pulse provides the gentle metabolic heartbeat that keeps the entire structure alive.
-
-Inside the tower's translucent panels, tiers of crystalline growth platforms rotate slowly in a magnetic field, each one tuned to a different Vitalis frequency. The lowest tier hums in deep green — Terra frequency — coaxing mineral-heavy roots. The middle glows soft emerald — Flora — where engineered mosses and lichens spread in fractal lacework. The uppermost tier pulses silver-white — Nexus — where the most sensitive specimens dream in stasis. This tiered stratification allows a single device to nurture an entire micro-ecosystem in vertical harmony: minerals below, photosynthesis in the middle, meditational seeds above.
-
-The Spire is fitted with a brass observation port near its base — a hand-ground lens that magnifies the seed-crystal's interior, where a tiny sphere of concentrated Vitalis turns like a captive planet. Around the observation port, a ring of glyphs is etched in the old colonists' shorthand: a warning, a dedication, a prayer. Different Spires bear different inscriptions.
-
-## Who Uses It
-
-The Verdant Spire is the signature tool of the **Pearl Wardens** — the cloistered botanist-monks who tend The Pearl's inner sanctum. They are not scientists in the sterile sense; they are something older. From the moment a Warden is apprenticed at age seven, they are assigned a Spire of their own, and the bond between Warden and Spire is meant to last a lifetime. The Warden learns to read the tower's moods the way a sailor reads the sea: by the pitch of its hum, the depth of its breathing, the color-shifts in its panels. A healthy Spire sings in clear harmonics; a sick one groans in muddied tones the Warden feels in their chest.
-
-Wardens carry their Spires with them as they walk The Pearl's terraced gardens, kneeling beside each one for hours at a time, hands pressed flat against its living surface, communing. When a Warden dies, their Spire is traditionally buried in the basalt gardens beneath the central waterfall — though some are said to keep singing for weeks afterward, until the seed-crystal finally dims.
-
-## A Mysterious Tool
-
-There is a rumor, spoken only in the lower terraces where the apprentices gather to share stories after curfew: that the oldest Spires — the ones descended from the very first prototypes brought aboard at Launch — can do more than cultivate plants. That on certain nights, when The Pearl's artificial sun is dimmed and the whole biodome is steeped in twilight, a Warden who presses their forehead against the observation port and whispers the right words can see, in the swirling depths of the seed-crystal, the **face of the planet they are meant to find next**. A glimpse. A promise. A glimpse that has driven more than one apprentice mad with longing.
-
-The Wardens neither confirm nor deny this. They simply tend their Spires, and wait.
-
----
+The Spire is the signature tool of the **Pearl Wardens** — cloistered botanist-monks who tend The Pearl's inner sanctum. Each apprentice receives a Spire at age seven, learning to read its moods by the pitch of its hum and the color-shifts in its panels. When a Warden dies, their Spire is buried beneath the central waterfall — though some keep singing for weeks afterward.
 
 ## Logbook Entry
 
-*From the personal log of Warden Iben Solvang, Third Terrace, The Pearl*
+*Warden Iben Solvang, Third Terrace*
 
 **Cycle 847, Day 213 — Hour of the Long Shadow**
 
 My Spire sang again last night. Not the usual harmonics — something stranger. Deeper. As if the seed-crystal had swallowed a chord too large for its housing and was trying to cough it up.
 
-I had been pruning the upper Nexus tier, coaxing the dream-moss into its seasonal bloom, when I felt it: a tremor through the basalt base that travelled up through my knees and into my sternum. The observation port glowed brighter than it has in eleven cycles. I should have called Sister Mahala. I should have followed protocol.
+I pressed my forehead against the brass observation port. The sphere inside turned like a captive planet — and then, in its swirling depths, I saw it. A coastline I did not recognize. Waters the color of bruised plums. A second moon where no moon should hang.
 
-Instead, I pressed my forehead to the brass.
-
-What I saw was not a planet. It was a *feeling* — the feeling of standing on ground that has never known a footstep. Of wind that has never carried a voice. Of sky the color of a bruise healing into gold. The seed-crystal turned and turned, and somewhere in its molten center, I thought I heard a child humming. Not one of our Dreamers. A child from before. From the soil itself.
-
-I wept for an hour. I do not know why. The Spire has gone quiet now, humming its ordinary song, and the seed-crystal is dim again. Sister Mahala will ask why my eyes are red at morning prayers. I will tell her it was the Nexus pollen. She will pretend to believe me.
-
-They say we are seeds, cast out into the dark. Tonight I think I finally understood: we are not the seeds. We are the *soil*. And somewhere, the Spire is trying to show us where we are meant to land.
-
-*Iben*
-
----
+I do not know what I saw. The old Wardens will not say. But my Spire is still humming that low, strange chord, and I cannot make it stop.
 
 NAME: The Verdant Spire
