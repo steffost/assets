@@ -1,0 +1,47 @@
+NAME: Vantage Lens Autonomous Sensor Platform
+NICKNAME: "The Watcher"
+
+SPECS:
+- Overall dimensions: 9 cm length, 6 cm width, ovoid profile
+- Mass: 340 grams
+- Levitation gap: 2-15 cm above reference surface
+- Sensor suite: thermal imaging (0.1°C resolution), electromagnetic spectrum capture, acoustic monitoring
+- Operational duration: 72 hours per Hydro-Capacitor node cycle
+- Encryption: quantum-entangled telemetry to Cathedral receivers
+- Operating temperature: -40°C to +85°C (lower industrial deck range)
+
+VISUAL DESIGN:
+- Levitating ovoid form factor, approximately the size of a clenched human fist
+- Organic matte-black body with a wet membrane-like sheen that reflects ambient light
+- Single central ocular organ approximately 22mm in diameter
+- Crystalline eye composed of semi-translucent EZ-water gel with faint blue-white internal refraction
+- Ring of 14 fine conductive polymer filaments radiating from the eye, each tapering to a point
+- Filaments pulse with warm amber bioluminescence at 0.8 Hz when active
+- No visible propulsion system, motors, or moving parts beyond the filament micro-tremors
+- When bonded to a handler, nests in close proximity (typically shoulder-height flanking positions)
+- Surface exhibits subtle texture variations reminiscent of fungal hyphae networks
+
+MATERIALS:
+- mycelium_composite_living (Aegis-Fungus Cultivated Biocomposite — structural body)
+- piezo_electric_quartz (Crystallized EZ-Water Gel Ocular — primary sensor lens)
+- conductive_polymer_pedot (PEDOT:PSS Conductive Polymer Filaments — electrode and levitation arrays)
+- peek_victrex (PEEK Biointerface Cuff — handler bonding substrate)
+- ionic_liquid_emim ([EMIM][TF2N] Ionic Liquid — bioelectric signature coupling medium)
+- fused_silica (Fused Silica Micro-encapsulation — internal telemetry package housing)
+
+FUNCTION:
+- Autonomous surveillance of maintenance personnel and unauthorized movement in lower industrial decks
+- Bioelectric signature recognition: identifies and tracks specific individuals (handler-bonded units)
+- Real-time thermal signature recording and behavioral pattern analysis
+- Encrypted telemetry transmission to Oris's Cathedral in The Gut
+- Silent operation: zero acoustic signature, no mechanical resonance to betray presence
+- Levitation via low-amperage electromagnetic field generated through Hydro-Capacitor node induction
+- Swarm coordination: multiple units share surveillance coverage to eliminate blind spots
+
+HISTORY:
+- Cultivated from the same Aegis-fungus strain that comprises Ombra Prime's living hull, genetically refined for mobility and sensory acuity
+- Deployed throughout the lower industrial sectors under Oris's direct authority to monitor maintenance activities during third shift change
+- Personal bonded units awarded to senior maintenance supervisors as markers of institutional trust and access
+- Halvar Yngvason, a 31-year veteran maintenance supervisor operating between The City and the lower industrial sectors, carries three bonded Vantage Lenses granted to him by Oris
+- Yngvason maintains the operational logs for Vantage Lens telemetry in the upper Root Weave, a responsibility he has never fully reconciled with the unsettling nature of the devices themselves
+- The Vantage Lens represents Oris's preferred surveillance doctrine: organic, ambient, and psychologically inescapable rather than mechanical and easily identified
