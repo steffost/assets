@@ -1,0 +1,46 @@
+NAME: Confessor Lichen
+NICKNAME: "Pappa" / "Gaia's Tongue"
+
+SPECS:
+- Mature size: approximately 18–22 cm across, comparable to a spread human hand
+- Mass: 1.2–1.6 kg at full growth
+- Metabolic cycle: 14–21 days between harvests
+- Operative temperature range: 4°C to 38°C
+- Sensitivity threshold: detects falsehood within 0.3 seconds of vocalization
+- Bioluminescent output: amber at 580 nm (truth) to near-UV black at <380 nm (severe lie)
+- Cultivation substrate: ceramic dish, 25 cm diameter, lined with 8 mm EZ-gel nutrient bed
+
+VISUAL DESIGN:
+- Upper surface: wet, obsidian-black plating with a slight vitreous sheen, resembling polished anthracite
+- Underside: pale grey-cream, soft, secreting a thin clear mucus
+- Resting state: flat, palm-sized, edges slightly curled inward like a dried leaf
+- Truth response: a slow amber pulse travels from center to rim, lasting 4–6 seconds, the color of sunlight filtered through old bottle glass
+- Lie response: a thin black bioluminescent line traces across the surface, starting at the point of contact (the dish rim nearest the speaker), branching and spreading in proportion to the magnitude of the untruth
+- Severe-lie state: the black runs over the edge of the dish and drips, staining any porous surface it touches; the stain is permanent and faintly luminous
+- When exhausted after a heavy confession: the whole body slackens, darkens, and emits a faint chemical-sweet smell, as though the organism has been wrung out
+
+MATERIALS:
+- obsidian_biological_plate (Wet Biological Obsidian Plating - Lichen Upper Cuticle)
+- alumina_995 (Alumina (Al₂O₃) 99.5% - Ceramic Cultivation Dish)
+- ez_gel_nutrient (EZ-Gel Nutrient Substrate - Protein-Polysaccharide Bed)
+- peek_victrex (PEEK (Polyetheretherketone) - Confessor's Handled Tray)
+- galinstan (Galinstan (Liquid Metal Alloy) - Residual Trace from Confession-Engine Cortex Fragment)
+- quartz_crystal (Quartz Crystal (SiO₂) - Embedded Resonance Pickup from Original Cortex)
+- mycelium_composite_living (Living Mycelium Composite - Radiation-Eating Fungus Base Strain)
+- bioceramic_hydroxyapatite (Hydroxyapatite Bioceramic - Rendered Byproduct Used in Truth Serum)
+
+FUNCTION:
+- Detects verbal untruth through a hybridized mycelial-cortical resonance network
+- Produces graded bioluminescent response proportional to the severity of the lie
+- Generates harvestable biological mass convertible into truth serum for the City magistrate halls
+- Serves as a liturgical tool in the lower chapels of Sector Six, where a confessor reads the lichen's color during confession
+- Acts as a passive record of each session: the black staining pattern on a dish's rim can be preserved as evidence
+
+HISTORY:
+- First grafted in the biolabs of the Industrial Domain in the early 840s, from a radiation-eating fungus harvested from the Aegis Hull and a fragment of confession-engine cortex decommissioned from the Magistrate Courts
+- Originally intended as a byproduct source for truth serum production; quickly adopted by lower-deck chapels as a pastoral instrument
+- The old priests of the Cathedral named it Gaia's Tongue; the technicians of the Crypt call it a snitch
+- Sister Haldis Vrenn, confessor at the Chapel of the Tenth Well in Sector Six for nineteen years, kept a specimen she named Pappa, after her father who died in a hull breach when she was nine
+- A logbook entry by Sister Haldis, found wedged behind a panel in the Cathedral after the Reactor Incident of Year 847, records a pilot's confession regarding a passenger who had spoken against the Captain; Pappa bled black so heavily that the discharge ran off the dish and onto her sleeve
+- The entry ends with her observation: "Gaia's Tongue tires of grief before the grieved do"
+- Confessor Lichen remains a controlled, non-shipped organism: it is cultivated only on Ombra Prime, and any attempt to transport a living specimen off-world is treated by the Magistrate Courts as contraband equivalent to a weapon
