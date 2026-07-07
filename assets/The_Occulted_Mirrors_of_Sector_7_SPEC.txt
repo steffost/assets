@@ -1,0 +1,43 @@
+NAME: Occulted Mirrors of Sector 7
+NICKNAME: "The Quiet"
+
+SPECS:
+- Vertical surface dimensions: approximately 1.8 meters tall by 0.9 meters wide
+- Activation range: triggers within 30 centimeters of a human face
+- Composition: two-layer bonded structure (polished front alloy over biological capillary lattice)
+- Response time: instantaneous darkening upon facial detection; amber pulse latency under one second
+- Breath-tracking synchronization: confirmed within 0.5-second tolerance (Bramwell's empirical tests)
+- Power source: passive, fed by continuous flow of Vitalis Plasma through the Aegis capillary bed
+- No data transmission or reception capability (verified by shipboard scanners)
+
+VISUAL DESIGN:
+- Inactive state: jet-black polished obsidian-alloy surface, mirror-clear when no face is within range, reflecting surroundings with perfect fidelity
+- Active state: alloy darkens to deep ink-black, becoming opaque and light-absorbing
+- Underlying capillary bed emits soft amber glow when activated, pulsing in rhythm with the viewer's respiration
+- Amber luminescence is specifically described as evoking hearth-light warmth, a firelit glow no crew member has ever experienced firsthand
+- Framed in simple dark metal mountings, bolted directly to bulkheads
+- Typically installed in service corridors of the Outer Ring maintenance levels, often near junctions, hydration stations, or sealed compartment doors
+
+MATERIALS:
+- Front surface: Polished Obsidian Alloy, a dense black metallic compound native to Pearl's industrial stocks
+- Backing layer: Living lattice of Aegis Fungus Mycelium, cultivated over decades into dense capillary networks
+- Circulating fluid: Vitalis Plasma, harvested from Sub-Orb migration currents, flowing in thin continuous streams through the mycelial bed
+- Frame: Standard dark metal structural alloy, utilitarian mounting hardware
+
+FUNCTION:
+- Facial detection and recognition through unknown mechanism, despite lacking conventional sensor architecture
+- Visual manifestation of apparent memories retained in the Vitalis Plasma's residue of every face ever reflected in the surface
+- Rhythmic biofeedback response that synchronizes with the viewer's breathing pattern
+- Capable of displaying specific faces not belonging to the viewer (Bramwell consistently sees a woman with his own features)
+- No diagnostic, communicative, or utilitarian purpose recognized by the ship's official technical classification
+- Functions as a passive contemplative surface during inactive periods, serving as ordinary reflective mirror
+
+HISTORY:
+- Emerged organically over decades within the perpetually humming service corridors of the Pearl's outer maintenance ring
+- Neither designed by the Genetic Archivists nor sanctioned by the Orthodox clergy of Vitae Cultus
+- Condemned as "Desecrations" by the Orthodox faction
+- Dismissed as "Distractions" by the Reformed faction
+- Third-shift maintenance technicians refer to them simply as "quiet"
+- Scientific speculation attributes the phenomenon to a feedback loop between Aegis mycelium's natural biosensitivity and residual memory stored in Vitalis Plasma
+- Notable documented interaction: Captain-Surgeon Eliott Bramwell (age 52), Year 891 After Launch, recorded a recurring vision of a woman wearing pre-Archivist mantle robes, bearing his own eyes and jaw, mouthing an unreadable syllable at Junction 7-Alpha
+- The apparitions remain patient and persistent, awaiting new observers without urgency or apparent agenda
