@@ -1,0 +1,47 @@
+NAME: Wisp-Latch Personnel Monitor
+NICKNAME: "The Latch" or "Wisp"
+
+SPECS:
+- Dimensions: 38 mm × 22 mm × 14 mm (palm-sized clip form factor)
+- Weight: 9.4 grams (unfelt on collar or sleeve)
+- Sensing depth: 0.8–1.2 mm capacitive coupling through outer garment layer
+- Micro-needle length: 1.1 mm (penetrates outermost textile fibers only, never skin)
+- Resonance chamber volume: 0.4 cm³ (nautilus-spiral interior geometry)
+- Operating humidity range: 12% to 98% RH (Zone 1 industrial dry to Zone 6 canopy wet)
+- Visible pulse range: 3 meters in standard lighting, 12 meters in dim corridors
+- Color output: trichromatic LED (green 520 nm, amber 590 nm, red 625 nm)
+
+VISUAL DESIGN:
+- Two-tone housing: warm matte organic upper body in deep umber or oxblood, with a thin brushed metallic rim tracing the clip hinge line
+- Resembles a small seedpod or curled leaf with a polished spine, the metallic edge giving it the silhouette of a closed bivalve
+- Top surface bears a raised spiral whorl in cream-colored chitin, the hollow resonance chamber opening visibly like a tiny fossilized nautilus
+- Two micro-needles retract flush into the clip jaw when unfastened, extend only on closure
+- Soft internal light source glows through the translucent organic housing, giving the entire body a faint internal luminescence when active
+- Clip mechanism has a deliberately stiff action; requires thumb pressure to seat
+
+MATERIALS:
+- mycelium_composite_living (hybrid mycelium bioplastic housing body, warm yielding texture)
+- titanium_grade5 (thin structural shell along clip spine and hinge plate)
+- peek_victrex (internal structural frame and needle guide bushings)
+- sapphire_synthetic (transparent window over the resonance chamber opening)
+- silica_aerogel (EZ-water gel matrix substrate, signal processing medium)
+- piezoelectric_pzt (vibration pickup element at clip base for ship-stress sensing)
+- alumina_995 (needle tips, bioinert, electrically insulating)
+- vespel_sp1 (capacitive coupling electrode mounts, low dielectric loss)
+
+FUNCTION:
+- Reads bioelectrical signature of wearer (stress hormones, core temperature, neural fatigue indicators) through capacitive coupling via micro-needle array
+- Translates aggregate biometric stress state into a single visible color pulse readable by nearby crew at a glance
+- Green pulse: wearer stable and fit for duty
+- Amber pulse: fatigue accumulating, recommend reduced task load
+- Red pulse: wearer unfit for critical work in the following hour
+- Picks up low-frequency vibration transmitted through clothing from ship structure and computational load shifts
+- Emits a soft chime tone through the resonance chamber when structural or computational stress is detected, translating ship-scale events to personal-scale audible cue
+- Acts as a social trust signal and ambient health monitor without requiring screen-based interface
+
+HISTORY:
+- Prototyped by Dr. Helma Voss, soft-systems biologist in the lower Pearl research annex, after observing delayed stress detection in workers transitioning between humid canopy zones and dry industrial levels
+- Design refined by junior engineer Oren Tashi, who bonded the mycelium housing to a scavenged resonance chamber harvested from a decommissioned Whisper Vessel, repurposing biological acoustic architecture at miniature scale
+- Approved quietly by Oris, who contributed a single line of optimization code to teach the EZ-water gel droplet to filter ambient life-support drone from incoming signals
+- Entered standard issue three months after initial concept; over 40,000 units cultivated in the vats beneath the Pearl, each grown and tuned during development to a specific shift assignment and atmospheric zone pairing
+- Widespread cultural adoption by Year 891 After Launch; increasingly seen as both safety instrument and quasi-spiritual link between the individual worker and the living architecture of Ombra Prime itself
