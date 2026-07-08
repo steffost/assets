@@ -1,0 +1,48 @@
+NAME: Gloom Binder
+NICKNAME: "The Sleeve"
+
+SPECS:
+- Overall length: 142 mm
+- Diameter: 58 mm
+- Mass: 1.4 kg (loaded)
+- Trigger actuation force: 2.2 N
+- Reservoir capacity: 60 mL structured EZ-water
+- Disc chamber internal volume: 22 mL
+- Operating temperature range: -40°C to +85°C
+- Acoustic signature: dormant <8 dB, digesting ~22 dB, fresh-feed whine ~51 dB
+- Safety: dead-man's cut-off releases pressure if grip is lost for >0.4 s
+
+VISUAL DESIGN:
+- Squat, palm-sized cylinder resembling a fat finger-sized canister with a flattened top cap
+- Dull gunmetal-gray core showing through hundreds of cargo-bay scuffs, dents, and paint transfers
+- Woven sleeve in muted bone-and-olive tones, its mycelial weave visibly tightening or relaxing around the cylinder in response to the disc's state
+- Small vent slots near the top ringed in copper-colored alloy, faintly warm to the touch
+- Trigger bar set in a recessed channel along the lower third, with a knurled grip
+- Hairline seam running vertically where the sleeve fastens with a pair of old brass press-studs
+- Faint pulse of amber light through the weave when the disc is digesting
+
+MATERIALS:
+- tungsten_rhenium_alloy (Tungsten-Rhenium (W-Re) Casting) — main cylinder body
+- mycelium_composite_living (Living Mycelium Composite) — outer woven sleeve
+- silica_aerogel (Silica Aerogel) — interior cavity lining
+- lead_foil (Lead Foil Laminate) — radiation/Frequency shielding inside cavity
+- hardened_vitalis_disc (Stabilized Vitalis Residue) — active element "The Gloom"
+- structured_ez_water (Structured Exclusion-Zone Water) — dispensed agent
+- peek_victrex (PEEK (Polyetheretherketone)) — trigger mechanism, seals, internal plumbing
+- quartz_crystal (Quartz Crystal (SiO₂)) — Schumann-resonance dampener tuning element
+- nitinol (Nitinol (Nickel-Titanium)) — shape-memory actuation coupling between disc and sleeve
+
+FUNCTION:
+- Detects and contains raw Vitalis spills in open deck or cargo environments
+- Sedates and stabilizes wild Vitalis into a harvestable paste without destroying its energetic content
+- Provides acoustic early-warning of distant or recent spills via disc resonance
+- Prevents Ghosting symptoms in nearby machinery and personnel
+- Feeds a contained disc of Vitalis residue that acts as both attractor and capture medium
+
+HISTORY:
+- Developed during the deep cycles of the Industrial Domain after Skimmer-bots on the Aegis hull began exhibiting Ghosting symptoms
+- Commissioned by Oris to act as a scalpel in place of the previous hammer-and-destroy containment approach
+- First prototype nearly killed its inventor when the disc absorbed a Chaos bleed and emitted a frequency that rearranged the bones in his hand
+- Schumann-resonance dampener and dead-man's cut-off added to all current production models after the prototype incident
+- Standard issue on every HazTech belt since the Root Weave adoption cycle
+- Referenced in Marta Brun's logbook, Year 847 After Launch, during a quiet containment at Junction 9-Charlie
