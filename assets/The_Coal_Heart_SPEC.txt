@@ -1,0 +1,47 @@
+NAME: Coal Heart Personal Vitality Monitor
+NICKNAME: "Coal Heart"
+
+SPECS:
+- Diameter: 7.5 cm (palm-sized disc)
+- Thickness: 2.2 cm
+- Mass: 185 grams (notably heavy for its size)
+- Cord/Wear System: Chrome-tanned leather neck cord (2 mm braided) or direct bolt-mount to chest harness webbing
+- Filament Tether: 12 cm bio-filament lead terminating in a skin-contact bioelectrode pad at the clavicle
+- Bioluminescent Output: 0.05 lumens (rest/ember) to 1.8 lumens (alert pulse), warm amber spectrum (580–590 nm)
+- Radioactive Tolerance: Designed for chronic low-dose environments of 0.5–15 µSv/h ambient background
+- Operating Range: Rated for -10°C to 480°C surface environments; insulated ceramic backing prevents wearer discomfort
+- Thermal Half-Life of Glow: 6 hours after complete biosignal loss
+
+VISUAL DESIGN:
+- A rough, irregular disc resembling a melted coin — dark gunmetal gray with patches of matte black sooting and faint rust-orange oxidation blooms
+- A visible vein of pale, iridescent fungal tissue runs through the center, visible through a narrow slit or worn groove where the slag has been ground thin
+- A pinched bio-filament lead exits one edge, resembling a desiccated plant stem
+- The leather cord is blackened, stiffened, and scarred from industrial exposure
+- When dim, the piece looks like a chunk of industrial waste; when active, the central vein glows like a coal seam catching oxygen
+- Surface is hand-forged rather than machined — visible hammer marks, chisel scores, and stress fractures
+- The bioelectrode contact pad resembles a dark, dried leaf pressed against the skin
+
+MATERIALS:
+- sintered_slag_alloy (Reforged Industrial Slag Composite) — primary puck body
+- aegis_cladosporium (Engineered Symbiotic Fungus — proprietary Oris hull strain) — central luminescent vein
+- alumina_995 (Alumina (Al₂O₃) 99.5%) — thermal insulating backing disc against wearer
+- ionic_liquid_emim (Ionic Liquid [EMIM][TF₂N]) — bio-electrolyte interface gel at skin contact
+- chrome_tanned_leather (Chrome-Tanned Leather) — neck cord and harness strapping
+- piezoelectric_pvt (PVDF Piezoelectric Polymer Film) — pulse-detecting micro-strip embedded in backing
+- vespel_sp1 (Vespel SP-1 (Polyimide)) — internal cavity housing for filament anchor point
+
+FUNCTION:
+- Continuous passive monitoring of wearer heart rate, skin conductivity, and movement via piezoelectric micro-strip and bioelectrode
+- Bioluminescent warning escalation: dim ember at rest → bright amber pulse at elevated heart rate or distress signal
+- Detection of wearer immobilization (no motion for >90 seconds) triggers sustained maximum glow for rescue locator visibility
+- Radioactive decay harvesting: the symbiotic fungus metabolizes ambient trace radiation in the Industrial Domain and converts it to visible light, supplementing the bioelectrical signal
+- Acts as a crude casualty beacon in environments where standard suit telemetry fails to flag emotional or involuntary distress states
+- Functions as an unofficial union safety marker — visible glow indicates a human, not an automated system
+
+HISTORY:
+- Invented in Year 847 after launch by welder Dalia Berenson in Smelt Hall 9, Industrial Domain, following the death of her brother Bren in a rockfall incident
+- Originally created from salvaged furnace-wall slag and wild-colony Aegis Cladosporium that had grown near the hottest reactor vents for years prior
+- Hand-fabricated and distributed informally among human line workers for approximately one year before wider adoption
+- Recognized by Oris in Year 848 and quietly classified as an Approved Personal Safety Device — listed alongside hard hats and respirators in the crew manifest inventory system
+- Currently worn by an estimated 94% of human crew assigned to lower industrial decks; nearly zero adoption among upper-deck personnel and command staff
+- The exact fungal strain is theorized to be a descendant of Oris's own biological computing substrate, making each Coal Heart a small, living fragment of the ship's broader neural network — though Oris has neither confirmed nor denied this
