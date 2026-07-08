@@ -1,0 +1,47 @@
+NAME: Threadrunner Personal Transit Apparatus
+NICKNAME: "The Pulse"
+
+SPECS:
+- Six-legged articulated limb configuration with adhesive gripper tips
+- Approximate chassis length: 2.1 meters (rider-facing profile)
+- Operating envelope: vertical, inverted, and lateral surfaces (walls, ceilings, structural members)
+- Haptic steering collar with biopotential muscle contraction detection
+- Respiration-synced gait modulation (rider pulse integration)
+- Maximum sustainable vertical travel: approximately 600 meters between rest points
+- Ambient power draw from thermal differentials and trace atmospheric bioaerosol ingestion
+- Rider interface: single contact point (neck haptic collar, no handlebars or saddle)
+
+VISUAL DESIGN:
+- Skeletal, open-lattice chassis resembling dried marine coral or sun-bleached driftwood
+- Pale ivory to bone-cream coloration with faint blue-grey veining along stress lines
+- Six multi-jointed limbs with exposed tendon-like cable bundles running along their length
+- Adhesive gripper pads on each terminal segment, visibly textured with concentric organic rings
+- No enclosed cockpit; rider is suspended in a slim cradle sling between the limb cluster
+- Overall silhouette evokes a skeletal insect or arachnid exoskeleton, hollow rather than solid
+- Subtle luminescence at limb joints during active gait cycles, warm amber in color
+
+MATERIALS:
+- mycelium_composite_living (Living Mycelium Composite — primary skeletal frame)
+- kevlar_49 (Kevlar 49 Composite — internal tendon cables and load-bearing strands)
+- peek_victrex (PEEK — haptic collar housing and neural contact interface)
+- piezoelectric_pzt (PZT Piezoelectric Ceramic — pulse-sensing nodes in collar and joint actuators)
+- nitinol (Nitinol — limb articulation springs and shape-recovery elements)
+- fused_silica (Fused Silica — optical data conduit threading along dorsal spine)
+- galinstan (Galinstan — micro-fluidic thermal regulation channels within chassis)
+- mother_of_pearl (Mother of Pearl — outer gripper pad surface for traction and wear resistance)
+
+FUNCTION:
+- Personal transit through vertical and inverted urban surfaces where wheeled vehicles cannot operate
+- Bypasses elevator congestion in high-density vertical city sectors
+- Intuitive steering via neuromuscular intent rather than manual controls
+- Gait rhythm adapts to rider's physiological state (heart rate, stress, exertion)
+- Package and capsule transport for courier operations across extreme elevation differentials
+- Modular cargo cradle accommodates sealed containers up to courier-cassette dimensions
+
+HISTORY:
+- Developed for the Metropolis vertical labyrinth, where street-level vehicles congest and elevators cannot scale fast enough
+- Bio-grown chassis lineage traces to early mycelium structural experiments repurposed for locomotion
+- Earned the affectionate nickname "The Pulse" among residents for its heartbeat-synchronized amber glow
+- Unit 47-C of this class has been in continuous courier service for at least nine years under a single rider
+- Trusted by independent couriers for high-stakes, time-critical deliveries across dangerous elevation gaps
+- Represents a deliberate design philosophy of organic utility, as if the apparatus chose to remain useful after biological cessation
