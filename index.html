@@ -1,353 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ombra Prime // Asset Registry</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cyan: #00f7ff;
-            --gold: #ff9d00;
-            --red: #cc0000;
-            --dark-bg: #050608;
-            --panel-bg: #0d0f14;
-            --panel-border: #1a2030;
-            --text-primary: #e0e6ed;
-            --text-secondary: #6a7a8a;
-            --glow-cyan: 0 0 20px rgba(0, 247, 255, 0.4);
-            --glow-gold: 0 0 15px rgba(255, 157, 0, 0.3);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'JetBrains Mono', monospace;
-            background: var(--dark-bg);
-            color: var(--text-primary);
-            min-height: 100vh;
-            background-image: 
-                linear-gradient(rgba(0, 247, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 247, 255, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        .header {
-            background: linear-gradient(180deg, #0a0d12 0%, var(--dark-bg) 100%);
-            border-bottom: 1px solid var(--panel-border);
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-            box-shadow: var(--glow-cyan);
-        }
-
-        .header-corner {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            border: 1px solid var(--cyan);
-            opacity: 0.3;
-        }
-        .header-corner.tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
-        .header-corner.tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
-        .header-corner.bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
-        .header-corner.br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
-
-        .registry-tag {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 6px;
-            color: var(--cyan);
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            opacity: 0.7;
-        }
-
-        .header h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--gold);
-            text-shadow: var(--glow-gold);
-            margin-bottom: 15px;
-            letter-spacing: 4px;
-        }
-
-        .header-subtitle {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .status-line {
-            margin-top: 30px;
-            font-size: 0.7rem;
-            color: var(--cyan);
-            opacity: 0.6;
-        }
-
-        .status-line span {
-            color: var(--gold);
-        }
-
-        .main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 60px 40px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-            gap: 20px;
-        }
-
-        .section-header::before,
-        .section-header::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--panel-border), transparent);
-        }
-
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 4px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-        }
-
-        .asset-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .asset-card {
-            background: var(--panel-bg);
-            border: 1px solid var(--panel-border);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .asset-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .asset-card:hover {
-            border-color: var(--cyan);
-            box-shadow: var(--glow-cyan);
-            transform: translateY(-4px);
-        }
-
-        .asset-card:hover::before {
-            opacity: 1;
-        }
-
-        .asset-wireframe {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: #000;
-            display: block;
-            filter: brightness(0.8) contrast(1.2);
-            transition: filter 0.3s ease;
-        }
-
-        .asset-card:hover .asset-wireframe {
-            filter: brightness(1) contrast(1.3);
-        }
-
-        .asset-info {
-            padding: 25px;
-        }
-
-        .asset-classification {
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            color: var(--cyan);
-            opacity: 0.6;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .asset-name {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            color: var(--gold);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .asset-nickname {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .asset-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.65rem;
-            color: var(--text-secondary);
-            opacity: 0.6;
-        }
-
-        .asset-meta .has-audio {
-            color: var(--gold);
-        }
-
-        .view-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 16px;
-            background: transparent;
-            border: 1px solid var(--cyan);
-            color: var(--cyan);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .view-btn:hover {
-            background: var(--cyan);
-            color: var(--dark-bg);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 100px 40px;
-            border: 1px dashed var(--panel-border);
-            color: var(--text-secondary);
-        }
-
-        .empty-state-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            opacity: 0.3;
-        }
-
-        .empty-state h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-        }
-
-        .empty-state p {
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 60px 40px;
-            border-top: 1px solid var(--panel-border);
-            margin-top: 60px;
-        }
-
-        .footer-text {
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            color: var(--text-secondary);
-            opacity: 0.4;
-            text-transform: uppercase;
-        }
-
-        .footer-stardate {
-            margin-top: 15px;
-            font-size: 0.7rem;
-            color: var(--cyan);
-            opacity: 0.4;
-        }
-
-        .scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: 9999;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.03),
-                rgba(0, 0, 0, 0.03) 1px,
-                transparent 1px,
-                transparent 2px
-            );
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ombra Prime // Asset Registry</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root { --cyan:#00f7ff; --gold:#ff9d00; --red:#cc0000; --dark-bg:#050608; --panel-bg:#0d0f14; --panel-border:#1a2030; --text-primary:#e0e6ed; --text-secondary:#6a7a8a; --glow-cyan:0 0 20px rgba(0,247,255,0.4); --glow-gold:0 0 15px rgba(255,157,0,0.3);}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'JetBrains Mono',monospace;background:var(--dark-bg);color:var(--text-primary);min-height:100vh;background-image:linear-gradient(rgba(0,247,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,247,255,0.02) 1px,transparent 1px);background-size:40px 40px}
+.header{background:linear-gradient(180deg,#0a0d12 0%,var(--dark-bg) 100%);border-bottom:1px solid var(--panel-border);padding:60px 40px;text-align:center;position:relative;overflow:hidden}
+.header::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:var(--glow-cyan)}
+.header h1{font-family:'Orbitron',sans-serif;font-size:3rem;font-weight:900;color:var(--gold);text-shadow:var(--glow-gold);margin-bottom:15px;letter-spacing:4px}
+.registry-tag{font-family:'Orbitron',sans-serif;font-size:0.65rem;letter-spacing:6px;color:var(--cyan);text-transform:uppercase;margin-bottom:30px;opacity:0.7}
+.main{max-width:1400px;margin:0 auto;padding:60px 40px}
+.asset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:30px}
+.asset-card{background:var(--panel-bg);border:1px solid var(--panel-border);cursor:pointer;transition:all 0.3s ease;position:relative;overflow:hidden}
+.asset-card:hover{border-color:var(--cyan);box-shadow:var(--glow-cyan);transform:translateY(-4px)}
+.asset-wireframe{width:100%;height:200px;object-fit:cover;background:#000;display:block;filter:brightness(0.8) contrast(1.2)}
+.asset-info{padding:25px}
+.asset-name{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--gold);margin-bottom:8px;font-weight:600}
+.asset-nickname{font-size:0.8rem;color:var(--text-secondary);font-style:italic;margin-bottom:15px}
+.view-btn{display:inline-block;margin-top:15px;padding:8px 16px;background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none}
+.view-btn:hover{background:var(--cyan);color:var(--dark-bg)}
+.empty-state{text-align:center;padding:100px 40px;border:1px dashed var(--panel-border);color:var(--text-secondary)}
+.footer{text-align:center;padding:60px 40px;border-top:1px solid var(--panel-border);margin-top:60px}
+.footer-text{font-size:0.65rem;letter-spacing:3px;color:var(--text-secondary);opacity:0.4;text-transform:uppercase}
+</style>
 </head>
 <body>
-    <div class="scanlines"></div>
-
-    <header class="header">
-        <div class="header-corner tl"></div>
-        <div class="header-corner tr"></div>
-        <div class="header-corner bl"></div>
-        <div class="header-corner br"></div>
-        
-        <div class="registry-tag">Ombra Prime // Asset Registry</div>
-        <h1>ASSET LIBRARY</h1>
-        <div class="header-subtitle">Technical Database // Classified: OPEN</div>
-        <div class="status-line">
-            SYSTEM: ONLINE // TOTAL ASSETS: <span id="asset-count">0</span> // LAST UPDATE: <span id="last-update">--</span>
+<header class="header">
+    <div class="registry-tag">Ombra Prime // Asset Registry</div>
+    <h1>ASSET LIBRARY</h1>
+    <div class="status-line">TOTAL ASSETS: <span id="asset-count">7</span> // LAST UPDATE: 7/8/2026</div>
+</header>
+<main class="main">
+    <div class="asset-grid" id="asset-grid">
+        <div class="asset-card" onclick="window.location.href='assets/The_Gloom_Binder.html'">
+            <img class="asset-wireframe" src="assets/The_Gloom_Binder_photo.png" alt="Gloom Binder">
+            <div class="asset-info">
+                <div class="asset-name">Gloom Binder</div>
+                <div class="asset-nickname">"The Sleeve"</div>
+                <div class="asset-meta"><span>2026-07-08</span> <span class="has-audio">◉ AUDIO</span></div>
+                <a class="view-btn" href="assets/The_Gloom_Binder.html">View →</a>
+            </div>
         </div>
-    </header>
-
-    <main class="main">
-        <div class="section-header">
-            <div class="section-title">Registered Assets</div>
+        <div class="asset-card" onclick="window.location.href='assets/Threadrunner.html'">
+            <img class="asset-wireframe" src="assets/Threadrunner_photo.png" alt="Threadrunner Personal Transit Apparatus">
+            <div class="asset-info">
+                <div class="asset-name">Threadrunner Personal Transit Apparatus</div>
+                <div class="asset-nickname">"The Pulse"</div>
+                <div class="asset-meta"><span>2026-07-08</span> <span class="has-audio">◉ AUDIO</span></div>
+                <a class="view-btn" href="assets/Threadrunner.html">View →</a>
+            </div>
         </div>
-
-        <div class="asset-grid" id="asset-grid">
+        <div class="asset-card" onclick="window.location.href='assets/The_Confessor_Lichen.html'">
+            <img class="asset-wireframe" src="assets/The_Confessor_Lichen_photo.png" alt="Confessor Lichen">
+            <div class="asset-info">
+                <div class="asset-name">Confessor Lichen</div>
+                <div class="asset-nickname">"Confessor Lichen"</div>
+                <div class="asset-meta"><span>2026-07-07</span> <span class="has-audio">◉ AUDIO</span></div>
+                <a class="view-btn" href="assets/The_Confessor_Lichen.html">View →</a>
+            </div>
         </div>
-
-        <div class="empty-state" id="empty-state" style="display: none;">
-            <div class="empty-state-icon">◈</div>
-            <h2>No Assets Registered</h2>
-            <p>Generate your first asset using the pipeline.</p>
+        <div class="asset-card" onclick="window.location.href='assets/The_Occulted_Mirrors_of_Sector_7.html'">
+            <img class="asset-wireframe" src="assets/The_Occulted_Mirrors_of_Sector_7_photo.png" alt="Occulted Mirrors of Sector 7">
+            <div class="asset-info">
+                <div class="asset-name">Occulted Mirrors of Sector 7</div>
+                <div class="asset-nickname">"The Quiet"</div>
+                <div class="asset-meta"><span>2026-07-07</span> <span class="has-audio">◉ AUDIO</span></div>
+                <a class="view-btn" href="assets/The_Occulted_Mirrors_of_Sector_7.html">View →</a>
+            </div>
         </div>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-text">Ombra Prime Asset Registry // Technical Documentation System</div>
-        <div class="footer-stardate" id="stardate">Stardate: --</div>
-    </footer>
-
-    <script>
-        const ASSETS = [
+        <div class="asset-card" onclick="window.location.href='assets/The_Vantage_Lens.html'">
+            <img class="asset-wireframe" src="assets/The_Vantage_Lens_photo.png" alt="Vantage Lens Autonomous Sensor Platform">
+            <div class="asset-info">
+                <div class="asset-name">Vantage Lens Autonomous Sensor Platform</div>
+                <div class="asset-nickname">"The Watcher"</div>
+                <div class="asset-meta"><span>2026-07-07</span> <span class="has-audio">◉ AUDIO</span></div>
+                <a class="view-btn" href="assets/The_Vantage_Lens.html">View →</a>
+            </div>
+        </div>
+        <div class="asset-card" onclick="window.location.href='assets/The_Verdant_Spire.html'">
+            <img class="asset-wireframe" src="assets/The_Verdant_Spire_photo.png" alt="The Verdant Spire">
+            <div class="asset-info">
+                <div class="asset-name">The Verdant Spire</div>
+                <div class="asset-nickname">"The Singing Tower"</div>
+                <div class="asset-meta"><span>2026-07-07</span> <span class="has-audio">◉ AUDIO</span></div>
+                <a class="view-btn" href="assets/The_Verdant_Spire.html">View →</a>
+            </div>
+        </div>
+        <div class="asset-card" onclick="window.location.href='assets/The_Wisp-Latch.html'">
+            <img class="asset-wireframe" src="assets/The_Wisp-Latch_photo.png" alt="Wisp-Latch Personnel Monitor">
+            <div class="asset-info">
+                <div class="asset-name">Wisp-Latch Personnel Monitor</div>
+                <div class="asset-nickname">"Wisp-Latch Personnel Monitor"</div>
+                <div class="asset-meta"><span>2026-07-07</span> <span class="has-audio">◉ AUDIO</span></div>
+                <a class="view-btn" href="assets/The_Wisp-Latch.html">View →</a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer-text">Ombra Prime Asset Registry // Technical Documentation System</div>
+</footer>
+<script>
+const ASSETS = [
     {
         "id": "Gloom Binder",
         "name": "Gloom Binder",
@@ -371,17 +129,6 @@
         "date": "2026-07-08"
     },
     {
-        "id": "Vantage Lens Autonomous Sensor",
-        "name": "Vantage Lens Autonomous Sensor Platform",
-        "nickname": "The Watcher",
-        "url": "assets/The_Vantage_Lens.html",
-        "wireframe": "assets/The_Vantage_Lens_wireframe.png",
-        "photo": "assets/The_Vantage_Lens_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-07-07"
-    },
-    {
         "id": "Confessor Lichen",
         "name": "Confessor Lichen",
         "nickname": "Confessor Lichen",
@@ -399,6 +146,17 @@
         "url": "assets/The_Occulted_Mirrors_of_Sector_7.html",
         "wireframe": "assets/The_Occulted_Mirrors_of_Sector_7_wireframe.png",
         "photo": "assets/The_Occulted_Mirrors_of_Sector_7_photo.png",
+        "hasPhoto": true,
+        "hasAudio": true,
+        "date": "2026-07-07"
+    },
+    {
+        "id": "Vantage Lens Autonomous Sensor",
+        "name": "Vantage Lens Autonomous Sensor Platform",
+        "nickname": "The Watcher",
+        "url": "assets/The_Vantage_Lens.html",
+        "wireframe": "assets/The_Vantage_Lens_wireframe.png",
+        "photo": "assets/The_Vantage_Lens_photo.png",
         "hasPhoto": true,
         "hasAudio": true,
         "date": "2026-07-07"
@@ -424,266 +182,9 @@
         "hasPhoto": true,
         "hasAudio": true,
         "date": "2026-07-07"
-    },
-    {
-        "id": "The Mooder's Lace",
-        "name": "The Mooder's Lace",
-        "nickname": "The Second Skin",
-        "url": "assets/The_Mooder_s_Lace.html",
-        "wireframe": "assets/The_Mooder_s_Lace_wireframe.png",
-        "photo": "assets/The_Mooder_s_Lace_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-20"
-    },
-    {
-        "id": "The Vitae Locket",
-        "name": "The Vitae Locket",
-        "nickname": "Seed of the Pearl",
-        "url": "assets/The_Vitae_Locket.html",
-        "wireframe": "assets/The_Vitae_Locket_wireframe.png",
-        "photo": "assets/The_Vitae_Locket_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-20"
-    },
-    {
-        "id": "THE MERIDIAN THERMOS",
-        "name": "The Meridian Thermoscribe",
-        "nickname": "Thermoscribe",
-        "url": "assets/The_Meridian_Thermoscribe.html",
-        "wireframe": "assets/The_Meridian_Thermoscribe_wireframe.png",
-        "photo": "assets/The_Meridian_Thermoscribe_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-14"
-    },
-    {
-        "id": "The Breathstone",
-        "name": "Breathstone",
-        "nickname": "Spirit Sphere",
-        "url": "assets/Breathstone.html",
-        "wireframe": "assets/Breathstone_wireframe.png",
-        "photo": "assets/Breathstone_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "Error shortening",
-        "name": "Oris-MK7 Bioscan Wand",
-        "nickname": "The Pearl's Eye",
-        "url": "assets/Oris_MK7_Bioscan_Wand.html",
-        "wireframe": "assets/Oris_MK7_Bioscan_Wand_wireframe.png",
-        "photo": "assets/Oris_MK7_Bioscan_Wand_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "The Dewpoint",
-        "name": "The Dewpoint",
-        "nickname": "The Dew",
-        "url": "assets/The_Dewpoint.html",
-        "wireframe": "assets/The_Dewpoint_wireframe.png",
-        "photo": "assets/The_Dewpoint_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "The Mosswell Persona",
-        "name": "The Mosswell Personal Cultivator",
-        "nickname": "Mossie",
-        "url": "assets/The_Mosswell_Personal_Cultivator.html",
-        "wireframe": "assets/The_Mosswell_Personal_Cultivator_wireframe.png",
-        "photo": "assets/The_Mosswell_Personal_Cultivator_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "THE NIGHTHAND",
-        "name": "The Nighthand",
-        "nickname": "The Grip",
-        "url": "assets/The_Nighthand.html",
-        "wireframe": "assets/The_Nighthand_wireframe.png",
-        "photo": "assets/The_Nighthand_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "The Pulse Chalice",
-        "name": "The Pulse Chalice",
-        "nickname": "The Pulse",
-        "url": "assets/The_Pulse_Chalice.html",
-        "wireframe": "assets/The_Pulse_Chalice_wireframe.png",
-        "photo": "assets/The_Pulse_Chalice_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "The Pulse Wand",
-        "name": "The Pulse Wand",
-        "nickname": "The Green Eye",
-        "url": "assets/The_Pulse_Wand.html",
-        "wireframe": "assets/The_Pulse_Wand_wireframe.png",
-        "photo": "assets/The_Pulse_Wand_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "The Terrarion Vessel",
-        "name": "The Terrarion Vessel",
-        "nickname": "Gaia's Pulse",
-        "url": "assets/The_Terrarion_Vessel.html",
-        "wireframe": "assets/The_Terrarion_Vessel_wireframe.png",
-        "photo": "assets/The_Terrarion_Vessel_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "The Void Crawler (Ma",
-        "name": "The Void Crawler Mark VII Survey Skiff",
-        "nickname": "The Crawler",
-        "url": "assets/The_Void_Crawler_Mark_VII_Survey_Skiff.html",
-        "wireframe": "assets/The_Void_Crawler_Mark_VII_Survey_Skiff_wireframe.png",
-        "photo": "assets/The_Void_Crawler_Mark_VII_Survey_Skiff_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "ASSET NAME: The Whis",
-        "name": "The Whisper Reed",
-        "nickname": "Whisper",
-        "url": "assets/The_Whisper_Reed.html",
-        "wireframe": "assets/The_Whisper_Reed_wireframe.png",
-        "photo": "assets/The_Whisper_Reed_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "NAME: The Whisper Ve",
-        "name": "The Whisper Vessel",
-        "nickname": "The Shell",
-        "url": "assets/The_Whisper_Vessel.html",
-        "wireframe": "assets/The_Whisper_Vessel_wireframe.png",
-        "photo": "assets/The_Whisper_Vessel_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "**Asset Name: Vitali",
-        "name": "Vitalis Resonator Ring",
-        "nickname": "Green Pulse",
-        "url": "assets/Vitalis_Resonator_Ring.html",
-        "wireframe": "assets/Vitalis_Resonator_Ring_wireframe.png",
-        "photo": "assets/Vitalis_Resonator_Ring_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "ASSET DESCRIPTION:",
-        "name": "Vita-Pin",
-        "nickname": "The Moss",
-        "url": "assets/Vita_Pin.html",
-        "wireframe": "assets/Vita_Pin_wireframe.png",
-        "photo": "assets/Vita_Pin_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-06"
-    },
-    {
-        "id": "Graviton Balance Bra",
-        "name": "Graviton Balance Brace",
-        "nickname": "GB-7",
-        "url": "assets/Graviton_Balance_Brace.html",
-        "wireframe": "assets/Graviton_Balance_Brace_wireframe.png",
-        "photo": "assets/Graviton_Balance_Brace_photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-05"
-    },
-    {
-        "id": "Myco-Carafe (The Liv",
-        "name": "Myco-Carafe (The Living Preserver)",
-        "nickname": "The Breathing Cup",
-        "url": "assets/Myco_Carafe_The_Living_Preserver_.html",
-        "wireframe": "assets/Myco_Carafe_The_Living_Preserver__wireframe.png",
-        "photo": "assets/Myco_Carafe_The_Living_Preserver__photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-05"
-    },
-    {
-        "id": "Pulse Cord (Emergenc",
-        "name": "Pulse Cord (Emergency Life-Line)",
-        "nickname": "Life-Line",
-        "url": "assets/Pulse_Cord_Emergency_Life_Line_.html",
-        "wireframe": "assets/Pulse_Cord_Emergency_Life_Line__wireframe.png",
-        "photo": "assets/Pulse_Cord_Emergency_Life_Line__photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-05"
-    },
-    {
-        "id": "The Svep Svampen (Th",
-        "name": "The Svep Svampen (The Moisture Mote)",
-        "nickname": "The Svampen",
-        "url": "assets/The_Svep_Svampen_The_Moisture_Mote_.html",
-        "wireframe": "assets/The_Svep_Svampen_The_Moisture_Mote__wireframe.png",
-        "photo": "assets/The_Svep_Svampen_The_Moisture_Mote__photo.png",
-        "hasPhoto": true,
-        "hasAudio": true,
-        "date": "2026-04-05"
     }
 ];
-
-        function renderAssets() {
-            const grid = document.getElementById('asset-grid');
-            const emptyState = document.getElementById('empty-state');
-            
-            if (ASSETS.length === 0) {
-                grid.style.display = 'none';
-                emptyState.style.display = 'block';
-                return;
-            }
-
-            grid.innerHTML = ASSETS.map(asset => `
-                <div class="asset-card" onclick="window.location.href='${asset.url}'">
-                    <img class="asset-wireframe" 
-                         src="${asset.photo}" 
-                         alt="${asset.name}"
-                         onerror="this.src='${asset.wireframe}'">
-                    <div class="asset-info">
-                        <div class="asset-classification">${asset.id}</div>
-                        <div class="asset-name">${asset.name}</div>
-                        <div class="asset-nickname">"${asset.nickname}"</div>
-                        <div class="asset-meta">
-                            <span>${asset.date}</span>
-                            ${asset.hasAudio ? '<span class="has-audio">◉ AUDIO</span>' : ''}
-                        </div>
-                        <div class="view-btn">View Technical File →</div>
-                    </div>
-                </div>
-            `).join('');
-
-            document.getElementById('asset-count').textContent = ASSETS.length;
-            document.getElementById('last-update').textContent = new Date().toLocaleDateString('en-US', { 
-                year: 'numeric', month: 'short', day: 'numeric' 
-            });
-            document.getElementById('stardate').textContent = 'Stardate: ' + new Date().toISOString().split('T')[0];
-        }
-
-        renderAssets();
-    </script>
+document.getElementById('asset-count').textContent = ASSETS.length;
+</script>
 </body>
 </html>
