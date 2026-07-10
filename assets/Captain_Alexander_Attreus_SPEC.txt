@@ -1,0 +1,43 @@
+NAME: Echo Stone (Memory Crystal)
+NICKNAME: "The Echo"
+
+SPECS:
+- Mass: 187 grams
+- Dimensions: 78 mm × 54 mm × 41 mm (irregular, palm-conformant)
+- Internal core volume: 14.2 cm³ of active biological matrix
+- Acoustic pickup range: 32 Hz – 14 kHz
+- Radiotrophic metabolism threshold: 0.3 μSv/h ambient ionizing radiation minimum
+- Memory encoding latency: 0.8 seconds audio-to-lattice integration
+- Thermal output: +2.4°C above ambient during active recall sessions
+- Lattice growth rate: ~0.7 mm per lunar cycle under IR tuning at 850 nm
+
+VISUAL DESIGN:
+- Asymmetrical teardrop silhouette with one flattened facet where it rests against the temple
+- Outer fused silica shell carries a milky, cloud-like translucence with internal hairline fractures that catch plotting-table lamplight as faint amber threads
+- Suspended within the gel, the Cladosporium colony forms a deep umber-to-violet nebula, denser at the stone's center, thinning toward the edges
+- Faint dendritic vein patterns visible along the surface where decades of mycelial growth have pressed against the silica boundary
+- Surface is cool and slightly tacky to the touch; warms perceptibly during recall
+- A single shallow concavity on the underside fits the curve of the thenar eminence
+
+MATERIALS:
+- fused_silica (Fused Silica (SiO₂) — outer growth matrix shell)
+- ionic_liquid_emim (Ionic Liquid [EMIM][TF2N] — stabilized EZ-gel suspension medium)
+- biological_material: Cladosporium sphaerospermum (Aegis strain), melanin-enriched radiotrophic mycelium (living internal substrate)
+- sapphire_synthetic (Synthetic Sapphire (Al₂O₃) — microlens inlays at acoustic pickup nodes)
+- peek_victrex (PEEK — internal acoustic waveguide filaments)
+- perovskite_solar (Perovskite Solar Film — thin IR harvest layer beneath the upper facet)
+- piezoelectric_pzt (PZT Piezoelectric Ceramic — vibration pickup element at the temple contact point)
+
+FUNCTION:
+- Records and replays audio memories encoded as mycelial growth-density variations
+- Metabolizes ambient ionizing radiation into biological growth energy, rendering the unit self-sustaining aboard Ombra Prime
+- Tuned IR exposure pathway (850 nm) biases lattice growth into stable, retrievable patterns
+- Serves as a personal mnemonic anchor for the Captain — no data retrieval interface, only direct skin contact and focused listening
+- Acoustic waveguide converts whispered input into pressure waves that the gel matrix conducts to the living core
+
+HISTORY:
+- Acquired by Captain Attreus in Metropolis during his second year as a junior navigation officer, from a vendor of the Adaptant faction of Vitae Cultus
+- Purchase price: a promise to remember
+- Does not appear on any ship manifest; Executive Officer Oris is aware and has chosen not to log it
+- Has accompanied Attreus through every major command decision of his career, including the Year 891 gas giant course-correction debate
+- Used most often on Third Watch, when the weight of a hundred thousand sleeping souls is loudest on the Forward Command Bridge
