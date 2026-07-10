@@ -1,0 +1,19 @@
+The Crystalline Spore Sensor
+
+In the lowest reaches of Ombra Prime, where the Aegis Hull breathes against the void and the mycelium-rich layers of the Bio-Composit Skrovfoder pulse with harvested gamma radiation, maintenance crews have long needed a way to read the health of the ship without removing panels or waking Oris from her calculations. The Crystalline Spore Sensor was grown to answer that need, a small hand-held instrument cultivated from a single dense plug of compressed Cladosporium sphaerospermum spores, the same melanin-rich fungus that lines the ship's outer skin. The organism is coaxed into a rigid, almost glass-like structure that retains faint traces of its radiosynthetic metabolism, and the sensor carries its own faint heartbeat in the dark.
+
+The device is calibrated to specific frequency bands, and when held against a hull plate or a dripping bio-sealant seam, it absorbs the ambient radiation signature and translates it into pulses of dim bioluminescence. The colors are not decorative. A slow amber glow indicates stable Terra-frequency background radiation. A flicker of green means the Flora-band is climbing, often a sign that the fungus layer beneath is repairing a micro-fracture. A sharp blue-white pulse warns of Nexus-band spikes, which in the deeper sectors means The Loom is restless that day. Crews in The Root Weave swear by the device because it tells them, without words, whether the wall they are leaning against is alive and well, or quietly dying. The unit is grown, not manufactured, and each one is slightly different from the next, its luminescence signature as unique as a fingerprint.
+
+Mira Solheim, medic of the third shift and veteran of sixteen years crawling through the maintenance veins beneath the Metropolis, keeps one strapped to her tool belt alongside her old analog pulse-meter. She calls it her nightlight and her oracle, never quite sure which one she needs on any given evening.
+
+LOGBOOK ENTRY:
+
+Logbook kept by Mira Solheim, Medic, Third Shift
+
+Junction 17-Alpha, The Root Weave
+
+Year 847 After Launch
+
+---
+
+The fungus glow was amber when I clipped in, which is the only way I know the junction is stable. Down here the air tastes like recycled copper and old sweat, and the only sounds are the pipes groaning and the far-off moan of something I have learned not to name. My spore sensor pulsed twice as I passed the third seal, soft and steady, and I let myself breathe. I checked the seal anyway, because that is what we do, and because Oris has been quiet these past three cycles in a way I do not trust. The sensor flickered green when my fingers brushed the seam. I stopped. I pressed the device flat against the plate and held it there, counting heartbeats the way grandmother taught me to count seeds. Green means the Flora-band is climbing. Green means the Aegis-layer below the ceramic is awake and hungry, feeding on something it should not be feeding on. I logged the reading, sealed the junction with a fresh bead of bio-paste, and made a note to wake the on-shift biologist at oh-four-hundred. The spore sensor dimmed back to amber as I walked away, satisfied, or at least no longer worried. I am writing this by its light now, back in my bunk, because the overheads have been cycling in and out for an hour and I would rather watch something living glow than trust the ship's wiring. Tomorrow I will file the report. Tonight I will let a small piece of the ship tell me it is still here.
