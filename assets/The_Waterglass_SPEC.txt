@@ -1,0 +1,41 @@
+NAME: The Waterglass (Aegis Environmental Resonance Rod)
+NICKNAME: "The Still Reader"
+
+SPECS:
+- Overall Length: 45 cm (forearm-length), 1.8 cm diameter tapered to 1.1 cm at the distal tip
+- Internal Cavity Volume: 2.0 mL structured exclusion-zone (EZ) water, sealed under 3.2 atm inert argon
+- Sensor Membrane: Single-layer cultured Cladosporium sphaerospermum (Aegis-strain) bonded to inner cylindrical wall
+- Outer Envelope: Optical-grade fused silica tube, 2 mm wall thickness, grown in-situ via sol-gel deposition
+- Sensing Modalities: Ionizing radiation, thermal gradient drift, humidity flux, Sub-Orb electromagnetic pulse, human cortisol/oxytocin signatures
+- Latency: Tactile temperature shift response within 90–180 seconds of environmental stimulus
+
+VISUAL DESIGN:
+- A slender, perfectly clear rod with the visual weight and stillness of a paperweight; strangers mistake it for a sealed tube of distilled water
+- Faint internal striations of layered thermal currents, visible only when held at eye level to a light source — they never merge into a uniform mixture
+- A matte-dark inner liner where the fungal membrane clings to the silica wall, resembling a tea stain rather than a living culture
+- No markings, no caps, no fittings; the ends are hemispherical domes fire-polished into seamless closures
+- Carried tip-down in a hand-stitched loop of natural flax, resting against the lumbar curve of the lower back
+
+MATERIALS:
+- fused_silica (Fused Silica (SiO₂), optical-grade, in-situ grown)
+- silica_aerogel (Silica Aerogel — same stock as Aegis Gel-Hull lining, prevents thermal noise bleed)
+- ionic_liquid_emim (Ionic Liquid [EMIM][TF2N] — structured EZ-water phase carrier and pressure-seal medium)
+- biological_mycelium_composite (Living Cladosporium sphaerospermum Aegis-strain membrane, radiation-/chemo-sensing)
+- piezoelectric_pzt (PZT Piezoelectric Ceramic — embedded micro-piezo at the proximal base for Sub-Orb pulse detection)
+- peek_victrex (PEEK — internal capillary support ribs and proximal end-cap ferrule)
+- engineered_wood (Engineered Wood/Lumber-Core — optional flax-loop carrier, not part of the rod itself)
+
+FUNCTION:
+- Passive multi-modal environmental sensor: reads radiation dose-rate, ambient temperature shift, humidity, and electromagnetic fields without power input
+- Encodes sensor data as a spatial temperature gradient along the length of the rod, readable by direct skin contact
+- Sub-Orb proximity indicator: cool-tone response when a Sub-Orb is undergoing active milking or venting in adjacent cultivation sheds
+- Storm predictor: warm-shift at the distal tip precedes biodome pollen storms and pressure transients by 30–60 minutes
+- Human mood proximity sensor: sharp, prickling tactile signature when a person with elevated stress or REM-active dreaming stands within ~2 m
+- Calibrated to a single user; the fungal culture's bioelectric baseline locks to one holder's skin chemistry after ~14 days of continuous carry
+
+HISTORY:
+- Developed aboard The Pearl by the Aegis biological-systems workshop for the upper-terrace cultivators, who require hands-free situational awareness while pruning, pollinating, and managing bee galleries
+- The reference design grew out of the Aegis Gel-Hull's silica-aerogel fabrication process — excess optical-grade silica from hull-lining production was drawn into tube stock and seeded with the radiation-melanizing Cladosporium strain already in use for the Gel-Hull's outer sensing skin
+- The first functional rod was grown in the deepest pocket of one of The Pearl's inverted forests, in the corner where the artificial sun never reaches the floor; cultivators report the rods matured in those vaults develop a quieter, more discriminating membrane than surface-grown batches
+- Adopted unofficially by the terrace guards; Captain Vera Okonkwo of the eastern terraces has carried hers since the previous winter, after using it to anticipate a pollen-wave tremor roughly forty minutes before instrumentation registered the event
+- The rod's refusal to "speak" to anyone but its bonded holder is documented in Okonkwo's logbook but has not been formally investigated; Oris (The Pearl's chief science officer) has requested the sensor data and been declined without explanation
