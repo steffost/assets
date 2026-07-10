@@ -1,0 +1,44 @@
+NAME: Leken Vakten ("The Toy Guardian")
+NICKNAME: "Leken"
+
+SPECS:
+- Mass: approximately 280 grams (roughly the size of a child's closed fist)
+- Length: 11 centimeters body, four multi-jointed legs spanning 15 centimeters when extended
+- Vibration frequency: 7.83 Hz constant baseline (Schumann resonance)
+- Acoustic output: dual-tone "beep" call, frequency-modulated to convey perceived states
+- Bioluminescent display: 47 photonic nodes distributed across dorsal surface and joint flexures
+- Locomotion: quadrupedal, quadrupedal-dexterous, capable of static perch on curved metal surfaces
+
+VISUAL DESIGN:
+- Compact, vaguely arachnid body with four segmented legs that fold inward when at rest
+- Surface is a mineralized carapace with crystalline growth patterns, as though it grew out of the fire diamond's lattice
+- Bioluminescent fungi colonize the joint sockets, knuckles, and spine, glowing in shifting hues
+- Two small optical nodes resembling clustered crystal facets serve as "eyes," refracting ambient light
+- When content: soft amber pulse at 7.83 Hz, slow and rhythmic
+- When sensing threat or opportunity: photophores shift through green, violet, and a sharp cyan warning flash
+- Leg tips are slightly flattened with a micro-grip texture, leaving no scratch on metal decking
+
+MATERIALS:
+- mycelium_composite_living (Living Mycelium Composite — the bioluminescent fungal coat, hyphae threaded through the carapace)
+- quartz_crystal (Quartz Crystal (SiO₂) — the residual fire diamond lattice forming the core and refractive eye clusters)
+- peek_victrex (PEEK (Polyetheretherketone) — internal flexible tendons and joint bushings, heat-tolerant)
+- piezoelectric_pzt (PZT Piezoelectric Ceramic — vibration emitters and acoustic transducers producing the 7.83 Hz hum)
+- sapphire_synthetic (Synthetic Sapphire (Al₂O₃) — transparent optical caps over the bioluminescent nodes, scratch-resistant)
+- galinstan (Galinstan (Liquid Metal Alloy) — conductive traces in the legs, remains fluid at low temperatures, redistributes as the creature shifts posture)
+- mli_blanket (Multi-Layer Insulation (MLI) Blanket — thin thermal-regulating inner lining, remnant of the harvest cradle's insulation)
+
+FUNCTION:
+- Acts as an unverified early-warning companion, blocking physical paths to hazards moments before Oris logs them
+- Functions as a distributed sensory node, its 7.83 Hz resonance possibly interfacing with station-wide environmental monitoring
+- Serves as an emotional anchor for personnel, reducing psychological deterioration in long-tenured workers
+- Communicates emotional or threat state through chromatic bioluminescent shift and beep cadence
+- Forms selective social bonds, currently bound to a single individual (Yusuf Caldicott)
+
+HISTORY:
+- Emerged unbidden from a fire diamond during a routine harvest cycle in the Levitas Aequilibrium's tändkammare ("ignition chamber")
+- Discovered by maintenance crew on a Tuesday, sitting on the empty cradle where the diamond had been
+- No design documents, no fabrication order, no biological parent — origin officially "unresolved"
+- Adopted informally by the Industrial Domain crew and named for its ambiguous loyalty and toy-like proportions
+- Bonded to thermal systems technician Yusuf Caldicott after a single unprompted approach
+- Credited with three verified interventions preventing injury from overheated ventilation ducts
+- Oris's systems have never acknowledged the creature directly, though hazard flags consistently follow its warnings by minutes
