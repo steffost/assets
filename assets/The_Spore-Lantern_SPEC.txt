@@ -1,0 +1,46 @@
+NAME: Crystalline Spore Sensor
+NICKNAME: "Nightlight"
+
+SPECS:
+- Hand-held palm-sized diagnostic instrument, approximately 11 cm long × 4 cm wide × 1.5 cm thick
+- Weight: 85 grams (varies slightly unit-to-unit due to biological growth)
+- Radiation detection range: Terra-band (0.3–1.2 keV), Flora-band (1.2–4.5 keV), Nexus-band (4.5–12 keV)
+- Bioluminescent output: three calibrated color channels (amber 590 nm, green 525 nm, blue-white 475 nm)
+- Response time: 200–800 ms from contact to luminescence shift
+- Operational lifespan: 18–24 months before spore plug requires re-cultivation
+- Operating temperature: -10 °C to +55 °C
+- Power source: passive (radiosynthetic self-feeding via ambient gamma flux)
+
+VISUAL DESIGN:
+- Main body is a single dense, rigid slab of compressed fungal bioceramic, slightly translucent at the edges with a faint amber internal warmth even when idle
+- Surface is smooth and glass-like but irregular, with subtle vein-like striations running through the body where mycelial threads froze during cultivation
+- A shallow oval indentation on the underside serves as the contact pad, slightly darker and more matte than the rest of the body
+- Two thin metallic end-caps frame the organism, one silver-grey and one pale copper, giving the piece a finished, tool-like silhouette
+- A small leather-and-cord loop is anchored to the upper cap for belt attachment
+- The bioluminescent glow emanates from the core and diffuses unevenly through the body, brightest near the contact pad
+- No screen, no buttons, no markings — the entire interface is the pulse of colored light
+
+MATERIALS:
+- bioceramic_hydroxyapatite (Hydroxyapatite Bioceramic) — mineralized spore plug structure
+- mycelium_composite_living (Living Mycelium Composite) — Cladosporium sphaerospermum biomass retaining radiosynthetic activity
+- melanin_fungal_pigment (Fungal Melanin Pigment) — radiation-absorbing biopolymer layer
+- titanium_grade5 (Titanium Grade 5 (Ti-6Al-4V)) — upper end-cap and loop anchor
+- copper_c110 (Copper C110) — lower contact-pad end-cap, chosen for thermal conductivity
+- peek_victrex (PEEK (Polyetheretherketone)) — internal insulating sleeve around the spore plug
+- sapphire_synthetic (Synthetic Sapphire (Al₂O₃)) — thin protective window over the luminescence exit face
+- engineered_leather (Engineered Leather Strap) — belt loop
+
+FUNCTION:
+- Non-invasive hull and bio-seal health diagnostics via ambient radiation spectroscopy
+- Translates gamma flux signatures into color-coded bioluminescent pulses readable at a glance
+- Detects micro-fracture repair activity in underlying fungal hull layers
+- Provides early warning of Nexus-band radiation anomalies associated with deeper-sector instability
+- Functions as a passive low-light illumination source in failed-power zones
+- Serves as a personal talisman and morale object for maintenance crews working in the dark lower decks
+
+HISTORY:
+- Developed in the early 840s AL aboard Ombra Prime by the Bio-Composit Skrovfoder cultivation workshops to give maintenance crews a way to read hull health without removing panels or disturbing Oris
+- Cultivation technique pioneered by the mycologist-sensor team working beneath the Metropolis, who learned to coax Cladosporium sphaerospermum into rigid, almost mineralized forms while preserving its radiosynthetic metabolism
+- Adopted as standard third-shift medic equipment after Junction 17-Alpha incident in Year 845 AL, when a spore sensor gave a fifteen-minute early warning of a bio-seal failure that would have vented a maintenance vein
+- Each unit is grown rather than manufactured, and no two luminesce identically — a quirk that crews treat as a sign of authenticity rather than defect
+- The most famous unit is the one carried by Mira Solheim, medic of the third shift, who has used hers to log over four hundred seal inspections across sixteen years in The Root Weave
