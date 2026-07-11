@@ -1,0 +1,50 @@
+NAME: Harvester's Eye Autonomous Cultivator
+NICKNAME: "The Eye"
+
+SPECS:
+- Overall dimensions: approximately 55 cm tall × 35 cm wide × 25 cm deep (child-torso scale)
+- Total mass: 8.2 kg (unloaded)
+- Locomotion: dual magnetic skates with integrated hover-lift, rail-mounted guidance system for terrace navigation
+- Sensor array: dual wide-aperture optical lenses, piezoelectric metabolic membrane, neural tissue gas/moisture matrix, Vitalis-frequency detector
+- Power source: thermopiezoelectric generation from mycelium metabolic heat, supplemented by inductive charging at alcove docks
+- Manipulator count: six slender articulated arms with compressed hyphal grippers
+- Operating humidity range: 60–100% RH (optimal 88–96% RH)
+- Operating temperature range: 4°C–28°C
+
+VISUAL DESIGN:
+- Soft grey-beige outer epidermis with a faintly mottled, organic texture resembling dried clay or compressed felt
+- Skin surface visibly taut over an internal titanium skeleton, with subtle breathing/pulsation movement
+- Pale yellow stress cracks developing along seams and joints as the unit ages
+- Two oversized circular optical lenses dominating the frontal "face," set in hand-polished black or violet-blue housings
+- Perpetual wide-eyed, forward-staring expression; lenses fog slightly at high humidity thresholds
+- A thin, translucent organic membrane pulse-visible between the two lenses, glowing faintly amber when metabolically active
+- Six folded manipulator arms tucked along the lower flanks, each tipped with finger-like hyphal pads
+- Magnetic skates beneath the chassis leave no visible track on substrate surfaces
+- Gentle forward-leaning posture suggesting attentive curiosity
+
+MATERIALS:
+- living_mycelium_composite (Living Mycelium Chassis Skin) — compressed hyphal outer shell
+- titanium_grade5 (Titanium Grade 5 (Ti-6Al-4V) Skeleton) — internal structural frame
+- sapphire_synthetic (Synthetic Sapphire (Al₂O₃) Lens) — primary optical housings, polished to obsidian gloss
+- piezoelectric_pzt (PZT Piezoelectric Ceramic Membrane) — thermopiezoelectric conversion organ between lenses
+- peek_victrex (PEEK Polymer Articulation Sheaths) — flexible joint liners for manipulator arms
+- carbon_fiber_reinforced_polymer (CFRP Sensor Mat Substrate) — backing for the neural evaluation tissue matrix
+- fused_silica (Fused Silica (SiO₂) Optical Windows) — secondary protective optical layers
+- bioceramic_hydroxyapatite (Hydroxyapatite Bioceramic Nodes) — biocompatible interface mounts between living tissue and titanium frame
+
+FUNCTION:
+- Autonomous monitoring of mushroom fruiting blocks across assigned terrace rows
+- Real-time evaluation of substrate moisture content, gas exchange ratios (CO₂/O₂), and spore maturity
+- Detection of subtle Vitalis energy frequency signatures to gauge peak harvest window
+- Gentle mechanical harvesting of ripe fruiting bodies before post-peak senescence
+- Continuous metabolic contribution to terrace ecosystem via respiration and heat
+- Self-navigation and return-to-dock behavior via magnetic skate rail network
+- Decomposition feedback: post-failure composting of chassis directly enriches the very substrate the unit once tended
+
+HISTORY:
+- Developed as an answer to the unsolved problem of reading living fungal tissue at the resolution required for precision harvest
+- Integrated into EZ Aqua Core's mycology stacks as a complement to human mycologists such as Vera Okonkwo on the second shift
+- Recognized individually by veteran growers through the unique crack-patterns in each unit's mycelium shell, despite official discouragement of naming them
+- Subject of ongoing philosophical tension within the cultivation corps: the Eye blurs the line between tool, colleague, and kin
+- Famous for the incident logged in Year 612 AL in which the unit known as "Mossy" failed to dock due to cascade chassis failure, prompting a documented forty-minute recovery search
+- Became a cultural symbol within the terraces — "the quiet conscience of the terraces" — referenced in mycologist logs, memorial entries, and reclamation prayers
