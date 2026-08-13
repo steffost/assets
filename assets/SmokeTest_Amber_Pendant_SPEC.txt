@@ -1,0 +1,44 @@
+NAME: The Lustral Pendant
+NICKNAME: "The Pearl's Tear"
+
+SPECS:
+- Overall dimensions: Approximately 45 mm in length, 28 mm in width, 12 mm in thickness (teardrop profile, flattened)
+- Mass: 14–18 grams depending on gel volume
+- Core reservoir volume: 0.6 ml stabilized amber gel
+- Surface glaze thickness: 0.3 mm living biofilm layer
+- Operational thermal range: 18°C to 41°C (glow response band)
+- Service life: Indefinite; biofilm glaze requires rehydration every 3–4 years
+- Hanging aperture: 4 mm reinforced cord channel for waxed fiber cord
+
+VISUAL DESIGN:
+- Flattened teardrop silhouette, roughly the size of a human thumb
+- Matte ceramic body in pale ash-grey with subtle warm undertones
+- Iridescent bands shifting across the surface in humid light — faint rose, green, and indigo bloom from the biofilm glaze
+- Central raised setting of brushed ceramic cradling a translucent amber droplet
+- Amber core ranges in hue from fossilized honey (warm, near body) to old tea (cool, dormant)
+- Faint inner luminescence when warmed by skin contact; reads as a soft candle-glow
+- Edge micro-chamfer of 0.5 mm; slight asymmetry confirming hand-pressing
+- Single small condensate bead may form on the surface after prolonged darkness
+
+MATERIALS:
+- fungus_farm_ash_ceramic (Kiln-fired ash harvested from fungal substrate, hand-pressed)
+- living_biofilm_glaze (Living biofilm derived from EZ-aqua basin lining)
+- stabilized_amber_gel_concentrate (Decades-tinctured EZ-water concentrate with dissolved mineral salts)
+- brushed_ceramic_setting (Low-fired silicate ceramic for the central bezel)
+- vespel_sp1 (Vespel SP-1 polyimide thread-reinforced cord channel liner)
+- fused_silica_microbead (Fused silica micro-inclusion suspended in the gel as a thermal luminescence seed)
+- ionic_liquid_emim (Ionic liquid [EMIM][TF2N] trace fraction within the gel, lowering viscosity and extending luminescence persistence)
+
+FUNCTION:
+- Ceremonial insignia of senior care authority within the Pearl's living systems
+- Passive temperature-reactive luminary; glow intensity tracks wearer pulse warmth
+- Humidity-responsive surface that develops condensate micro-droplets under prolonged low-light conditions
+- Symbolic bond-object linking caretaker to the EZ-water reservoirs they tend
+- Tradition marker; only gifted to tenders with fifteen or more years of service
+
+HISTORY:
+- Tradition originated in the third generation of the voyage, founded by senior cultivator Breta Sallow
+- Originally fashioned from residue of tending work so the maker's "attention" would persist in the gardens
+- Never sold or traded; exclusively gifted across generations of tenders
+- Six pendants gifted by Breta Sallow over her lifetime; her personal pendant worn continuously for sixty-three years
+- Currently held in trust for succession — to be transferred to Yenna, next keeper of the upper terraces, Year 891 After Launch
