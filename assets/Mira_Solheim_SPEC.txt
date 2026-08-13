@@ -1,0 +1,47 @@
+NAME: Pulse-Floater Cultivation Pod
+NICKNAME: "The Singing Pod"
+
+SPECS:
+- Diameter: approximately 18 cm (human-head scale)
+- Mass: 1.2 kg when fully gel-charged
+- Pulse rate: 0.8–1.2 Hz, modulated by ambient algae diurnal cycle
+- Buoyancy: neutral-to-positive in EZ-gel brine, drifts with 0.3 N net lift
+- Internal volume: ~1.4 L translucent membrane cavity
+- Biotope core: 40 g processed Cladosporium sphaerospermum pellet
+- Operating temperature: 14–22 °C (pool-coupled)
+- Operational lifespan: 14–18 months before membrane fatigue and reseeding
+
+VISUAL DESIGN:
+- Spherical translucent membrane balloon with a faint hexagonal sheen where light refracts through the EZ-gel
+- Soft amber-amber glow emanating from the core pellet, waxing and waning on a slow rhythm
+- Visible swirl of algae-green suspended particulate drifting inside the gel
+- Surface texture soft and yielding, dimpling slightly under pole pressure
+- Outer skin occasionally beaded with condensation from humid The Pearl atmosphere
+- A pale, vein-like reticulation marks the membrane where the Aegis-strain mycelial threads anchor internally
+
+MATERIALS:
+- living_mycelium_composite_aegis (Aegis-Strain Fungus Membrane Shell)
+- ez_water_gel_structured (EZ-Water (Structured Hexagonal Phase Gel))
+- cladosporium_biomass_pellet (Cladosporium sphaerospermum Radiosynthesis Pellet)
+- peek_victrex (PEEK Polymer Reinforcement Ring at Pole-Contact Pole)
+- fused_silica (Fused Silica Optical Window for Glow Transmission)
+- algae_suspension_chlorella (Chlorella Algae Suspension, Working Fluid)
+- alumina_995 (Alumina Ceramic Core Scaffold for Biomass Pellet)
+- ionic_liquid_emim (Ionic Liquid Nutrient Carrier in Gel Matrix)
+
+FUNCTION:
+- Drifts through EZ Aqua Core aquaponics pools, seeding and oxygenating water columns
+- Converts trace background radiation into usable biochemical energy via radiosynthesis
+- Regulates local CO₂ and dissolved oxygen through algal symbiosis
+- Provides gentle bioluminescent illumination for cultivator night-shifts
+- Serves as a living sentinel — its pulse indicates pool pH, nutrient flow, and water health
+- Reads and responds to circadian cues from surrounding Chlorella cultures
+- Acts as a slow-release fertilizer and structured-water seeder when eventually harvested
+
+HISTORY:
+- Developed during the early colonization era when Oris first stabilized the Cathedral and began flash-purifying water into EZ-gel in The Crypt
+- Early prototypes were rigid polymer spheres that failed under osmotic pressure; cultivator Maja Vossen proposed using living Aegis-strain membrane after observing its self-sealing behavior in Root Weave
+- Became standard aquaponics equipment by Year 340 After Launch, replacing mechanical aerators that fouled the pools
+- Mira Solheim began tending pods in Year 808 After Launch, after her sister Lin's recovery drew her from maintenance at Root Weave Junction 17-Alpha
+- Known colloquially among Third-Tier cultivators as "the choir" for their layered, asynchronous pulsing across a drift
+- The phrase "the vats do not sing" entered EZ Aqua Core oral tradition after Solheim's logbook entry of Shift Fourteen, Year 812
