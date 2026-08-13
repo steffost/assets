@@ -1,0 +1,50 @@
+NAME: Hydrophone Listener
+NICKNAME: "The Ear"
+
+SPECS:
+- Dimensions: 110 mm × 65 mm × 28 mm (palm-sized, single-hand operable)
+- Weight: 184 grams (dry), 207 grams (gel-reservoir fully charged)
+- Acoustic sensitivity: -38 dB re 1 μPa, frequency range 5 Hz – 42 kHz
+- Forward aperture diameter: 22 mm with acoustic impedance-matched waveguide
+- Piezoelectric array: 16-element cross-configured PZT cluster
+- EZ-gel reservoir capacity: 14 mL, refill cycle approximately 90 days under standard use
+- Indicator: single amber bioluminescent emitter, pulse rate 0.5–4 Hz tied to anomaly amplitude
+- Docking port: recessed Nexus Symbioticus interface, 7-pin wet-contact
+- Operational temperature: -10°C to +65°C (tolerates tunnel condensate)
+- Power: parasitic draw from docked Nexus, no internal cell
+
+VISUAL DESIGN:
+- Elongated lozenge form, slightly tapered toward the forward aperture
+- Outer shell visibly layered — concentric growth rings of pale grey-beige fungal material with darker striations between layers
+- Six brushed titanium ribs arc lengthwise along the housing like finger bones, slightly proud of the shell surface, showing minor wear and oxidation patina
+- Forward aperture ringed in matte titanium, interior chamber faintly visible as a dark hexagonal well
+- Amber indicator set in a teardrop-shaped window on the upper face, glowing softly when active
+- Nexus port recessed into the lower rear edge, surrounded by a soft biological gasket
+- Overall impression: half-tool, half-organ; tactile, warm to the touch, slightly damp
+- Surface microtexture of mycelium gives subtle suede-like grip
+
+MATERIALS:
+- mycelium_composite_living (Aegis-fungus layered shell, outer housing)
+- titanium_grade5 (Brushed titanium reinforcement ribs and aperture ring)
+- piezoelectric_pzt (PZT piezoelectric crystal arrays, acoustic sensing chamber)
+- ionic_liquid_emim (EZ-gel stabilized acoustic coupling medium in internal reservoir)
+- peek_victrex (PEEK internal structural frame and Nexus port insulator)
+- fused_silica (Fused silica optical waveguide channeling amber indicator light)
+- kevlar_49 (Kevlar 49 tether loop and lanyard anchor reinforcement)
+- aluminum_7075 (Aluminum 7075 internal resonance chamber backplate)
+
+FUNCTION:
+- Detects sub-audible and ultrasonic anomalies in deep infrastructure (pipe cracks, seal failures, microbial blooms, pressure anomalies)
+- Translates acoustic signatures into neural-interpretable signals via docked Nexus Symbioticus
+- Provides ambient pulse-rate feedback for operators without neural link
+- Pinpoints directional source of detected anomalies for maintenance routing
+- Refillable EZ-gel reservoir extends sensitivity floor below conventional microphone limits
+- Survives humid, corrosive tunnel environments that destroy standard electronics
+
+HISTORY:
+- Cultivated rather than manufactured in fungal-growth vats within The Root Weave's lower biomanufactury levels
+- Outer shells grown over titanium armature skeletons harvested from decommissioned hull plating of early-generation orbital infrastructure
+- Piezoelectric crystal arrays salvaged from recycled sonar equipment originally used in abyssal depth surveying
+- Adopted as standard issue for the Acoustic Survey Corps approximately forty years ago, replacing earlier purely mechanical stethoscope-probes
+- Marek Solenne's unit is an estimated 15–20 years old, recovered from a Sector Five storage locker and revived through personal maintenance
+- The amber indicator's slower pulse in Solenne's unit is a known sign of partial mycelium senescence, not failure — veterans trust these aged instruments over fresh cultivates
