@@ -1,0 +1,46 @@
+NAME: Aegis-Mycelium Anti-Gravity Safety Disc (Personal Levitas Anchor)
+NICKNAME: "The Hoverer"
+
+SPECS:
+- Diameter: 22 cm, Thickness: 4.5 cm, Mass: 380 g (unbonded), 390 g (bonded to registered user)
+- Core: 6 cm crystallized EZ-gel sphere with embedded bioelectric sensor array
+- Active Levitas Field: Localized, ~15 cm clearance radius above detected surface
+- Pulse Frequency: 40–160 bpm, syncs to registered wearer's heartbeat via bioelectric resonance
+- Bonding: Irreversible once linked to a specific bioelectric signature; dead weight to others
+- Operational Life: ~7 years (mycelium shell metabolizes trace ionizing radiation at ~0.3 μSv/h)
+- Activation: Passive heartbeat-sensing; thrust bias maintains wearer in upright orientation
+
+VISUAL DESIGN:
+- Flat disc shape, slightly domed at center, resembling a polished fungal stromatolite
+- Outer shell: Mottled pale grey-green and bone-white, living surface with faint damp sheen
+- Living mycelial edge visible — fine white hyphae fringe the circumference, subtly moving
+- Core: A single clouded sphere of crystallized gel, glowing soft cyan (~470 nm), pulsing visibly
+- Underside: Matte black thruster array, six micro-nozzles arranged in hex pattern, chrome-amber when active
+- When bonded, a faint cyan halo projects around the wearer's sternum
+- Smells faintly of petrichor, ozone, and damp loam
+
+MATERIALS:
+- mycelium_composite_living (Living Aegis-Mycelium Cultivated Shell)
+- nitinol (Nitinol (Nickel-Titanium) Micro-Thruster Nozzles and Bias Frame)
+- sapphire_synthetic (Synthetic Sapphire (Al₂O₃) Core Lens Window)
+- peek_victrex (PEEK (Polyetheretherketone) Bioelectric Sensor Housing)
+- ionic_liquid_emim (Ionic Liquid [EMIM][TF2N] Electrolyte Gel Matrix)
+- titanium_grade5 (Titanium Grade 5 (Ti-6Al-4V) Disc Spine and Clip Mechanism)
+- piezoelectric_pzt (PZT Piezoelectric Ceramic Heartbeat Transducers)
+- fused_silica (Fused Silica (SiO₂) Diffuser Ring for Cyan Emission)
+
+FUNCTION:
+- Sustains a localized Levitas field, holding registered wearer ~15 cm above any surface to prevent falls in zero-rail vertical environments
+- Reads bioelectric signature of wearer; refuses activation by any unregistered individual
+- Pulses in synchronization with wearer's heartbeat; accelerates pulse when detecting distress or sleep-state disorientation
+- Micro-thrusters tilt to right a falling or prone wearer, guiding them to upright stance
+- Mycelium shell metabolizes trace hull-seam radiation as metabolic fuel, requiring no external charging
+- Provides low-level cyan illumination via fused silica diffuser ring for emergency navigation in blackout conditions
+
+HISTORY:
+- Emerged organically in the Root Weave (the Gut) as a living technology — never designed in a drawing office, but grown under Oris's direction in the Cathedral's deep cultivation chambers
+- Developed in response to fatalities among maintenance crews traversing the hanging stalactite forests of the Root Weave, who suffered falls into unlit vertical shafts
+- Crystal EZ-gel core and mycelium shell were co-cultivated; the gel's bioelectric reading capability and the shell's radiation-metabolizing biology were bred into a single symbiotic artifact
+- Approximately 400 active units distributed throughout the Gut at any given time, allocated by Oris only to personnel assigned to deep vertical maintenance shifts
+- Informal nickname "Pulsing Hoverer" spread through structural maintenance crews; formal designation rarely used outside archival contexts
+- By Year 1,041 AL, the Hoverer had become a cultural touchstone of the Root Weave — described by crew as a covenant rather than a tool, bound permanently to its first wearer
